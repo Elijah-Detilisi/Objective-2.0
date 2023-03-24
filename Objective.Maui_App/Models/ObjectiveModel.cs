@@ -17,5 +17,6 @@ namespace Objective.Maui_App.Models
         public DateTime CreatedAt { get; set; }
         public DateTime DueDate { get; set; }
         public int StatusId { get; set; }
+        public bool IsDone { get; set; }
     }
 }
