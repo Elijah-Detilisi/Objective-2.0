@@ -49,6 +49,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Include="DataServives\.Base\DataAccess.cs" />
 	  <Compile Include="Models\.Base\Model.cs" />
 	</ItemGroup>
 
