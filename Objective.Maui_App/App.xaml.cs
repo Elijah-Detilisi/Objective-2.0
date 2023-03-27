@@ -1,4 +1,6 @@
-﻿namespace Objective.Maui_App
+﻿using Objective.Maui_App.Views.Mobile;
+
+namespace Objective.Maui_App
 {
     public partial class App : Application
     {
@@ -6,7 +8,7 @@
         {
             InitializeComponent();
 
-            MainPage = new AppShell();
+            MainPage = new HomeView();
         }
     }
 }
