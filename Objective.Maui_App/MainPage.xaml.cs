@@ -17,8 +17,11 @@
                 CounterBtn.Text = $"Clicked {count} time";
             else
                 CounterBtn.Text = $"Clicked {count} times";
+            
+            TextToSpeech.SpeakAsync(CounterBtn.Text);
 
-            SemanticScreenReader.Announce(CounterBtn.Text);
+
+            //SemanticScreenReader.Announce(CounterBtn.Text);
         }
     }
 }

@@ -1,9 +1,8 @@
 ﻿using SQLite;
-using Objective.Maui_App.Models.Base;
 
-namespace Objective.Maui_App.DataServives.Base
+namespace Objective.Maui_App.DataAccess.Base
 {
-    public abstract class DataAccess
+    public abstract class DataAccess<Model>
     {
         #region Fields
         protected SQLiteAsyncConnection _connection;
