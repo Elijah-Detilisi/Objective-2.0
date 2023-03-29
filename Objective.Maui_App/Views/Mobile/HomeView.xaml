@@ -28,7 +28,7 @@
             <Label
                 Margin="0, 15, 0, 30"
                 FontSize="15"
-                FontAttributes="Italic"
+                FontAttributes="Italic,Bold"
                 TextColor="SlateGray"
                 Text="Good morning objective_user."
                 HorizontalTextAlignment="Center"/>

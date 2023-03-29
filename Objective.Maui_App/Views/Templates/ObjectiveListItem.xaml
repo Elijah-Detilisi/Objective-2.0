@@ -48,7 +48,7 @@
 
             <Label
                 Grid.Column="1"
-                Text="Become the 6th Hogake"
+                Text="Become the 6th Hogake..."
                 Style="{StaticResource TitleStyle}"
             />
             
