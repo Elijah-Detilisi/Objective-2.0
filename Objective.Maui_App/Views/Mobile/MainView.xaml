@@ -3,7 +3,7 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="Objective.Maui_App.Views.Mobile.MainView"
-    xmlns:templates="clr-namespace:Objective.Maui_App.Views.Templates"
+    xmlns:Templates="clr-namespace:Objective.Maui_App.Views.Templates"
     Title="OBJECTIVE"
     Background="White">
     
@@ -16,23 +16,23 @@
             Grid.Row="0"
             ClassId="TopStack"
             BackgroundColor="WhiteSmoke">
-
-            <templates:AppHeader/>
+            <Templates:MainHeader/>
         </VerticalStackLayout>
         
         <!--Mid Section-->
         <VerticalStackLayout
             Grid.Row="1"
             ClassId="MidStack"
-            Padding="0, 10, 0, 0"
+            Padding="0, 20, 0, 0"
             BackgroundColor="LightGray">
 
-            <templates:ObjectiveListItem/>
-            <templates:ObjectiveListItem/>
-            <templates:ObjectiveListItem/>
-            <templates:ObjectiveListItem/>
-            <templates:ObjectiveListItem/>
-            <templates:ObjectiveListItem/>
+            <Templates:ObjectiveListItem/>
+            <Templates:ObjectiveListItem/>
+            <Templates:ObjectiveListItem/>
+            <Templates:ObjectiveListItem/>
+            <Templates:ObjectiveListItem/>
+            <Templates:ObjectiveListItem/>
+            <Templates:ObjectiveListItem/>
 
         </VerticalStackLayout>
         
@@ -41,21 +41,7 @@
             Grid.Row="2"
             ClassId="BottomStack"
             BackgroundColor="#1560bd">
-
-            <Frame 
-                BorderColor="#002147" 
-                CornerRadius="20"
-                BackgroundColor="WhiteSmoke" 
-                HeightRequest="140"
-                Margin="12">
-                <Label
-                    FontSize="14"
-                    FontAttributes="Bold"
-                    TextColor="#002147"
-                    Text="Hard work is a prison sentence only if it does not have meaning. Once it does, it becomes the kind of thing that makes you grab your wife around the waist and dance a jig. -Malcolm Gladwell."
-                    HorizontalTextAlignment="Center"
-                    VerticalTextAlignment="Center"/>
-            </Frame>
+            <Templates:MainFooter/>
 
         </VerticalStackLayout>
 

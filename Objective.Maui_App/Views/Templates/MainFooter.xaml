@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Objective.Maui_App.Views.Templates.MainFooter">
+
+    <!--View-->
+    <Frame 
+        Style="{StaticResource FrameLayoutStyle}">
+        <Label
+            Style="{StaticResource QuoteLabelStyle}"
+            Text="Hard work is a prison sentence only if it does not have meaning. Once it does, it becomes the kind of thing that makes you grab your wife around the waist and dance a jig. -Malcolm Gladwell."/>
+    </Frame>
+
+    <!--Styling-->
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Style x:Key="FrameLayoutStyle" TargetType="Frame">
+                <Setter Property="Margin" Value="12" />
+                <Setter Property="CornerRadius" Value="20" />
+                <Setter Property="HeightRequest" Value="140" />
+                <Setter Property="BorderColor" Value="#002147" />
+                <Setter Property="BackgroundColor" Value="WhiteSmoke" />
+            </Style>
+            
+            <Style x:Key="QuoteLabelStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="VerticalTextAlignment" Value="Center" />
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
+            </Style>
+        </ResourceDictionary>
+    </ContentView.Resources>
+
+</ContentView>

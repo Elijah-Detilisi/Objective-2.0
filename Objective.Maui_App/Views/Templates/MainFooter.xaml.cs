@@ -1,8 +1,8 @@
 namespace Objective.Maui_App.Views.Templates;
 
-public partial class AppHeader : ContentView
+public partial class MainFooter : ContentView
 {
-	public AppHeader()
+	public MainFooter()
 	{
 		InitializeComponent();
 	}
