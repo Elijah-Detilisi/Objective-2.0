@@ -1,8 +1,8 @@
 namespace Objective.Maui_App.Views.Mobile;
 
-public partial class HomeView : ContentPage
+public partial class MainView : ContentPage
 {
-	public HomeView()
+	public MainView()
 	{
 		InitializeComponent();
 	}

@@ -1,8 +1,8 @@
 namespace Objective.Maui_App.Views.Templates;
 
-public partial class NavBar : ContentView
+public partial class AppHeader : ContentView
 {
-	public NavBar()
+	public AppHeader()
 	{
 		InitializeComponent();
 	}

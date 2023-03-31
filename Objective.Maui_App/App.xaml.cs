@@ -8,7 +8,7 @@ namespace Objective.Maui_App
         {
             InitializeComponent();
 
-            MainPage = new HomeView();
+            MainPage = new MainView();
         }
     }
 }

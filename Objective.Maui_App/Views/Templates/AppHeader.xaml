@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Objective.Maui_App.Views.Templates.AppHeader">
+    
+    <!--View-->
+    <VerticalStackLayout>
+        <!--Header Section-->
+        <Grid
+            ColumnDefinitions="Auto, *, Auto">
+            <Grid
+                Style="{StaticResource HeaderLayoutStyle}">
+                <ImageButton
+                    Source="menu.png"
+                    Style="{StaticResource ImageButtonStyle}"/>
+            </Grid>
+
+            <Label
+                Grid.Column="1"
+                Text="OBJECTIVE"
+                Style="{StaticResource LogoLabelStyle}"/>
+            <Grid
+                Grid.Column="2"
+                Style="{StaticResource HeaderLayoutStyle}">
+                <ImageButton
+                    Source="search.png"
+                    Style="{StaticResource ImageButtonStyle}"/>
+            </Grid>
+        </Grid>
+        <!--Greeting Section-->
+        <Label
+            Text="Good morning objective_user."
+            Style="{StaticResource SalutationLabelStyle}"/>
+
+    </VerticalStackLayout>
+
+    
+    <!--Styling-->
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Style x:Key="HeaderLayoutStyle" TargetType="Grid">
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="Margin" Value="10, 7" />
+            </Style>
+
+            <Style x:Key="ImageButtonStyle" TargetType="ImageButton">
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="HeightRequest" Value="30" />
+                <Setter Property="WidthRequest" Value="40" />
+            </Style>
+
+            <Style x:Key="LogoLabelStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="26" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="TextColor" Value="#1560bd" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="Center" />
+            </Style>
+
+            <Style x:Key="SalutationLabelStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="15" />
+                <Setter Property="Margin" Value="0, 15, 0, 30" />
+                <Setter Property="FontAttributes" Value="Italic, Bold" />
+                <Setter Property="TextColor" Value="#002147" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+            </Style>
+
+        </ResourceDictionary>
+    </ContentView.Resources>
+
+</ContentView>
