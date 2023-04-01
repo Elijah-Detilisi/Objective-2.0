@@ -49,9 +49,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <None Remove="Resources\Images\avatar.png" />
 	  <None Remove="Resources\Images\menu.png" />
 	  <None Remove="Resources\Images\search.png" />
+	  <None Remove="Resources\Images\user.png" />
 	</ItemGroup>
 
 	<ItemGroup>

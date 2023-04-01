@@ -24,7 +24,7 @@
             Grid.Row="1"
             ClassId="MidStack"
             Padding="0, 20, 0, 0"
-            BackgroundColor="LightGray">
+            BackgroundColor="WhiteSmoke">
 
             <Templates:ObjectiveListItem/>
             <Templates:ObjectiveListItem/>

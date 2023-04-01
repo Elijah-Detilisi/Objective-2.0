@@ -11,7 +11,7 @@
                 <Setter Property="StrokeThickness" Value="2" />
                 <Setter Property="HeightRequest" Value="50" />
                 <Setter Property="Margin" Value="5" />
-                <Setter Property="Stroke" Value="DarkGrey" />
+                <Setter Property="Stroke" Value="#1560bd" />
             </Style>
 
             <Style x:Key="HeaderLayoutStyle" TargetType="Grid">
@@ -23,7 +23,7 @@
                 <Setter Property="FontSize" Value="13" />
                 <Setter Property="FontAttributes" Value="Bold" />
                 <Setter Property="FontFamily" Value="Georgia" />
-                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="TextColor" Value="#002147" />
                 <Setter Property="HorizontalOptions" Value="Center" />
                 <Setter Property="VerticalOptions" Value="Center" />
                 <Setter Property="Margin" Value="0, 0, 10, 0" />

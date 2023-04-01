@@ -9,24 +9,24 @@
         <!--Header Section-->
         <Grid
             ColumnDefinitions="Auto, *, Auto">
-            <Grid
-                Style="{StaticResource HeaderLayoutStyle}">
+            <Frame
+                Grid.Column="0"
+                Style="{StaticResource FrameLayoutStyle}">
                 <ImageButton
-                    Source="avatar.png"
-                    Style="{StaticResource ImageButtonStyle}"/>
-            </Grid>
+                        Source="user.png"
+                        Style="{StaticResource ImageButtonStyle}"/>
+            </Frame>
 
             <Label
                 Grid.Column="1"
                 Text="OBJECTIVE"
                 Style="{StaticResource LogoLabelStyle}"/>
-            <Grid
+
+            <ImageButton
                 Grid.Column="2"
-                Style="{StaticResource HeaderLayoutStyle}">
-                <ImageButton
-                    Source="search.png"
-                    Style="{StaticResource ImageButtonStyle}"/>
-            </Grid>
+                Margin="10, 10"
+                Source="search.png"
+                Style="{StaticResource ImageButtonStyle}"/>
         </Grid>
         <!--Greeting Section-->
         <Label
@@ -39,15 +39,20 @@
     <!--Styling-->
     <ContentView.Resources>
         <ResourceDictionary>
-            <Style x:Key="HeaderLayoutStyle" TargetType="Grid">
+            <Style x:Key="FrameLayoutStyle" TargetType="Frame">
+                <Setter Property="Margin" Value="10, 10" />
+                <Setter Property="HeightRequest" Value="50" />
+                <Setter Property="WidthRequest" Value="50" />
+                <Setter Property="CornerRadius" Value="60" />
+                <Setter Property="HorizontalOptions" Value="Center" />
                 <Setter Property="VerticalOptions" Value="Center" />
-                <Setter Property="Margin" Value="10, 7" />
+                <Setter Property="BorderColor" Value="#1560bd" />
             </Style>
 
             <Style x:Key="ImageButtonStyle" TargetType="ImageButton">
                 <Setter Property="VerticalOptions" Value="Center" />
-                <Setter Property="HeightRequest" Value="40" />
-                <Setter Property="WidthRequest" Value="40" />
+                <Setter Property="HeightRequest" Value="49" />
+                <Setter Property="WidthRequest" Value="49" />
             </Style>
 
             <Style x:Key="LogoLabelStyle" TargetType="Label">
@@ -60,7 +65,7 @@
 
             <Style x:Key="SalutationLabelStyle" TargetType="Label">
                 <Setter Property="FontSize" Value="15" />
-                <Setter Property="Margin" Value="0, 15, 0, 30" />
+                <Setter Property="Margin" Value="0, 5, 0, 30" />
                 <Setter Property="FontAttributes" Value="Italic, Bold" />
                 <Setter Property="TextColor" Value="#002147" />
                 <Setter Property="HorizontalOptions" Value="Center" />
