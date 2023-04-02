@@ -16,7 +16,8 @@
             Grid.Row="0"
             ClassId="TopStack"
             BackgroundColor="WhiteSmoke">
-            <Templates:MainHeader/>
+            <Templates:MainHeader
+                GreetingMessage="Elmo is angry"/>
         </VerticalStackLayout>
         
         <!--Mid Section-->
