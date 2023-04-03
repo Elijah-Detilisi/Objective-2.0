@@ -11,7 +11,6 @@ public partial class MainHeader : ContentView
     }
 
     #region Properties
-    
     public static readonly BindableProperty GreetingTextProperty = BindableProperty.Create(nameof(GreetingText), typeof(string), typeof(MainHeader));
     public static readonly BindableProperty SearchCommandProperty = BindableProperty.Create(nameof(OnSearchCommand), typeof(ICommand), typeof(MainHeader),
         defaultBindingMode: BindingMode.OneWay, defaultValueCreator: DefaultCommand);
