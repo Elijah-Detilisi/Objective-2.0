@@ -17,7 +17,7 @@
             ClassId="TopStack"
             BackgroundColor="WhiteSmoke">
             <Templates:MainHeader
-                GreetingMessage="Elmo is angry"/>
+                x:Name="Header"/>
         </VerticalStackLayout>
         
         <!--Mid Section-->

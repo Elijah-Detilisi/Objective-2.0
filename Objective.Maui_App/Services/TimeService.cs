@@ -14,16 +14,16 @@ namespace Objective.Maui_App.Services
 
         public static string TimeOfDay()
         {
-            string timeOfDay = "Morning";
+            string timeOfDay = "morning";
             int currentHour = DateTime.Now.Hour;
 
             if(currentHour>12 && currentHour<18)
             {
-                timeOfDay = "Afternoon";
+                timeOfDay = "afternoon";
             }
             else if (currentHour>=18 && currentHour<=23)
             {
-                timeOfDay = "Evening";
+                timeOfDay = "evening";
             }
 
             return timeOfDay;
