@@ -42,7 +42,7 @@ public partial class MainHeader : ContentView
 
     private static object DefaultCommand(BindableObject bindable)
     {
-        return new Command(() => TextToSpeech.SpeakAsync("Hello there"));
+        return new Command(() => TextToSpeech.Default.SpeakAsync("Hello there"));
     }
     #endregion
 
