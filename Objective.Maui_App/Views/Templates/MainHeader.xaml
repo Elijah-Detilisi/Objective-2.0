@@ -2,42 +2,44 @@
 <ContentView 
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="Objective.Maui_App.Views.Templates.MainHeader"
-    x:Name="this">
+    x:Class="Objective.Maui_App.Views.Templates.MainHeader">
 
     <!--View-->
-    <VerticalStackLayout
-        BindingContext="{x:Reference this}">
-        <!--Header Section-->
-        <Grid
-            ColumnDefinitions="Auto, *, Auto">
-            <Frame
-                Grid.Column="0"
-                Style="{StaticResource FrameLayoutStyle}">
-                <ImageButton
-                    Source="user.png"
-                    Style="{StaticResource ImageButtonStyle}"/>
-            </Frame>
+    <ContentView.ControlTemplate>
+        <ControlTemplate>
+            <VerticalStackLayout>
+                <!--Header Section-->
+                <Grid
+                    ColumnDefinitions="Auto, *, Auto">
+                    <Frame
+                        Grid.Column="0"
+                        Style="{StaticResource FrameLayoutStyle}">
+                        <ImageButton
+                            Source="user.png"
+                            Style="{StaticResource ImageButtonStyle}"/>
+                    </Frame>
 
-            <Label
-                Grid.Column="1"
-                Text="OBJECTIVE"
-                Style="{StaticResource LogoLabelStyle}"/>
+                    <Label
+                        Grid.Column="1"
+                        Text="OBJECTIVE"
+                        Style="{StaticResource LogoLabelStyle}"/>
 
-            <ImageButton
-                Grid.Column="2"
-                Margin="10, 10"
-                Source="search.png"
-                Style="{StaticResource ImageButtonStyle}"/>
-        </Grid>
-        <!--Greeting Section-->
-        <Label
-            Text="{Binding GreetingMessage, FallbackValue='Hello user🌈🌻.'}"
-            Style="{StaticResource SalutationLabelStyle}"/>
+                    <ImageButton
+                        Grid.Column="2"
+                        Margin="10, 10"
+                        Source="search.png"
+                        Style="{StaticResource ImageButtonStyle}"/>
+                </Grid>
+                <!--Greeting Section-->
+                <Label
+                    Text="{TemplateBinding GreetingText}"
+                    Style="{StaticResource SalutationLabelStyle}"/>
 
-    </VerticalStackLayout>
+            </VerticalStackLayout>
+        </ControlTemplate>
+    </ContentView.ControlTemplate>
 
-
+    
     <!--Styling-->
     <ContentView.Resources>
         <ResourceDictionary>

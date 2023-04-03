@@ -2,8 +2,8 @@
 
 namespace Objective.Maui_App.ViewModels
 {
-    public static class MainViewModel
+    public class MainViewModel
     {
-        public static string GreetingText => $"Good {TimeService.TimeOfDay()} Mr Detilisi";
+        public string GreetingText => $"Good {TimeService.TimeOfDay()} Mr Detilisi";
     }
 }
