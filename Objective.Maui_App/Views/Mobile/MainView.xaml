@@ -22,7 +22,9 @@
             ClassId="TopStack"
             BackgroundColor="WhiteSmoke">
             <Templates:MainHeader
-                GreetingText="{Binding GreetingText}"/>
+                GreetingText="{Binding GreetingText}"
+                SearchCommand="{Binding SearchCommand}"
+                ProfileCommand="{Binding ProfileCommand}"/>
         </VerticalStackLayout>
         
         <!--Mid Section-->

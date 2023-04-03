@@ -12,9 +12,9 @@ public partial class MainHeader : ContentView
 
     #region Properties
     public static readonly BindableProperty GreetingTextProperty = BindableProperty.Create(nameof(GreetingText), typeof(string), typeof(MainHeader));
-    public static readonly BindableProperty SearchCommandProperty = BindableProperty.Create(nameof(OnSearchCommand), typeof(ICommand), typeof(MainHeader),
+    public static readonly BindableProperty SearchCommandProperty = BindableProperty.Create(nameof(SearchCommand), typeof(ICommand), typeof(MainHeader),
         defaultBindingMode: BindingMode.TwoWay, defaultValueCreator: DefaultCommand);
-    public static readonly BindableProperty ProfileCommandProperty = BindableProperty.Create(nameof(OnProfileCommand), typeof(ICommand), typeof(MainHeader),
+    public static readonly BindableProperty ProfileCommandProperty = BindableProperty.Create(nameof(ProfileCommand), typeof(ICommand), typeof(MainHeader),
         defaultBindingMode: BindingMode.TwoWay, defaultValueCreator: DefaultCommand);
 
     #endregion
@@ -28,13 +28,13 @@ public partial class MainHeader : ContentView
     #endregion
 
     #region Commands
-    public ICommand OnSearchCommand
+    public ICommand SearchCommand
     {
         get => (ICommand)GetValue(SearchCommandProperty);
         set => SetValue(SearchCommandProperty, value);
     }
 
-    public ICommand OnProfileCommand
+    public ICommand ProfileCommand
     {
         get => (ICommand)GetValue(ProfileCommandProperty);
         set => SetValue(ProfileCommandProperty, value);

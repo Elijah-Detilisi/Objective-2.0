@@ -17,7 +17,7 @@
                         <ImageButton
                             Source="user.png"
                             Style="{StaticResource ImageButtonStyle}"
-                            Command="{TemplateBinding OnProfileCommand}"/>
+                            Command="{TemplateBinding ProfileCommand}"/>
                     </Frame>
 
                     <Label
@@ -30,7 +30,7 @@
                         Margin="10, 10"
                         Source="search.png"
                         Style="{StaticResource ImageButtonStyle}"
-                        Command="{TemplateBinding OnSearchCommand}"/>
+                        Command="{TemplateBinding SearchCommand}"/>
                 </Grid>
                 <!--Greeting Section-->
                 <Label
