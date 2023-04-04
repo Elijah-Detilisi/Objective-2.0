@@ -5,13 +5,17 @@
     x:Class="Objective.Maui_App.Views.Templates.MainFooter">
 
     <!--View-->
-    <Frame 
-        Style="{StaticResource FrameLayoutStyle}">
-        <Label
-            Style="{StaticResource QuoteLabelStyle}"
-            Text="Hard work is a prison sentence only if it does not have meaning. Once it does, it becomes the kind of thing that makes you grab your wife around the waist and dance a jig. -Malcolm Gladwell."/>
-    </Frame>
-
+    <ContentView.ControlTemplate>
+        <ControlTemplate>
+            <Frame 
+                Style="{StaticResource FrameLayoutStyle}">
+                <Label
+                    Style="{StaticResource QuoteLabelStyle}"
+                    Text="{TemplateBinding QuoteText}"/>
+            </Frame>
+        </ControlTemplate>
+    </ContentView.ControlTemplate>
+    
     <!--Styling-->
     <ContentView.Resources>
         <ResourceDictionary>
