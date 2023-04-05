@@ -2,43 +2,70 @@
 
 namespace Objective.Maui_App.DataAccess.Base
 {
-    public abstract class DataAccess<Model>
+    public abstract class DataAccess<Model> where Model : class, new()
     {
-        #region Fields
-        protected SQLiteAsyncConnection _connection;
-        private string _connectionString => Path.Combine(FileSystem.AppDataDirectory, "objective.db3");
-        #endregion
+        protected readonly SQLiteAsyncConnection _connection;
 
         #region Construction
-        public DataAccess()
+        public DataAccess(SQLiteAsyncConnection connection)
         {
-            if (_connection == null)
-            {
-                _connection = new SQLiteAsyncConnection(_connectionString);
+            _connection = connection ?? throw new ArgumentNullException(nameof(connection));
+        }
 
-               CreateRepoTable();
-            }
+        protected async Task CreateTable()
+        {
+            await _connection.CreateTableAsync<Model>();
         }
 
         #endregion
 
         #region CRUD methods
-        protected abstract void CreateRepoTable();
         public async Task<int> Add(Model model)
         {
+            ModelNullCheck(model);
+
             return await _connection.InsertAsync(model);
         }
+
         public async Task<int> Update(Model model)
         {
+            ModelNullCheck(model);
+
             return await _connection.UpdateAsync(model);
         }
+
         public async Task<int> Delete(Model model)
         {
+            ModelNullCheck(model);
+
             return await _connection.DeleteAsync(model);
         }
-        public abstract Task<List<Model>> Get(int? id);
+
+        public async Task<List<Model>> Get(Func<Model, bool> predicate)
+        {
+            if (predicate == null)
+            {
+                throw new ArgumentNullException(nameof(predicate));
+            }
+
+            var items = await _connection.Table<Model>().ToListAsync();
+
+            return items.Where(predicate).ToList();
+        }
 
         #endregion
+
+        #region Helper methods
+        private void ModelNullCheck(Model model)
+        {
+            if (model == null)
+            {
+                throw new ArgumentNullException(nameof(model));
+            }
+        }
+        #endregion
+
+        public abstract Task Initialize();
 
     }
 }

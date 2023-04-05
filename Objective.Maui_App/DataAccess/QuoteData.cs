@@ -1,58 +1,47 @@
-﻿using Objective.Maui_App.Models;
+﻿using SQLite;
+using Objective.Maui_App.Services;
 using Objective.Maui_App.DataAccess.Base;
+using Objective.Maui_App.Resources.Values;
 
 namespace Objective.Maui_App.DataAccess
 {
-    public class QuoteData : DataAccess<Quote>
+    public class QuoteData : DataAccess<Models.Quote>
     {
-        protected override void CreateRepoTable()
+        #region Construction
+        public QuoteData(SQLiteAsyncConnection connection) : base(connection)
         {
-            _connection.CreateTableAsync<Quote>().Wait();
-            PresetTableValues().Wait();
         }
 
-        public override async Task<List<Quote>> Get(int? id)
+        public override async Task Initialize()
         {
-            if (id == null)
-            {
-                return await _connection.Table<Quote>().Where(quote => quote.Id == id).ToListAsync();
-            }
-            else
-            {
-                return await _connection.Table<Quote>().ToListAsync();
-            }
+            await CreateTable();
+            await PresetDefaultTableValues();
         }
 
-        private async Task PresetTableValues()
+        #endregion
+
+        #region DataPreset Methods
+        private async Task PresetDefaultTableValues()
         {
-            try
+            var defaultValues = new List<Models.Quote>();
+            var allQuotes = await TextFileService.ReadFileLines(Constants.QUOTES_TEXT_FILE);
+
+            foreach (var quoteText in allQuotes)
             {
-                var defaultValues = new List<Quote>();
-                string fileName = "102-inspirational-qoutes.txt";
 
-                using Stream fileStream = await FileSystem.Current.OpenAppPackageFileAsync(fileName);
-                using StreamReader reader = new StreamReader(fileStream);
-
-                string line;
-                while ((line = reader.ReadLine()) != null)
+                var quote = new Models.Quote()
                 {
-                    var quoteText = line.Split("-");
+                    Phrase = quoteText.Split("-")[0],
+                    Qoutee = quoteText.Split("-")[1],
+                };
 
-                    var quote = new Quote()
-                    {
-                        Phrase = quoteText[0],
-                        Qoutee = quoteText[1],
-                    };
-
-                    defaultValues.Add(quote);
-                }
-
-                await _connection.InsertAllAsync(defaultValues);
+                defaultValues.Add(quote);
             }
-            catch (Exception ex)
-            {
-                Console.Write(ex.ToString());
-            }
+
+            await _connection.InsertAllAsync(defaultValues);
         }
+
+        #endregion
+
     }
 }

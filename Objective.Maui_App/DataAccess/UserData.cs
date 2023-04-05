@@ -1,32 +1,21 @@
-﻿using Objective.Maui_App.Models;
+﻿using SQLite;
 using Objective.Maui_App.DataAccess.Base;
 
 namespace Objective.Maui_App.DataAccess
 {
-    internal class UserData : DataAccess<UserModel>
+    internal class UserData : DataAccess<Models.User>
     {
-        protected override void CreateRepoTable()
+        #region Construction
+        public UserData(SQLiteAsyncConnection connection) : base(connection)
         {
-            _connection.CreateTableAsync<UserModel>().Wait();
         }
 
-        public override async Task<List<UserModel>> Get(int? id)
+        public override async Task Initialize()
         {
-            if (id == null)
-            {
-                return await _connection.Table<UserModel>().Where(user => user.Id == id).ToListAsync();
-            }
-            else
-            {
-                return await _connection.Table<UserModel>().ToListAsync();
-            }
+            await base.CreateTable();
         }
 
-        public async Task<bool> VerifyUserAsync(String username, string password)
-        {
-            var result = await _connection.Table<UserModel>().Where(user => user.Username == username && user.Password == password).FirstOrDefaultAsync();
+        #endregion
 
-            return result == null;
-        }
     }
 }
