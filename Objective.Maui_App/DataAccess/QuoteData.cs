@@ -3,23 +3,23 @@ using Objective.Maui_App.DataAccess.Base;
 
 namespace Objective.Maui_App.DataAccess
 {
-    public class QuoteData : DataAccess<QuoteModel>
+    public class QuoteData : DataAccess<Quote>
     {
         protected override void CreateRepoTable()
         {
-            _connection.CreateTableAsync<QuoteModel>().Wait();
+            _connection.CreateTableAsync<Quote>().Wait();
             PresetTableValues().Wait();
         }
 
-        public override async Task<List<QuoteModel>> Get(int? id)
+        public override async Task<List<Quote>> Get(int? id)
         {
             if (id == null)
             {
-                return await _connection.Table<QuoteModel>().Where(quote => quote.Id == id).ToListAsync();
+                return await _connection.Table<Quote>().Where(quote => quote.Id == id).ToListAsync();
             }
             else
             {
-                return await _connection.Table<QuoteModel>().ToListAsync();
+                return await _connection.Table<Quote>().ToListAsync();
             }
         }
 
@@ -27,7 +27,7 @@ namespace Objective.Maui_App.DataAccess
         {
             try
             {
-                var defaultValues = new List<QuoteModel>();
+                var defaultValues = new List<Quote>();
                 string fileName = "102-inspirational-qoutes.txt";
 
                 using Stream fileStream = await FileSystem.Current.OpenAppPackageFileAsync(fileName);
@@ -38,7 +38,7 @@ namespace Objective.Maui_App.DataAccess
                 {
                     var quoteText = line.Split("-");
 
-                    var quote = new QuoteModel()
+                    var quote = new Quote()
                     {
                         Phrase = quoteText[0],
                         Qoutee = quoteText[1],
