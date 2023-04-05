@@ -5,28 +5,30 @@ namespace Objective.Maui_App.Services
     {
         public static string Time()
         {
-            return DateTime.Now.ToString("t");
+            return DateTime.Now.ToString("T");
         }
+
         public static string Today()
         {
-            return DateTime.Now.ToString("dd MMMM, yyyy");
+            return DateTime.Now.ToString("D");
         }
 
         public static string TimeOfDay()
         {
-            string timeOfDay = "morning";
-            int currentHour = DateTime.Now.Hour;
-
-            if(currentHour>12 && currentHour<18)
+            TimeSpan time = DateTime.Now.TimeOfDay;
+            if (time < TimeSpan.FromHours(12))
             {
-                timeOfDay = "afternoon";
+                return "morning";
             }
-            else if (currentHour>=18 && currentHour<=23)
+            else if (time < TimeSpan.FromHours(18))
             {
-                timeOfDay = "evening";
+                return "afternoon";
             }
-
-            return timeOfDay;
+            else
+            {
+                return "evening";
+            }
         }
     }
+
 }
