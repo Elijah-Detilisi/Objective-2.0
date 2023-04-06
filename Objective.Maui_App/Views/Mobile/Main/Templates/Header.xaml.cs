@@ -4,39 +4,31 @@ namespace Objective.Maui_App.Views.Mobile.Main.Templates;
 
 public partial class Header : ContentView
 {
-	public Header()
-	{
-        UsernameText = "Username";
+    public Header()
+    {
+        UsernameText = "User";
         GreetingText = "Good day";
         InitializeComponent();
-	}
+    }
 
-    #region Properties
-    
+    //Properties
     public static readonly BindableProperty UsernameTextProperty = BindableProperty.Create(nameof(UsernameText), typeof(string), typeof(Header));
     public static readonly BindableProperty GreetingTextProperty = BindableProperty.Create(nameof(GreetingText), typeof(string), typeof(Header));
-    
-    public static readonly BindableProperty SearchCommandProperty = BindableProperty.Create(nameof(SearchCommand), typeof(ICommand), typeof(Header),
-        defaultBindingMode: BindingMode.TwoWay, defaultValueCreator: DefaultCommand);
-    public static readonly BindableProperty ProfileCommandProperty = BindableProperty.Create(nameof(ProfileCommand), typeof(ICommand), typeof(Header),
-        defaultBindingMode: BindingMode.TwoWay, defaultValueCreator: DefaultCommand);
+    public static readonly BindableProperty SearchCommandProperty = BindableProperty.Create(nameof(SearchCommand), typeof(ICommand), typeof(Header), defaultValueCreator: DefaultCommand);
+    public static readonly BindableProperty ProfileCommandProperty = BindableProperty.Create(nameof(ProfileCommand), typeof(ICommand), typeof(Header), defaultValueCreator: DefaultCommand);
 
-    #endregion
-
-    #region Fields
-    public string UsernameText
+    //Fields
+    public string UsernameText 
     {
         get => (string)GetValue(UsernameTextProperty);
         set => SetValue(UsernameTextProperty, value);
     }
-    public string GreetingText
-    {
+    public string GreetingText {
         get => (string)GetValue(GreetingTextProperty);
         set => SetValue(GreetingTextProperty, value);
     }
-    #endregion
 
-    #region Commands
+    //Commands
     public ICommand SearchCommand
     {
         get => (ICommand)GetValue(SearchCommandProperty);
@@ -49,9 +41,6 @@ public partial class Header : ContentView
         set => SetValue(ProfileCommandProperty, value);
     }
 
-    private static object DefaultCommand(BindableObject bindable)
-    {
-        return new Command(() => TextToSpeech.Default.SpeakAsync("Null action!"));
-    }
-    #endregion
+    //Helper
+    private static object DefaultCommand(BindableObject bindable) => new Command(() => TextToSpeech.Default.SpeakAsync("Null action!"));
 }
