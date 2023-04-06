@@ -1,6 +1,4 @@
-﻿using Objective.Maui_App.Views.Mobile;
-
-namespace Objective.Maui_App
+﻿namespace Objective.Maui_App
 {
     public partial class App : Application
     {
@@ -8,7 +6,7 @@ namespace Objective.Maui_App
         {
             InitializeComponent();
 
-            MainPage = new MainView();
+            MainPage = new Views.Mobile.Main.MainView();
         }
     }
 }
