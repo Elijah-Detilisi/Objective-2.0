@@ -4,32 +4,32 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="Objective.Maui_App.Views.Mobile.Main.Templates.Header">
 
+    <!--View-->
     <ContentView.ControlTemplate>
         <ControlTemplate>
             <Grid
                 ColumnDefinitions="7*, 2*">
-                
+                <!--Greeting Section-->
                 <Grid
                     Grid.Column="0" 
                     RowDefinitions="6*, 4*">
                     <Label
                         Grid.Row="0"
-                        Text="Good morning"
-                        VerticalTextAlignment="End"
-                        FontSize="24"
-                        FontAttributes="Bold"/>
+                        ClassId="GreetingLabel"
+                        Text="{TemplateBinding GreetingText}"
+                        Style="{StaticResource GreetingLabelStyle}"/>
                     <Label
                         Grid.Row="1"
-                        FontSize="16"
-                        Text="Username"
-                        FontAttributes="Bold"
-                        VerticalTextAlignment="Start"/>
+                        ClassId="UsernameLabel"
+                        Text="{TemplateBinding UsernameText}"
+                        Style="{StaticResource UsernameLabelStyle}"/>
                 </Grid>
 
+                <!--Button Section-->
                 <Grid
                     Grid.Column="1" 
-                    ColumnDefinitions="5*, 5*"
-                    ColumnSpacing="10">
+                    ColumnSpacing="10"
+                    ColumnDefinitions="5*, 5*">
                     <ImageButton
                         Grid.Column="0"
                         Source="user.svg"/>
@@ -41,6 +41,23 @@
             </Grid>
         </ControlTemplate>
     </ContentView.ControlTemplate>
+
+    <!--Styling-->
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Style x:Key="GreetingLabelStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="24" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="VerticalTextAlignment" Value="End" />
+            </Style>
+
+            <Style x:Key="UsernameLabelStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="16" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="VerticalTextAlignment" Value="Start" />
+            </Style>
+        </ResourceDictionary>
+    </ContentView.Resources>
 
 
 </ContentView>
