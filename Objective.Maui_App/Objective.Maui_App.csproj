@@ -52,7 +52,9 @@
 	  <None Remove="Resources\Images\menu.png" />
 	  <None Remove="Resources\Images\person.png" />
 	  <None Remove="Resources\Images\search.png" />
+	  <None Remove="Resources\Images\search.svg" />
 	  <None Remove="Resources\Images\user.png" />
+	  <None Remove="Resources\Images\user.svg" />
 	</ItemGroup>
 
 	<ItemGroup>
