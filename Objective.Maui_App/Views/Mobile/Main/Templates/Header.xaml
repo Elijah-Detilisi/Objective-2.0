@@ -53,12 +53,14 @@
         <ResourceDictionary>
             <Style x:Key="GreetingLabelStyle" TargetType="Label">
                 <Setter Property="FontSize" Value="24" />
+                <Setter Property="TextColor" Value="#666666"/>
                 <Setter Property="FontAttributes" Value="Bold" />
                 <Setter Property="VerticalTextAlignment" Value="End" />
             </Style>
 
             <Style x:Key="UsernameLabelStyle" TargetType="Label">
                 <Setter Property="FontSize" Value="16" />
+                <Setter Property="TextColor" Value="#666666"/>
                 <Setter Property="FontAttributes" Value="Bold" />
                 <Setter Property="VerticalTextAlignment" Value="Start" />
             </Style>

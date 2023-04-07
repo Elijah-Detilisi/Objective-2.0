@@ -6,9 +6,11 @@
     x:Class="Objective.Maui_App.Views.Mobile.Main.MainView"
     xmlns:Templates="clr-namespace:Objective.Maui_App.Views.Mobile.Main.Templates">
     
-    <VerticalStackLayout>
+    <VerticalStackLayout
+        Padding="10">
         <Templates:Header
             HeightRequest="80"/>
+        <Templates:Quote/>
     </VerticalStackLayout>
     
     
