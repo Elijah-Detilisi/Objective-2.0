@@ -11,6 +11,8 @@
         <Templates:Header
             HeightRequest="80"/>
         <Templates:Quote/>
+        <Templates:Objective/>
+        
     </VerticalStackLayout>
     
     
