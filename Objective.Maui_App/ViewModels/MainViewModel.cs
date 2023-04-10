@@ -1,31 +1,41 @@
 ﻿using System.Windows.Input;
+using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using Objective.Maui_App.DataAccess;
+using Objective.Maui_App.Models;
 using Objective.Maui_App.Services;
 
 
 namespace Objective.Maui_App.ViewModels
 {
-    public class MainViewModel
+    public partial class MainViewModel: ObservableObject
     {
-        public MainViewModel() 
+        private QuoteData _quoteData;
+
+        [ObservableProperty]
+        public Quote _randomQuote;
+        [ObservableProperty]
+        public string _greetingText;
+
+        public MainViewModel(QuoteData quoteData) 
         {
-            SearchCommand = new AsyncRelayCommand(SearchAsync);
-            ProfileCommand = new AsyncRelayCommand(ProfileAsync);
+            _quoteData = quoteData;
         }
 
-        public string GreetingText => $"Good {TimeService.TimeOfDay()}";
-
-        public ICommand SearchCommand { get; }
-        public ICommand ProfileCommand { get; }
-
-        private async Task SearchAsync()
+        public async Task InitializeRepos()
         {
-            await TextToSpeech.SpeakAsync("Searching now");
+            await _quoteData.Initialize();
         }
 
-        private async Task ProfileAsync()
+        public async Task LoadRandomQuote()
         {
-            await TextToSpeech.SpeakAsync("Edit profile");
+            int num = new Random().Next(1, 102);
+            var test = await _quoteData.Get(x => x.Id == num);
+
+            GreetingText = $"Good {TimeService.TimeOfDay()}";
+
+            RandomQuote = test.FirstOrDefault();
         }
+
     }
 }

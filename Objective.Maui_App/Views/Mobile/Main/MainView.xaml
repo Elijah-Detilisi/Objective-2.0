@@ -7,15 +7,14 @@
     xmlns:Templates="clr-namespace:Objective.Maui_App.Views.Mobile.Main.Templates"
     xmlns:ViewModels="clr-namespace:Objective.Maui_App.ViewModels">
 
-    <ContentPage.BindingContext>
-        <ViewModels:MainViewModel/>
-    </ContentPage.BindingContext>
+    
 
     <VerticalStackLayout
         Padding="10">
         <Templates:Header
             GreetingText="{Binding GreetingText}"/>
-        <Templates:Quote/>
+        <Templates:Quote
+            QuoteText="{Binding RandomQuote}"/>
         <Templates:Objective/>
         
     </VerticalStackLayout>
