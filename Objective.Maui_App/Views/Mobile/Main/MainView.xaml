@@ -4,12 +4,17 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="Objective.Maui_App.Views.Mobile.Main.MainView"
-    xmlns:Templates="clr-namespace:Objective.Maui_App.Views.Mobile.Main.Templates">
-    
+    xmlns:Templates="clr-namespace:Objective.Maui_App.Views.Mobile.Main.Templates"
+    xmlns:ViewModels="clr-namespace:Objective.Maui_App.ViewModels">
+
+    <ContentPage.BindingContext>
+        <ViewModels:MainViewModel/>
+    </ContentPage.BindingContext>
+
     <VerticalStackLayout
         Padding="10">
         <Templates:Header
-            HeightRequest="80"/>
+            GreetingText="{Binding GreetingText}"/>
         <Templates:Quote/>
         <Templates:Objective/>
         

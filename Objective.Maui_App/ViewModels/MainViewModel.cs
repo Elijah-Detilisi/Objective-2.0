@@ -1,6 +1,7 @@
-﻿using CommunityToolkit.Mvvm.Input;
+﻿using System.Windows.Input;
+using CommunityToolkit.Mvvm.Input;
 using Objective.Maui_App.Services;
-using System.Windows.Input;
+
 
 namespace Objective.Maui_App.ViewModels
 {
@@ -12,7 +13,7 @@ namespace Objective.Maui_App.ViewModels
             ProfileCommand = new AsyncRelayCommand(ProfileAsync);
         }
 
-        public string GreetingText => $"Good {TimeService.TimeOfDay()} Mr Detilisi";
+        public string GreetingText => $"Good {TimeService.TimeOfDay()}";
 
         public ICommand SearchCommand { get; }
         public ICommand ProfileCommand { get; }

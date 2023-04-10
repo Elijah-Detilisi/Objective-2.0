@@ -7,7 +7,7 @@ namespace Objective.Maui_App.Models
     public class User : BaseModel
     {
         [Unique, MaxLength(50)]
-        public string Username { get; set; }
+        public string Username { get; set; } = "User";
 
         [MaxLength(100)]
         public string ProfilePictureUrl { get; set; } = "Profile.png";
