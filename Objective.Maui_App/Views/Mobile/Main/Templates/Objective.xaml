@@ -34,7 +34,7 @@
                     <Label
                         Grid.Column="3"
                         ClassId="DateLabel"
-                        Text="{TemplateBinding DueDateText}"
+                        Text="{TemplateBinding ObjectiveText.DueDate, StringFormat='{0:dd MMM yyyy}'}"
                         Style="{StaticResource ObjectiveLabelStyle}"/>
                 </Grid>
             </Frame>

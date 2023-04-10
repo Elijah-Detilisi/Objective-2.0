@@ -13,9 +13,9 @@ namespace Objective.Maui_App.ViewModels
         private QuoteData _quoteData;
 
         [ObservableProperty]
-        public Quote _randomQuote;
+        public Quote randomQuote;
         [ObservableProperty]
-        public string _greetingText;
+        public string greetingText;
 
         public MainViewModel(QuoteData quoteData) 
         {
@@ -32,9 +32,8 @@ namespace Objective.Maui_App.ViewModels
             int num = new Random().Next(1, 102);
             var test = await _quoteData.Get(x => x.Id == num);
 
-            GreetingText = $"Good {TimeService.TimeOfDay()}";
-
             RandomQuote = test.FirstOrDefault();
+            GreetingText = $"Good {TimeService.TimeOfDay()}";
         }
 
     }

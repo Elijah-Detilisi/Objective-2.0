@@ -25,5 +25,4 @@ public partial class Objective : ContentView
         set => SetValue(ObjectiveProperty, value);
     }
 
-    public string DueDateText => ObjectiveText.DueDate.ToString("dd MMM yyyy");
 }
