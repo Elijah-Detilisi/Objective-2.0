@@ -1,48 +1,66 @@
-﻿using System.Windows.Input;
-using CommunityToolkit.Mvvm.ComponentModel;
-using CommunityToolkit.Mvvm.Input;
-using Objective.Maui_App.DataAccess;
-using Objective.Maui_App.Models;
+﻿using Objective.Maui_App.Models;
 using Objective.Maui_App.Services;
-
+using Objective.Maui_App.DataAccess;
+using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace Objective.Maui_App.ViewModels
 {
     public partial class MainViewModel: ObservableObject
     {
-        private QuoteData _quoteData;
+        //Fields
+        private readonly UserData _userData;
+        private readonly QuoteData _quoteData;
 
+        //Properties
         [ObservableProperty]
-        public Quote randomQuote;
+        public User currentUser = new();
         [ObservableProperty]
-        public string greetingText;
+        public Quote randomQuote = new();
+        [ObservableProperty]
+        public string greetingText = string.Empty;
 
-        public MainViewModel(QuoteData quoteData) 
+        //Construction
+        public MainViewModel
+        (
+            UserData userData,
+            QuoteData quoteData
+        ) 
         {
+            _userData = userData;
             _quoteData = quoteData;
         }
 
+        //Data loading
         public async Task LoadViewModel()
         {
             LoadGreeting();
             await InitializeDataAsync();
+            await LoadUserAsync();
             await LoadRandomQuoteAsync();
         }
-
         private void LoadGreeting()
         {
             GreetingText = $"Good {TimeService.TimeOfDay()}";
         }
         private async Task InitializeDataAsync()
         {
+            await _userData.Initialize();
             await _quoteData.Initialize();
         }
         private async Task LoadRandomQuoteAsync()
         {
-            int num = new Random().Next(1, 102);
-            var test = await _quoteData.Get(x => x.Id == num);
+            int randomId = new Random().Next(1, 102);
+            var result = await _quoteData.Get(qoute => qoute.Id == randomId);
 
-            RandomQuote = test.FirstOrDefault();
+            RandomQuote = result.FirstOrDefault();
+        }
+        private async Task LoadUserAsync()
+        {
+            var result = await _userData.Get(user => user.Id == 1);
+            if (result.Any())
+            {
+                CurrentUser = result.FirstOrDefault();
+            }
         }
 
     }

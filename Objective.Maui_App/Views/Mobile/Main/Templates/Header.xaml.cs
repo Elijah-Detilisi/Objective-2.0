@@ -6,22 +6,23 @@ public partial class Header : ContentView
 {
     public Header()
     {
-        UsernameText = "User";
+        CurrentUser = new();
         GreetingText = "Good day";
+        
         InitializeComponent();
     }
 
     //Properties
-    public static readonly BindableProperty UsernameTextProperty = BindableProperty.Create(nameof(UsernameText), typeof(string), typeof(Header));
+    public static readonly BindableProperty CurrentUserProperty = BindableProperty.Create(nameof(CurrentUser), typeof(Models.Quote), typeof(Quote));
     public static readonly BindableProperty GreetingTextProperty = BindableProperty.Create(nameof(GreetingText), typeof(string), typeof(Header));
     public static readonly BindableProperty SearchCommandProperty = BindableProperty.Create(nameof(SearchCommand), typeof(ICommand), typeof(Header), defaultValueCreator: DefaultCommand);
     public static readonly BindableProperty ProfileCommandProperty = BindableProperty.Create(nameof(ProfileCommand), typeof(ICommand), typeof(Header), defaultValueCreator: DefaultCommand);
 
     //Fields
-    public string UsernameText 
+    public Models.User CurrentUser
     {
-        get => (string)GetValue(UsernameTextProperty);
-        set => SetValue(UsernameTextProperty, value);
+        get => (Models.User)GetValue(CurrentUserProperty);
+        set => SetValue(CurrentUserProperty, value);
     }
     public string GreetingText {
         get => (string)GetValue(GreetingTextProperty);

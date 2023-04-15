@@ -11,6 +11,7 @@
         Spacing="10"
         Padding="10">
         <Templates:Header
+            CurrentUser="{Binding CurrentUser}"
             GreetingText="{Binding GreetingText}"/>
         <Templates:Quote
             QuoteText="{Binding RandomQuote}"/>

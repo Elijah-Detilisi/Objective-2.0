@@ -4,7 +4,7 @@ public partial class Quote : ContentView
 {
 	public Quote()
 	{
-        QuoteText = new Models.Quote() {
+        QuoteText = new() {
             Phrase= "Whatever you do, work at it with all your heart.",
             Qoutee = "Paul the Apostle"
         };

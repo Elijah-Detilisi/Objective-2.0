@@ -23,7 +23,7 @@
                         Style="{StaticResource GreetingLabelStyle}" />
                     <Label 
                         ClassId="UsernameLabel"
-                        Text="{TemplateBinding UsernameText}"
+                        Text="{TemplateBinding CurrentUser.Username}"
                         Style="{StaticResource UsernameLabelStyle}" />
                 </StackLayout>
 

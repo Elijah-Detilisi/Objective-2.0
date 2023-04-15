@@ -3,7 +3,7 @@ using Objective.Maui_App.DataAccess.Base;
 
 namespace Objective.Maui_App.DataAccess
 {
-    internal class UserData : DataAccess<Models.User>
+    public class UserData : DataAccess<Models.User>
     {
         #region Construction
         public UserData(SQLiteAsyncConnection connection) : base(connection)

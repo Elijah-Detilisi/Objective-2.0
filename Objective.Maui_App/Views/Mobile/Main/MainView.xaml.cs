@@ -9,7 +9,7 @@ public partial class MainView : ContentPage
     public MainView(MainViewModel viewModel)
 	{
 		_viewModel = viewModel;
-        this.BindingContext = _viewModel;
+        BindingContext = _viewModel;
 
         InitializeComponent();
 	}
