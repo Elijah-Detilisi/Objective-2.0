@@ -21,7 +21,7 @@ namespace Objective.Maui_App.ViewModels
         [ObservableProperty]
         public string greetingText = string.Empty;
 
-        public ObservableCollection<Models.Objective> objectives;
+        public ObservableCollection<Models.Objective> _objectives;
 
         //Construction
         public MainViewModel
@@ -33,7 +33,7 @@ namespace Objective.Maui_App.ViewModels
             _userData = userData;
             _quoteData = quoteData;
 
-            objectives = new ObservableCollection<Models.Objective>()
+            Objectives = new ObservableCollection<Models.Objective>()
             {
                 new Models.Objective {},
                 new Models.Objective {},
@@ -43,6 +43,16 @@ namespace Objective.Maui_App.ViewModels
                 new Models.Objective {},
                 new Models.Objective {},
             };
+        }
+
+        public ObservableCollection<Models.Objective> Objectives
+        {
+            get { return _objectives; }
+            set
+            {
+                _objectives = value;
+                OnPropertyChanged();
+            }
         }
 
         //Data loading

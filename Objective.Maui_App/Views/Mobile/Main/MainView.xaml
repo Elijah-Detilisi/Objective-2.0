@@ -34,17 +34,16 @@
                 <BoxView
                     Style="{StaticResource BoxViewStyle}"/>
                 <CollectionView
-                    ItemsSource="{Binding Objectives}" 
+                    ItemsSource="{Binding Objectives}"
                     Style="{StaticResource RecentChatCollectionStyle}">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
-                            <Templates:Objective/>
+                            <Templates:Objective
+                                Margin="0,5"/>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
                 </CollectionView>
-                
             </Grid>
-            
         </Grid>
     </ContentPage.Content>
 
@@ -59,7 +58,7 @@
             
             <Style x:Key="BoxViewStyle" TargetType="BoxView">
                 <Setter Property="Color" Value="White" />
-                <Setter Property="CornerRadius" Value="30, 30, 0, 0" />
+                <Setter Property="CornerRadius" Value="15, 15, 0, 0" />
             </Style>
 
             <Style x:Key="RecentChatCollectionStyle" TargetType="CollectionView">
