@@ -6,10 +6,9 @@
     x:Class="Objective.Maui_App.Views.Mobile.Main.MainView"
     xmlns:Templates="clr-namespace:Objective.Maui_App.Views.Mobile.Main.Templates"
     xmlns:ViewModels="clr-namespace:Objective.Maui_App.ViewModels">
-
     
-
     <VerticalStackLayout
+        Spacing="10"
         Padding="10">
         <Templates:Header
             GreetingText="{Binding GreetingText}"/>

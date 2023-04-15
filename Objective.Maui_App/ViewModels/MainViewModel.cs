@@ -22,18 +22,27 @@ namespace Objective.Maui_App.ViewModels
             _quoteData = quoteData;
         }
 
-        public async Task InitializeRepos()
+        public async Task LoadViewModel()
+        {
+            LoadGreeting();
+            await InitializeDataAsync();
+            await LoadRandomQuoteAsync();
+        }
+
+        private void LoadGreeting()
+        {
+            GreetingText = $"Good {TimeService.TimeOfDay()}";
+        }
+        private async Task InitializeDataAsync()
         {
             await _quoteData.Initialize();
         }
-
-        public async Task LoadRandomQuote()
+        private async Task LoadRandomQuoteAsync()
         {
             int num = new Random().Next(1, 102);
             var test = await _quoteData.Get(x => x.Id == num);
 
             RandomQuote = test.FirstOrDefault();
-            GreetingText = $"Good {TimeService.TimeOfDay()}";
         }
 
     }

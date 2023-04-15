@@ -15,9 +15,7 @@ public partial class MainView : ContentPage
 	}
     protected override async void OnAppearing()
     {
-        await _viewModel.InitializeRepos();
-        await _viewModel.LoadRandomQuote();
-
+        await _viewModel.LoadViewModel();
         base.OnAppearing();
     }
 
