@@ -13,7 +13,7 @@ public partial class Header : ContentView
     }
 
     //Properties
-    public static readonly BindableProperty CurrentUserProperty = BindableProperty.Create(nameof(CurrentUser), typeof(Models.Quote), typeof(Quote));
+    public static readonly BindableProperty CurrentUserProperty = BindableProperty.Create(nameof(CurrentUser), typeof(Models.User), typeof(Header));
     public static readonly BindableProperty GreetingTextProperty = BindableProperty.Create(nameof(GreetingText), typeof(string), typeof(Header));
     public static readonly BindableProperty SearchCommandProperty = BindableProperty.Create(nameof(SearchCommand), typeof(ICommand), typeof(Header), defaultValueCreator: DefaultCommand);
     public static readonly BindableProperty ProfileCommandProperty = BindableProperty.Create(nameof(ProfileCommand), typeof(ICommand), typeof(Header), defaultValueCreator: DefaultCommand);
