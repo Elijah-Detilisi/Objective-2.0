@@ -6,18 +6,67 @@
     x:Class="Objective.Maui_App.Views.Mobile.Main.MainView"
     xmlns:Templates="clr-namespace:Objective.Maui_App.Views.Mobile.Main.Templates"
     xmlns:ViewModels="clr-namespace:Objective.Maui_App.ViewModels">
-    
-    <VerticalStackLayout
-        Spacing="10"
-        Padding="10">
-        <Templates:Header
-            CurrentUser="{Binding CurrentUser}"
-            GreetingText="{Binding GreetingText}"/>
-        <Templates:Quote
-            QuoteText="{Binding RandomQuote}"/>
-        <Templates:Objective/>
-        
-    </VerticalStackLayout>
-    
-    
+    <!--View-->
+    <ContentPage.Content>
+        <Grid  
+            BackgroundColor="#E8E9EB">
+            
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30*" />
+                <RowDefinition Height="70*" />
+            </Grid.RowDefinitions>
+            
+            <!--Top Section-->
+            <VerticalStackLayout
+                Grid.Row="0"
+                Style="{StaticResource TopViewStyle}">
+                <Templates:Header
+                    CurrentUser="{Binding CurrentUser}"
+                    GreetingText="{Binding GreetingText}"/>
+                <Templates:Quote
+                    Margin="0,10,0,0"
+                    QuoteText="{Binding RandomQuote}"/>
+            </VerticalStackLayout>
+            
+            <!--Bottom Section-->
+            <Grid
+                Grid.Row="1">
+                <BoxView
+                    Style="{StaticResource BoxViewStyle}"/>
+                <CollectionView
+                    ItemsSource="{Binding Objectives}" 
+                    Style="{StaticResource RecentChatCollectionStyle}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Templates:Objective/>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+                
+            </Grid>
+            
+        </Grid>
+    </ContentPage.Content>
+
+
+    <!--Styling-->
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="TopViewStyle" TargetType="VerticalStackLayout">
+                <Setter Property="Spacing" Value="10" />
+                <Setter Property="Padding" Value="10" />
+            </Style>
+            
+            <Style x:Key="BoxViewStyle" TargetType="BoxView">
+                <Setter Property="Color" Value="White" />
+                <Setter Property="CornerRadius" Value="30, 30, 0, 0" />
+            </Style>
+
+            <Style x:Key="RecentChatCollectionStyle" TargetType="CollectionView">
+                <Setter Property="Margin" Value="12, 24, 12, 0" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+
 </ContentPage>

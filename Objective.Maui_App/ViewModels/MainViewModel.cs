@@ -2,6 +2,8 @@
 using Objective.Maui_App.Services;
 using Objective.Maui_App.DataAccess;
 using CommunityToolkit.Mvvm.ComponentModel;
+using Kotlin.Properties;
+using System.Collections.ObjectModel;
 
 namespace Objective.Maui_App.ViewModels
 {
@@ -19,6 +21,8 @@ namespace Objective.Maui_App.ViewModels
         [ObservableProperty]
         public string greetingText = string.Empty;
 
+        public ObservableCollection<Models.Objective> objectives;
+
         //Construction
         public MainViewModel
         (
@@ -28,6 +32,17 @@ namespace Objective.Maui_App.ViewModels
         {
             _userData = userData;
             _quoteData = quoteData;
+
+            objectives = new ObservableCollection<Models.Objective>()
+            {
+                new Models.Objective {},
+                new Models.Objective {},
+                new Models.Objective {},
+                new Models.Objective {},
+                new Models.Objective {},
+                new Models.Objective {},
+                new Models.Objective {},
+            };
         }
 
         //Data loading
