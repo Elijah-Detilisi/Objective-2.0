@@ -1,9 +1,9 @@
-﻿using Objective.Maui_App.Models;
+﻿
+using Objective.Maui_App.Models;
 using Objective.Maui_App.Services;
 using Objective.Maui_App.DataAccess;
-using CommunityToolkit.Mvvm.ComponentModel;
-using Kotlin.Properties;
 using System.Collections.ObjectModel;
+using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace Objective.Maui_App.ViewModels
 {
@@ -19,8 +19,10 @@ namespace Objective.Maui_App.ViewModels
         [ObservableProperty]
         public Quote randomQuote = new();
         [ObservableProperty]
+        public string todayText = string.Empty;
+        [ObservableProperty]
         public string greetingText = string.Empty;
-
+        
         public ObservableCollection<Models.Objective> _objectives;
 
         //Construction
@@ -65,6 +67,7 @@ namespace Objective.Maui_App.ViewModels
         }
         private void LoadGreeting()
         {
+            TodayText = TimeService.DayOfWeek();
             GreetingText = $"Good {TimeService.TimeOfDay()}";
         }
         private async Task InitializeDataAsync()

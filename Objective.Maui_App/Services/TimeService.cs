@@ -11,6 +11,11 @@ namespace Objective.Maui_App.Services
         public static string Today()
         {
             return DateTime.Now.ToString("D");
+        } 
+        
+        public static string DayOfWeek()
+        {
+            return DateTime.Today.DayOfWeek.ToString();
         }
 
         public static string TimeOfDay()
