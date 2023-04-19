@@ -4,6 +4,7 @@ using Objective.Maui_App.Services;
 using Objective.Maui_App.DataAccess;
 using System.Collections.ObjectModel;
 using CommunityToolkit.Mvvm.ComponentModel;
+using System.Text;
 
 namespace Objective.Maui_App.ViewModels
 {
@@ -64,6 +65,8 @@ namespace Objective.Maui_App.ViewModels
             await InitializeDataAsync();
             await LoadUserAsync();
             await LoadRandomQuoteAsync();
+
+            await AnnounceStartUpMessage();
         }
         private void LoadGreeting()
         {
@@ -89,6 +92,15 @@ namespace Objective.Maui_App.ViewModels
             {
                 CurrentUser = result.FirstOrDefault();
             }
+        }
+
+        private async Task AnnounceStartUpMessage()
+        {
+            string salutation = $"{GreetingText} {CurrentUser.Username}";
+            string timeBriefing = $"Today is {TimeService.Today()} and the time is {TimeService.Time()}";
+
+            string startUpMessage = $"{salutation}. {timeBriefing}.";
+            await TextToSpeechService.Speak(startUpMessage);
         }
 
     }
