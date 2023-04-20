@@ -38,13 +38,10 @@ namespace Objective.Maui_App.ViewModels
 
             Objectives = new ObservableCollection<Models.Objective>()
             {
-                new Models.Objective {},
-                new Models.Objective {},
-                new Models.Objective {},
-                new Models.Objective {},
-                new Models.Objective {},
-                new Models.Objective {},
-                new Models.Objective {},
+                new Models.Objective {Title = "Customize profile."},
+                new Models.Objective {Title = "Customize profile."},
+                new Models.Objective {Title = "Customize profile."},
+                new Models.Objective {Title = "Customize profile."},
             };
         }
 
@@ -98,9 +95,20 @@ namespace Objective.Maui_App.ViewModels
         {
             string salutation = $"{GreetingText} {CurrentUser.Username}";
             string timeBriefing = $"Today is {TimeService.Today()} and the time is {TimeService.Time()}";
+            string objectiveList = "You currently don't have any objectives yet.";
 
-            string startUpMessage = $"{salutation}. {timeBriefing}.";
+            if (Objectives != null)
+            {
+                objectiveList = "Your objectives are as follows;";
+                foreach (var item in Objectives)
+                {
+                    objectiveList += $" {item.Title}.";
+                }
+            }
+            
+            string startUpMessage = $"{salutation}. {timeBriefing}. {objectiveList}";
             await TextToSpeechService.Speak(startUpMessage);
+            await TextToSpeechService.Speak($"Remember; {RandomQuote.Phrase}, {RandomQuote.Qoutee}");
         }
 
     }
