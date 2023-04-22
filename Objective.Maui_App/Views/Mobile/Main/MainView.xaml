@@ -45,12 +45,13 @@
                     Text="OBJECTIVES:"/>
                 <CollectionView
                     Grid.Row="1"
+                    EmptyView="Empty"
                     VerticalOptions="Start"
                     ItemsSource="{Binding Objectives}">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
                             <Templates:Objective
-                                Margin="0,5"/>
+                                Margin="0,5,0,0"/>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
                 </CollectionView>

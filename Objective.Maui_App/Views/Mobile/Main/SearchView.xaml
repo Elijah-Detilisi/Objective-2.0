@@ -3,6 +3,7 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="Objective.Maui_App.Views.Mobile.Main.SearchView"
+    xmlns:Templates="clr-namespace:Objective.Maui_App.Views.Mobile.Main.Templates"
     Title="SearchView">
     <!--View-->
     <ContentPage.Content>
@@ -10,9 +11,10 @@
             Padding="10">
             <Grid.RowDefinitions>
                 <RowDefinition Height="5*" />
-                <RowDefinition Height="90*" />
+                <RowDefinition Height="65*" />
             </Grid.RowDefinitions>
 
+            <!--Top Section-->
             <HorizontalStackLayout
                 Spacing="20"
                 Grid.Row="0">
@@ -21,8 +23,23 @@
                     Style="{StaticResource BackButtonStyle}"/>
                 <Entry
                     Placeholder="Search by title.."
+                    ClearButtonVisibility="WhileEditing"
                     Style="{StaticResource SearchEntryStyle}"/>
             </HorizontalStackLayout>
+
+            <!--Bottom Section-->
+            <CollectionView
+                Grid.Row="1"
+                EmptyView="No results."
+                ItemsSource="{Binding Objectives}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Templates:Objective
+                            Margin="0,5,0,0"/>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            
         </Grid>
     </ContentPage.Content>
     
@@ -31,13 +48,14 @@
         <ResourceDictionary>
             <Style x:Key="BackButtonStyle" TargetType="ImageButton">
                 <Setter Property="WidthRequest" Value="40" />
+                <Setter Property="VerticalOptions" Value="Center" />
                 <Setter Property="HorizontalOptions" Value="Start" />
             </Style>
 
             <Style x:Key="SearchEntryStyle" TargetType="Entry">
                 <Setter Property="FontSize" Value="16" />
                 <Setter Property="VerticalTextAlignment" Value="End" />
-                <Setter Property="ClearButtonVisibility" Value="WhileEditing" />
+                <Setter Property="VerticalOptions" Value="CenterAndExpand" />
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
