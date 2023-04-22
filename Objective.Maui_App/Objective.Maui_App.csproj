@@ -82,6 +82,9 @@
 	  <MauiXaml Update="Views\Mobile\Main\HomeView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\Mobile\Main\SearchView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\Mobile\Main\Templates\Header.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
