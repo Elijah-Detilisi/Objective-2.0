@@ -51,7 +51,6 @@
 	  <None Remove="Resources\Images\add.svg" />
 	  <None Remove="Resources\Images\calendar.svg" />
 	  <None Remove="Resources\Images\search.svg" />
-	  <None Remove="Resources\Images\user.png" />
 	  <None Remove="Resources\Images\user.svg" />
 	</ItemGroup>
 

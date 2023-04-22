@@ -63,7 +63,7 @@ namespace Objective.Maui_App.ViewModels
             await LoadUserAsync();
             await LoadRandomQuoteAsync();
 
-            await AnnounceStartUpMessage();
+            //await AnnounceStartUpMessage();
         }
         private void LoadGreeting()
         {
