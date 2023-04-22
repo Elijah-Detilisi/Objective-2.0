@@ -13,10 +13,11 @@ public partial class MainView : ContentPage
 
         InitializeComponent();
 	}
-    protected override async void OnAppearing()
+    
+    protected override async void OnParentSet()
     {
         await _viewModel.LoadViewModel();
-        base.OnAppearing();
+        base.OnParentSet();
     }
 
 }
