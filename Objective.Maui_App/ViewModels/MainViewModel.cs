@@ -43,6 +43,8 @@ namespace Objective.Maui_App.ViewModels
                 new Models.Objective {Title = "Customize profile."},
                 new Models.Objective {Title = "Customize profile."},
             };
+
+            Objectives.ToList();
         }
 
         public ObservableCollection<Models.Objective> Objectives

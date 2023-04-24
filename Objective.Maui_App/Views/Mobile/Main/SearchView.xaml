@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage 
+    Title="SearchView"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="Objective.Maui_App.Views.Mobile.Main.SearchView"
-    xmlns:Templates="clr-namespace:Objective.Maui_App.Views.Mobile.Main.Templates"
-    Title="SearchView">
+    xmlns:Templates="clr-namespace:Objective.Maui_App.Views.Mobile.Main.Templates">
     <!--View-->
     <ContentPage.Content>
         <Grid
-            Padding="10">
+            Padding="5">
             <Grid.RowDefinitions>
                 <RowDefinition Height="5*" />
                 <RowDefinition Height="65*" />
@@ -16,8 +16,8 @@
 
             <!--Top Section-->
             <HorizontalStackLayout
-                Spacing="20"
-                Grid.Row="0">
+                Grid.Row="0"
+                Style="{StaticResource TopSectionStyle}">
                 <ImageButton
                     Source="back.png"
                     Style="{StaticResource BackButtonStyle}"/>
@@ -28,17 +28,18 @@
             </HorizontalStackLayout>
 
             <!--Bottom Section-->
-            <CollectionView
+            <VerticalStackLayout
                 Grid.Row="1"
-                EmptyView="No results."
-                ItemsSource="{Binding Objectives}">
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <Templates:Objective
-                            Margin="0,5,0,0"/>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
+                Style="{StaticResource BottomSectionStyle}">
+                <Label
+                    Grid.Row="0"
+                    Text="~OBJECTIVES~"
+                    Style="{StaticResource TitleLabelStyle}"/>
+                
+                <CollectionView
+                    x:Name="SearchListView"
+                    EmptyView="No results."/>
+            </VerticalStackLayout>
             
         </Grid>
     </ContentPage.Content>
@@ -46,6 +47,16 @@
     <!--Styling-->
     <ContentPage.Resources>
         <ResourceDictionary>
+            <Style x:Key="TopSectionStyle" TargetType="HorizontalStackLayout">
+                <Setter Property="Spacing" Value="20" />
+                <Setter Property="BackgroundColor" Value="#EDEADE" />
+            </Style>
+
+            <Style x:Key="BottomSectionStyle" TargetType="VerticalStackLayout">
+                <Setter Property="Spacing" Value="10" />
+                <Setter Property="Padding" Value="0,20,0,0" />
+            </Style>
+
             <Style x:Key="BackButtonStyle" TargetType="ImageButton">
                 <Setter Property="WidthRequest" Value="40" />
                 <Setter Property="VerticalOptions" Value="Center" />
@@ -56,6 +67,14 @@
                 <Setter Property="FontSize" Value="16" />
                 <Setter Property="VerticalTextAlignment" Value="End" />
                 <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+            </Style>
+            
+            <Style x:Key="TitleLabelStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="18" />
+                <Setter Property="TextColor" Value="#666666"/>
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="FontFamily" Value="OpenSansSemibold" />
+                <Setter Property="HorizontalOptions" Value="Center" />
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
