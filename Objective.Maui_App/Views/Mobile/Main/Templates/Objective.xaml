@@ -24,7 +24,7 @@
                     <Label
                         Grid.Column="1"
                         ClassId="TitleLabel"
-                        Text="{TemplateBinding ObjectiveText.Title}"
+                        Text="{TemplateBinding ObjectiveModel.Title}"
                         Style="{StaticResource ObjectiveLabelStyle}"/>
 
                     <Image
@@ -34,7 +34,7 @@
                     <Label
                         Grid.Column="3"
                         ClassId="DateLabel"
-                        Text="{TemplateBinding ObjectiveText.DueDate, StringFormat='{0:dd MMM yyyy}'}"
+                        Text="{TemplateBinding ObjectiveModel.DueDate, StringFormat='{0:dd MMM yyyy}'}"
                         Style="{StaticResource ObjectiveLabelStyle}"/>
                 </Grid>
             </Frame>

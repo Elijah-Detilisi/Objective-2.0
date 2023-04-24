@@ -36,15 +36,14 @@ namespace Objective.Maui_App.ViewModels
             _userData = userData;
             _quoteData = quoteData;
 
-            Objectives = new ObservableCollection<Models.Objective>()
+            _objectives = new ObservableCollection<Models.Objective>()
             {
                 new Models.Objective {Title = "Customize profile."},
-                new Models.Objective {Title = "Customize profile."},
-                new Models.Objective {Title = "Customize profile."},
-                new Models.Objective {Title = "Customize profile."},
+                new Models.Objective {Title = "Edit profile."},
+                new Models.Objective {Title = "Decorate profile."},
+                new Models.Objective {Title = "Personalize profile."},
+                new Models.Objective {Title = "Personalize profile."},
             };
-
-            Objectives.ToList();
         }
 
         public ObservableCollection<Models.Objective> Objectives

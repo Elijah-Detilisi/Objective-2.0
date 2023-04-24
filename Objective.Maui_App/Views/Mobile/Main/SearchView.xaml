@@ -23,6 +23,7 @@
                     Style="{StaticResource BackButtonStyle}"/>
                 <Entry
                     Placeholder="Search by title.."
+                    TextChanged="Entry_TextChanged"
                     ClearButtonVisibility="WhileEditing"
                     Style="{StaticResource SearchEntryStyle}"/>
             </HorizontalStackLayout>

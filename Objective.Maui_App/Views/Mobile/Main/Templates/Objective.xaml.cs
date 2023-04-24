@@ -4,22 +4,15 @@ public partial class Objective : ContentView
 {
 	public Objective()
 	{
-        ObjectiveText = new Models.Objective()
-        {
-            Title = "Customize profile.",
-            Description = "Change your profile picture and username.",
-            DueDate = DateTime.Now.Date,
-            IsDone = false,
-        };
-
         InitializeComponent();
 	}
 
     //Properties
-    public static readonly BindableProperty ObjectiveProperty = BindableProperty.Create(nameof(ObjectiveText), typeof(Models.Objective), typeof(Objective));
+    public static readonly BindableProperty ObjectiveProperty 
+        = BindableProperty.Create(nameof(ObjectiveModel), typeof(Models.Objective), typeof(Objective));
 
     //Fields
-    public Models.Objective ObjectiveText
+    public Models.Objective ObjectiveModel
     {
         get => (Models.Objective)GetValue(ObjectiveProperty);
         set => SetValue(ObjectiveProperty, value);

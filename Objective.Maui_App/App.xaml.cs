@@ -8,8 +8,8 @@ namespace Objective.Maui_App
         {
             InitializeComponent();
 
-            MainPage = new Views.Mobile.Main.SearchView();
-            //MainPage = new Views.Mobile.Main.MainView(viewModel);
+            //MainPage = new Views.Mobile.Main.SearchView(viewModel.Objectives.ToList());
+            MainPage = new Views.Mobile.Main.MainView(viewModel);
         }
     }
 }
