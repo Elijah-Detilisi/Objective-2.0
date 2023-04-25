@@ -4,42 +4,41 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="Objective.Maui_App.Views.Mobile.Main.Templates.Objective">
     <!--View-->
-    <ContentView.ControlTemplate>
-        <ControlTemplate>
-            <Frame
-                Style="{StaticResource FrameStyle}">
-                <Grid
-                    ColumnSpacing="10">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1*" />
-                        <ColumnDefinition Width="5*" />
-                        <ColumnDefinition Width="1*" />
-                        <ColumnDefinition Width="3 *" />
-                    </Grid.ColumnDefinitions>
+    <ContentView.Content>
+        <Frame
+            Style="{StaticResource FrameStyle}">
+            <Grid
+                ColumnSpacing="10">
 
-                    <CheckBox
-                        Grid.Column="0"
-                        Style="{StaticResource CheckboxStyle}"/>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="5*" />
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="3 *" />
+                </Grid.ColumnDefinitions>
 
-                    <Label
-                        Grid.Column="1"
-                        ClassId="TitleLabel"
-                        Text="{TemplateBinding ObjectiveModel.Title}"
-                        Style="{StaticResource ObjectiveLabelStyle}"/>
+                <CheckBox
+                    Grid.Column="0"
+                    Style="{StaticResource CheckboxStyle}"/>
+                
+                <Label
+                    Grid.Column="1"
+                    ClassId="TitleLabel"
+                    Text="{Binding Title}"
+                    Style="{StaticResource ObjectiveLabelStyle}"/>
 
-                    <Image
-                        Grid.Column="2"
-                        Source="calendar.svg"/>
+                <Image
+                    Grid.Column="2"
+                    Source="calendar.svg"/>
 
-                    <Label
-                        Grid.Column="3"
-                        ClassId="DateLabel"
-                        Text="{TemplateBinding ObjectiveModel.DueDate, StringFormat='{0:dd MMM yyyy}'}"
-                        Style="{StaticResource ObjectiveLabelStyle}"/>
-                </Grid>
-            </Frame>
-        </ControlTemplate>
-    </ContentView.ControlTemplate>
+                <Label
+                    Grid.Column="3"
+                    ClassId="DateLabel"
+                    Text="{Binding DueDate, StringFormat='{0:dd MMM yyyy}'}"
+                    Style="{StaticResource ObjectiveLabelStyle}"/>
+            </Grid>
+        </Frame>
+    </ContentView.Content>
 
     <!--Styling-->
     <ContentView.Resources>
