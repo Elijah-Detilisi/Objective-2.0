@@ -1,12 +1,14 @@
+using Objective.Maui_App.ViewModels;
+
 namespace Objective.Maui_App.Views.Mobile.Main;
 
 public partial class SearchView : ContentPage
 {
     private List<Models.Objective> _searchList;
 
-    public SearchView(List<Models.Objective> searchList)
+    public SearchView(MainViewModel viewModel)
 	{
-        _searchList = searchList;
+        _searchList = viewModel.Objectives.ToList();
 
         InitializeComponent();
         InitializeSearchListView();

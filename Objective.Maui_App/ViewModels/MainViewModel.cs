@@ -4,7 +4,6 @@ using Objective.Maui_App.Services;
 using Objective.Maui_App.DataAccess;
 using System.Collections.ObjectModel;
 using CommunityToolkit.Mvvm.ComponentModel;
-using System.Text;
 
 namespace Objective.Maui_App.ViewModels
 {
