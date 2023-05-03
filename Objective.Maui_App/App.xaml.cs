@@ -8,8 +8,8 @@ namespace Objective.Maui_App
         {
             InitializeComponent();
             Application.Current.UserAppTheme = AppTheme.Light;
-            MainPage = new Views.Mobile.Main.SearchView(viewModel);
-            //MainPage = new Views.Mobile.Main.MainView(viewModel);
+            //MainPage = new Views.Mobile.Main.SearchView(viewModel);
+            MainPage = new Views.Mobile.Main.MainView(viewModel);
         }
     }
 }
