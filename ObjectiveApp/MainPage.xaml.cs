@@ -1,12 +1,15 @@
-﻿namespace ObjectiveApp
+﻿using ObjectiveApp.ViewModels;
+
+namespace ObjectiveApp
 {
     public partial class MainPage : ContentPage
     {
         int count = 0;
 
-        public MainPage()
+        public MainPage(HomeViewModel viewModel)
         {
             InitializeComponent();
+            BindingContext = viewModel;
         }
 
         private void OnCounterClicked(object sender, EventArgs e)

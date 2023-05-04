@@ -1,6 +1,8 @@
-﻿using ObjectiveApp.Views.Home;
-using ObjectiveApp.Views.Objective;
+﻿using ObjectiveApp.ViewModels;
+using ObjectiveApp.Views.Home;
 using ObjectiveApp.Views.Profile;
+using ObjectiveApp.Views.Objective;
+
 
 namespace ObjectiveApp
 {
@@ -18,9 +20,14 @@ namespace ObjectiveApp
                 });
 
             //Register Main Views
-            builder.Services.AddTransient<HomeView>();
-            builder.Services.AddTransient<ProfileView>();
+            builder.Services.AddSingleton<MainPage>();
+            builder.Services.AddSingleton<HomeView>();
+            builder.Services.AddSingleton<ProfileView>();
             builder.Services.AddTransient<ObjectiveView>();
+
+            //Register Main ViewModels
+            builder.Services.AddSingleton<HomeViewModel>();
+
 
             return builder.Build();
         }
