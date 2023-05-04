@@ -18,9 +18,9 @@ namespace ObjectiveApp
                 });
 
             //Register Main Views
-            builder.Services.AddSingleton<HomeView>();
-            builder.Services.AddSingleton<ProfileView>();
-            builder.Services.AddSingleton<ObjectiveView>();
+            builder.Services.AddTransient<HomeView>();
+            builder.Services.AddTransient<ProfileView>();
+            builder.Services.AddTransient<ObjectiveView>();
 
             return builder.Build();
         }
