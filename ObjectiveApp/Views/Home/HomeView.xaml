@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage 
+    Title="HomeView"
+    x:DataType="viewmodels:HomeViewModel"
+    x:Class="ObjectiveApp.Views.Home.HomeView"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:viewmodel="clr-namespace:ObjectiveApp.ViewModels"
-    x:DataType="viewmodel:HomeViewModel"
-    x:Class="ObjectiveApp.Views.Home.HomeView"
-    Title="HomeView">
+    xmlns:viewmodels="clr-namespace:ObjectiveApp.ViewModels"
+    xmlns:templates="clr-namespace:ObjectiveApp.Views.Home.Templates">
 
     <Shell.TitleView>
         <StackLayout>
-            <Button Text="ADD" HeightRequest="50" WidthRequest="100" HorizontalOptions="Center"></Button>
+            <templates:NavBarTemplate/>
         </StackLayout>
     </Shell.TitleView>
 

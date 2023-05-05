@@ -27,7 +27,7 @@
                         Style="{StaticResource UsernameLabelStyle}" />
                 </StackLayout>
 
-                <!-- Buttons Section -->
+                <!-- Control Section -->
                 <Grid Grid.Column="1"
                       ColumnSpacing="10">
                     <Grid.ColumnDefinitions>

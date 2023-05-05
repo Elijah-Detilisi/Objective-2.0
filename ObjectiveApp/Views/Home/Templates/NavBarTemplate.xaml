@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="ObjectiveApp.Views.Home.Templates.NavBarTemplate">
+    
+    <!--View-->
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="7*" />
+            <ColumnDefinition Width="2*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- Greeting Section -->
+        <StackLayout 
+            Grid.Column="0"
+            VerticalOptions="CenterAndExpand">
+            <Label 
+                ClassId="GreetingLabel"
+                Text="Good afternoon"
+                Style="{StaticResource GreetingLabelStyle}" />
+            <Label 
+                ClassId="UsernameLabel"
+                Text="Elijah"
+                Style="{StaticResource UsernameLabelStyle}" />
+        </StackLayout>
+
+        <!-- Control Section -->
+        <Grid 
+            Grid.Column="1"
+            ColumnSpacing="10">
+            
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="5*" />
+                <ColumnDefinition Width="5*" />
+            </Grid.ColumnDefinitions>
+
+            <ImageButton 
+                Grid.Column="0"
+                Source="user.svg" />
+            <ImageButton 
+                Grid.Column="1"
+                Source="search.svg" />
+        </Grid>
+
+    </Grid>
+
+    <!--Styling-->
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Style x:Key="GreetingLabelStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="24" />
+                <Setter Property="TextColor" Value="{StaticResource Gray200}"/>
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="VerticalTextAlignment" Value="End" />
+            </Style>
+
+            <Style x:Key="UsernameLabelStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="16" />
+                <Setter Property="TextColor" Value="{StaticResource Gray100}"/>
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="VerticalTextAlignment" Value="Start" />
+            </Style>
+        </ResourceDictionary>
+    </ContentView.Resources>
+
+</ContentView>

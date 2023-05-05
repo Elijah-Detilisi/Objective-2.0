@@ -8,9 +8,9 @@ namespace ObjectiveApp.ViewModels
     {
 
         [RelayCommand]
-        public void NavigateToNewPage()
+        public async Task NavigateToNewPage()
         {
-            Shell.Current.GoToAsync(nameof(ProfileView));
+            await Shell.Current.GoToAsync(nameof(ProfileView));
         }
     }
 }
