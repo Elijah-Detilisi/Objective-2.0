@@ -12,7 +12,8 @@
         <StackLayout>
             <templates:NavBarTemplate
                 Greeting="{Binding Greeting}"
-                CurrentUser="{Binding CurrentUser}"/>
+                CurrentUser="{Binding CurrentUser}"
+                ProfileCommand="{Binding ProfileCommand}"/>
         </StackLayout>
     </Shell.TitleView>
 
@@ -44,7 +45,7 @@
             x:Name="CounterBtn"
             Text="Click me"
             SemanticProperties.Hint="Counts the number of times you click"
-            Command="{Binding NavigateToNewPageCommand}"
+            Command="{Binding ProfileCommand}"
             HorizontalOptions="Center" />
     </VerticalStackLayout>
     

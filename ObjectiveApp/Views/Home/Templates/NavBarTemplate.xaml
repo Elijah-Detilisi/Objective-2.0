@@ -38,10 +38,12 @@
 
                     <ImageButton 
                         Grid.Column="0"
-                        Source="user.svg" />
+                        Source="user.svg" 
+                        Command="{TemplateBinding ProfileCommand}"/>
                     <ImageButton 
                         Grid.Column="1"
-                        Source="search.svg" />
+                        Source="search.svg" 
+                        Command="{TemplateBinding SearchCommand}"/>
                 </Grid>
             </Grid>
         </ControlTemplate>
