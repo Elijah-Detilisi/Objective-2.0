@@ -1,7 +1,6 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+﻿using ObjectiveApp.Views.Profile;
 using CommunityToolkit.Mvvm.Input;
-using ObjectiveApp.Views.Home;
-
+using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace ObjectiveApp.ViewModels
 {
@@ -11,7 +10,7 @@ namespace ObjectiveApp.ViewModels
         [RelayCommand]
         public void NavigateToNewPage()
         {
-            Shell.Current.GoToAsync(nameof(HomeView));
+            Shell.Current.GoToAsync(nameof(ProfileView));
         }
     }
 }
