@@ -10,7 +10,9 @@
 
     <Shell.TitleView>
         <StackLayout>
-            <templates:NavBarTemplate/>
+            <templates:NavBarTemplate
+                Greeting="{Binding Greeting}"
+                CurrentUser="{Binding CurrentUser}"/>
         </StackLayout>
     </Shell.TitleView>
 
