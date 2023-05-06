@@ -50,8 +50,8 @@
 
 	<ItemGroup>
 	  <None Remove="Resources\Images\add.svg" />
-	  <None Remove="Resources\Images\back.svg" />
 	  <None Remove="Resources\Images\calendar.svg" />
+	  <None Remove="Resources\Images\no_task.svg" />
 	  <None Remove="Resources\Images\search.svg" />
 	  <None Remove="Resources\Images\user.svg" />
 	  <None Remove="Resources\Raw\102-inspirational-qoutes.txt" />
