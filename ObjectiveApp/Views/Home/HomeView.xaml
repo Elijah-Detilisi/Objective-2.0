@@ -8,6 +8,7 @@
     xmlns:viewmodels="clr-namespace:ObjectiveApp.ViewModels"
     xmlns:templates="clr-namespace:ObjectiveApp.Views.Home.Templates">
 
+    <!--Header-->
     <Shell.TitleView>
         <StackLayout>
             <templates:NavBarTemplate
@@ -17,11 +18,14 @@
         </StackLayout>
     </Shell.TitleView>
 
+    <!--Body-->
     <VerticalStackLayout
         Spacing="25"
         Padding="30,0"
         VerticalOptions="Center">
 
+        <templates:CardTemplate/>
+        
         <Image
             Source="dotnet_bot.png"
             SemanticProperties.Description="Cute dot net bot waving hi to you!"
