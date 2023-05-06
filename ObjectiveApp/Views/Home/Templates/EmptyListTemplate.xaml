@@ -19,7 +19,7 @@
                     Text="{TemplateBinding DayOfWeek, StringFormat='Lazy {0}'}"/>
                 <Label
                     HorizontalOptions="Center"
-                    Text="Your objective queue is clear at the moment."/>
+                    Text="Your objectives queue is clear at the moment."/>
             </VerticalStackLayout>
         </ControlTemplate>
     </ContentView.ControlTemplate>
