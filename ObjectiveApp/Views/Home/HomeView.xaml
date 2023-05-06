@@ -44,13 +44,21 @@
                     Style="{StaticResource TitleLabelStyle}"/>
 
                 <CollectionView
-                    Grid.Row="1">
+                    Grid.Row="1"
+                    VerticalOptions="Start">
+                    <!--EmptyView-->
                     <CollectionView.EmptyView>
                         <ContentView>
                             <templates:EmptyListTemplate
                                 DayOfWeek="{Binding DayOfWeek}"/>
                         </ContentView>
                     </CollectionView.EmptyView>
+                    <!--ItemTemplate-->
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
                 </CollectionView>
 
                 <ImageButton
