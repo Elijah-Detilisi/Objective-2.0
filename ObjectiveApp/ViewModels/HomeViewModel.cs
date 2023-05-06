@@ -31,7 +31,7 @@ namespace ObjectiveApp.ViewModels
         //Methods
         private void LoadGreeting()
         {
-            DayOfWeek = DateTimeService.DayOfWeek().ToUpper();
+            DayOfWeek = DateTimeService.DayOfWeek();
             Greeting = $"Good {DateTimeService.TimeOfDay()}";
         }
     }

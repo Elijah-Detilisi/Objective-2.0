@@ -47,27 +47,10 @@
                     Grid.Row="1">
                     <CollectionView.EmptyView>
                         <ContentView>
-                            <VerticalStackLayout
-                                Spacing="20"
-                                VerticalOptions="Center">
-
-                                <Image
-                                    Source="lazy.png"
-                                    HeightRequest="150"
-                                    HorizontalOptions="Center" />
-
-                                <Label
-                                    Text="Lazy Monday!"
-                                    FontSize="24"
-                                    HorizontalOptions="Center" />
-
-                                <Label
-                                    HorizontalOptions="Center"
-                                    Text="Your objective queue is clear at the moment."/>
-                            </VerticalStackLayout>
+                            <templates:EmptyListTemplate
+                                DayOfWeek="{Binding DayOfWeek}"/>
                         </ContentView>
                     </CollectionView.EmptyView>
-
                 </CollectionView>
 
                 <ImageButton
@@ -81,13 +64,6 @@
     <!--Styling-->
     <ContentPage.Resources>
         <ResourceDictionary>
-            <Style x:Key="DayLabelStyle" TargetType="Label">
-                <Setter Property="FontSize" Value="18" />
-                <Setter Property="FontAttributes" Value="Bold" />
-                <Setter Property="HorizontalOptions" Value="Center" />
-                <Setter Property="TextColor" Value="{StaticResource Secondary}"/>
-            </Style>
-
             <Style x:Key="TitleLabelStyle" TargetType="Label">
                 <Setter Property="FontSize" Value="22" />
                 <Setter Property="FontAttributes" Value="Bold" />
