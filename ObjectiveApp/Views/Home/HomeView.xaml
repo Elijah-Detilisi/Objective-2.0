@@ -47,8 +47,24 @@
                     Grid.Row="1">
                     <CollectionView.EmptyView>
                         <ContentView>
-                            <ImageButton
-                                Source="no_task.svg"/>
+                            <VerticalStackLayout
+                                Spacing="20"
+                                VerticalOptions="Center">
+
+                                <Image
+                                    Source="lazy.png"
+                                    HeightRequest="150"
+                                    HorizontalOptions="Center" />
+
+                                <Label
+                                    Text="Lazy Monday!"
+                                    FontSize="24"
+                                    HorizontalOptions="Center" />
+
+                                <Label
+                                    HorizontalOptions="Center"
+                                    Text="Your objective queue is clear at the moment."/>
+                            </VerticalStackLayout>
                         </ContentView>
                     </CollectionView.EmptyView>
 
