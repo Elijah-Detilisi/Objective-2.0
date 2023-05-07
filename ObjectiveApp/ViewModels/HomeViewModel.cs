@@ -1,8 +1,10 @@
 ﻿using ObjectiveApp.Services;
 using ObjectiveApp.Views.Profile;
+using ObjectiveApp.Views.Objective;
 using CommunityToolkit.Mvvm.Input;
-using CommunityToolkit.Mvvm.ComponentModel;
 using System.Collections.ObjectModel;
+using CommunityToolkit.Mvvm.ComponentModel;
+
 
 namespace ObjectiveApp.ViewModels
 {
@@ -34,6 +36,11 @@ namespace ObjectiveApp.ViewModels
         public void OnProfile()
         {
             Shell.Current.GoToAsync(nameof(ProfileView));
+        }
+        [RelayCommand]
+        public void OnInsert()
+        {
+            Shell.Current.GoToAsync(nameof(ObjectiveView));
         }
 
         //Methods

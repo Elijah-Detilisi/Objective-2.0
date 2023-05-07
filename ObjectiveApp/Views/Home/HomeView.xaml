@@ -65,7 +65,8 @@
                 <ImageButton
                     Grid.Row="2"
                     Source="add.png"
-                    HorizontalOptions="End"/>
+                    HorizontalOptions="End"
+                    Command="{Binding InsertCommand}"/>
             </Grid>
         </Grid>
     </ContentView>
@@ -78,6 +79,7 @@
                 <Setter Property="FontAttributes" Value="Bold" />
                 <Setter Property="HorizontalOptions" Value="Start" />
                 <Setter Property="FontFamily" Value="OpenSansSemibold" />
+                <Setter Property="TextColor" Value="{StaticResource Gray900}"/>
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
