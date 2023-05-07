@@ -2,6 +2,7 @@
 using ObjectiveApp.Views.Profile;
 using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.ComponentModel;
+using System.Collections.ObjectModel;
 
 namespace ObjectiveApp.ViewModels
 {
@@ -11,6 +12,10 @@ namespace ObjectiveApp.ViewModels
         public HomeViewModel()
         {
             LoadGreeting();
+
+            Objectives = new ObservableCollection<String>() {
+                "Danger", "Hero", "Daisy", "Daisy", "Daisy", "Daisy"
+            };
         }
 
         //Properties
@@ -19,7 +24,10 @@ namespace ObjectiveApp.ViewModels
         [ObservableProperty]
         public string dayOfWeek;
         [ObservableProperty]
-        public string currentUser = "User";
+        public string currentUser;
+
+        //Collection
+        public ObservableCollection<String> Objectives { get; }
 
         //Commands
         [RelayCommand]
@@ -31,6 +39,7 @@ namespace ObjectiveApp.ViewModels
         //Methods
         private void LoadGreeting()
         {
+            CurrentUser = "User";
             DayOfWeek = DateTimeService.DayOfWeek();
             Greeting = $"Good {DateTimeService.TimeOfDay()}";
         }

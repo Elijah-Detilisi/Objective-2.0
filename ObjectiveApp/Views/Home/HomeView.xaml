@@ -45,6 +45,7 @@
 
                 <CollectionView
                     Grid.Row="1"
+                    ItemsSource="{Binding Objectives}"
                     VerticalOptions="Start">
                     <!--EmptyView-->
                     <CollectionView.EmptyView>
@@ -56,7 +57,7 @@
                     <!--ItemTemplate-->
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
-                            
+                            <templates:ListItemTemplate/>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
                 </CollectionView>
