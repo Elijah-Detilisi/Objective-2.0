@@ -34,7 +34,6 @@
                     Text="Date"
                     Style="{StaticResource LocalLabelStyle}"/>
             </Grid>
-            
         </Frame>
     </ContentView.Content>
     
