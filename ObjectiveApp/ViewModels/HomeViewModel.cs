@@ -24,7 +24,7 @@ namespace ObjectiveApp.ViewModels
         [ObservableProperty]
         public Quote randomQuote;
         [ObservableProperty]
-        public User currentUser = new();
+        public User currentUser;
         
         //Collections
         public ObservableCollection<Objective> ObjectiveList 
@@ -47,10 +47,10 @@ namespace ObjectiveApp.ViewModels
         public async Task LoadViewModel()
         {
             LoadGreeting();
-            await InitializeDataAsync();
+            /*await InitializeDataAsync();
             await LoadUserAsync();
             await LoadRandomQuoteAsync();
-            await LoadObjectiveListAsync();
+            await LoadObjectiveListAsync();*/
             //await AnnounceStartUpMessage();
         }
 

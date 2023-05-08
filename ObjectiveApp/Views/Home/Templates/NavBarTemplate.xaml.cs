@@ -1,5 +1,6 @@
-using CommunityToolkit.Mvvm.Input;
+using ObjectiveApp.Models;
 using System.Windows.Input;
+using CommunityToolkit.Mvvm.Input;
 
 namespace ObjectiveApp.Views.Home.Templates;
 
@@ -7,8 +8,8 @@ public partial class NavBarTemplate : ContentView
 {
 	public NavBarTemplate()
 	{
+        CurrentUser = new();
         Greeting = "Good day";
-        CurrentUser = "User";
 
         InitializeComponent();
 	}
@@ -18,7 +19,7 @@ public partial class NavBarTemplate : ContentView
         nameof(Greeting), typeof(string), typeof(NavBarTemplate)
     );
     public static readonly BindableProperty CurrentUserProperty = BindableProperty.Create(
-        nameof(CurrentUser), typeof(string), typeof(NavBarTemplate)
+        nameof(CurrentUser), typeof(User), typeof(NavBarTemplate)
     );
     public static readonly BindableProperty SearchCommandProperty = BindableProperty.Create(
         nameof(SearchCommand), typeof(ICommand), typeof(NavBarTemplate), defaultValueCreator: DefaultCommand
@@ -33,9 +34,9 @@ public partial class NavBarTemplate : ContentView
         get => (string)GetValue(GreetingProperty);
         set => SetValue(GreetingProperty, value);
     }
-    public string CurrentUser
+    public User CurrentUser
     {
-        get => (string)GetValue(CurrentUserProperty);
+        get => (User)GetValue(CurrentUserProperty);
         set => SetValue(CurrentUserProperty, value);
     }
 
