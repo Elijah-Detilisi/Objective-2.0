@@ -22,9 +22,9 @@ namespace ObjectiveApp.ViewModels
         [ObservableProperty]
         public string dayOfWeek;
         [ObservableProperty]
-        public Quote randomQuote;
+        public User currentUser = new();
         [ObservableProperty]
-        public User currentUser;
+        public Quote randomQuote = new();
         
         //Collections
         public ObservableCollection<Objective> ObjectiveList 

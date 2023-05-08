@@ -24,12 +24,12 @@
             Padding="20"
             RowSpacing="20">
             <Grid.RowDefinitions>
-                <RowDefinition Height="20*" />
-                <RowDefinition Height="80*" />
+                <RowDefinition Height="25*" />
+                <RowDefinition Height="75*" />
             </Grid.RowDefinitions>
 
-            <templates:CardTemplate/>
-            
+            <templates:CardTemplate
+                RandomQuote="{Binding RandomQuote}"/>
             <Grid
                 Grid.Row="1">
                 <Grid.RowDefinitions>
