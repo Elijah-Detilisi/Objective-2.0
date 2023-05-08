@@ -4,10 +4,19 @@ namespace ObjectiveApp.Views.Home;
 
 public partial class HomeView : ContentPage
 {
-	public HomeView(HomeViewModel viewModel)
-	{
-		InitializeComponent();
+    private HomeViewModel _viewModel;
 
-		BindingContext = viewModel;
-	}
+    public HomeView(HomeViewModel viewModel)
+	{
+        _viewModel = viewModel;
+        BindingContext = viewModel;
+
+        InitializeComponent();
+    }
+
+    protected override async void OnParentSet()
+    {
+        await _viewModel.LoadViewModel();
+        base.OnParentSet();
+    }
 }
