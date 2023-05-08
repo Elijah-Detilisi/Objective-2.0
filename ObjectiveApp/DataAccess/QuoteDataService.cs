@@ -11,7 +11,7 @@ namespace ObjectiveApp.DataAccess
         {
         }
 
-        protected override async Task InitDatabaseAsync()
+        public override async Task InitDatabaseAsync()
         {
             await base.InitDatabaseAsync();
             await InsertDefaultTableValues();

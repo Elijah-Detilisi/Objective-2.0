@@ -45,7 +45,7 @@
 
                 <CollectionView
                     Grid.Row="1"
-                    ItemsSource="{Binding Objectives}"
+                    ItemsSource="{Binding ObjectiveList}"
                     VerticalOptions="Start">
                     <!--EmptyView-->
                     <CollectionView.EmptyView>

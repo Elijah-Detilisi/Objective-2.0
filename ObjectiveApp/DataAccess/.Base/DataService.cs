@@ -25,7 +25,7 @@ namespace ObjectiveApp.DataAccess.Base
         }
 
         //Init
-        protected virtual async Task InitDatabaseAsync()
+        public virtual async Task InitDatabaseAsync()
         {
             await _connection.CreateTableAsync<TModel>();
         }
