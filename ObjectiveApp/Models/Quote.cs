@@ -8,10 +8,10 @@ namespace ObjectiveApp.Models
     {
 
         public Quote() {
-            Phrase = "And whatever you do, do it heartily, as to the Lord and not to men, knowing that from the Lord you will receive the reward of the inheritance; for you serve the Lord Christ.";
+            Phrase = @"And whatever you do, do it heartily, as to the Lord and not to men, " +
+            "knowing that from the Lord you will receive the reward of the inheritance; for you serve the Lord Christ.";
             Qoutee = "Paul the Apostle";
         }
-
 
         [MaxLength(150)]
         public string Phrase { get; set; }
