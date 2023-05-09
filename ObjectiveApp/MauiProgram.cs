@@ -23,7 +23,7 @@ namespace ObjectiveApp
 
             //Register Services
             var connectionString = ConstantValues.SQLite_CONNECTION_STRING;
-            SQLiteAsyncConnection _sqliteConnection = new SQLiteAsyncConnection(connectionString);
+            builder.Services.AddSingleton<SQLiteAsyncConnection>(new SQLiteAsyncConnection(connectionString));
 
             //Register Views
             builder.Services.AddSingleton<HomeView>();
@@ -35,10 +35,9 @@ namespace ObjectiveApp
 
 
             //Register DataService
-            builder.Services.AddSingleton(singleton => ActivatorUtilities.CreateInstance<UserDataService>(singleton, _sqliteConnection));
-            builder.Services.AddSingleton(singleton => ActivatorUtilities.CreateInstance<QuoteDataService>(singleton, _sqliteConnection));
-            builder.Services.AddSingleton(singleton => ActivatorUtilities.CreateInstance<ObjectiveDataService>(singleton, _sqliteConnection));
-            
+            builder.Services.AddSingleton<UserDataService>();
+            builder.Services.AddSingleton<QuoteDataService>();
+            builder.Services.AddSingleton<ObjectiveDataService>();
 
             return builder.Build();
         }

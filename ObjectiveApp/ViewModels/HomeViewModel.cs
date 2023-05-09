@@ -25,16 +25,16 @@ namespace ObjectiveApp.ViewModels
         public User currentUser = new();
         [ObservableProperty]
         public Quote randomQuote = new();
-        
+
         //Collections
-        public ObservableCollection<Objective> ObjectiveList 
-        { 
-            get; set; 
-        }
+        public ObservableCollection<Objective> ObjectiveList{
+            get; set;
+        } 
 
         //Construction
         public HomeViewModel
         (
+            
             UserDataService userData, 
             QuoteDataService quoteData, 
             ObjectiveDataService objectiveData
@@ -47,10 +47,10 @@ namespace ObjectiveApp.ViewModels
         public async Task LoadViewModel()
         {
             LoadGreeting();
-            /*await InitializeDataAsync();
+            await InitializeDataAsync();
             await LoadUserAsync();
             await LoadRandomQuoteAsync();
-            await LoadObjectiveListAsync();*/
+            await LoadObjectiveListAsync();
             //await AnnounceStartUpMessage();
         }
 
