@@ -6,6 +6,8 @@ using ObjectiveApp.Views.Objective;
 using CommunityToolkit.Mvvm.Input;
 using System.Collections.ObjectModel;
 using CommunityToolkit.Mvvm.ComponentModel;
+using System.Diagnostics;
+using System.Text;
 
 namespace ObjectiveApp.ViewModels
 {
@@ -51,7 +53,7 @@ namespace ObjectiveApp.ViewModels
             await LoadUserAsync();
             await LoadRandomQuoteAsync();
             await LoadObjectiveListAsync();
-            //await AnnounceStartUpMessage();
+            await AnnounceStartUpMessage();
         }
 
         //Init
@@ -60,6 +62,32 @@ namespace ObjectiveApp.ViewModels
             await _userData.InitDatabaseAsync();
             await _quoteData.InitDatabaseAsync();
             await _objectiveData.InitDatabaseAsync();
+        }
+        private async Task AnnounceStartUpMessage()
+        {
+            //Arrange
+            var objectiveListText = new StringBuilder("You currently don't have any objectives yet.");
+            var salutationText = String.Format("{0} {1}, today is {2} and the time is {3}.",
+                Greeting, CurrentUser.Username, DateTimeService.TodayDate(), DateTimeService.TimeNow()
+            );
+            
+            if (ObjectiveList != null)
+            {
+                objectiveListText.Clear();
+                objectiveListText.Append("Your objectives are as follows:");
+
+                foreach (var item in ObjectiveList)
+                {
+                    objectiveListText.Append($" {item.Title}.");
+                }
+            }
+
+            string startUpMessage = String.Format("{0}. {1}. Remember; {2} once said {3}. That's it from me, good by for now.",
+                salutationText, objectiveListText.ToString(), RandomQuote.Qoutee, RandomQuote.Phrase
+            );
+
+            //Speak
+            await TextToSpeechService.Speak(startUpMessage);
         }
 
         //Commands
