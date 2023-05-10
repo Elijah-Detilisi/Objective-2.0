@@ -1,12 +1,123 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ObjectiveApp.Views.Objective.ObjectiveView"
-             Title="ObjectiveView">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+<ContentPage 
+    Title="ObjectiveView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="ObjectiveApp.Views.Objective.ObjectiveView"
+    xmlns:templates="clr-namespace:ObjectiveApp.Views.Objective.Templates">
+    <!--Header-->
+    <Shell.TitleView>
+        <Label
+            Text="New Objective"
+            Style="{StaticResource HeaderLabelStyle}"/>
+    </Shell.TitleView>
+
+    <!--Body-->
+    <VerticalStackLayout
+        Spacing="10"
+        Padding="10">
+        <VerticalStackLayout
+            Spacing="15">
+            <Label
+                Text="Goal:"
+                Style="{StaticResource TitleLabelStyle}"/>
+            <templates:FramedEntryTemplate/>
+        </VerticalStackLayout>
+
+        <VerticalStackLayout
+            Spacing="15">
+            <Label
+                Text="Due:"
+                Style="{StaticResource TitleLabelStyle}"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5.8*" />
+                    <ColumnDefinition Width="4.2*" />
+                </Grid.ColumnDefinitions>
+
+                <Border
+                    Grid.Column="0"
+	                Style="{StaticResource BorderStyle}">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="15"/>
+                    </Border.StrokeShape>
+
+                    <Grid
+                        Padding="4">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="8*" />
+                            <ColumnDefinition Width="2*" />
+                        </Grid.ColumnDefinitions>
+
+                        <DatePicker
+                            Grid.Column="0"
+                            CharacterSpacing="3"
+                            FontSize="15"
+                            VerticalOptions="Center"/>
+                        <Image
+                            Grid.Column="1"
+                            HeightRequest="25"
+                            VerticalOptions="Center"
+                            HorizontalOptions="Start"
+                            Source="calendar.svg"/>
+                    </Grid>
+                </Border>
+
+                <Border
+                    Grid.Column="1"
+	                Style="{StaticResource BorderStyle}">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="15"/>
+                    </Border.StrokeShape>
+
+                    <Grid
+                        Padding="4">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="7.5*" />
+                            <ColumnDefinition Width="2.5*" />
+                        </Grid.ColumnDefinitions>
+
+                        <TimePicker
+                            Grid.Column="0"
+                            FontSize="14"
+                            CharacterSpacing="2"
+                            VerticalOptions="Center"/>
+                        <Image
+                            Grid.Column="1"
+                            HeightRequest="30"
+                            VerticalOptions="Start"
+                            HorizontalOptions="Start"
+                            Source="clock.svg"/>
+                    </Grid>
+                </Border>
+            </Grid>
+        </VerticalStackLayout>
+        
     </VerticalStackLayout>
+
+    <!--Styling-->
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="HeaderLabelStyle" TargetType="Entry">
+                <Setter Property="FontSize" Value="20" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="TextColor" Value="{StaticResource Gray600}"/>
+            </Style>
+
+            <Style x:Key="TitleLabelStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="26" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="TextColor" Value="{StaticResource Gray600}"/>
+            </Style>
+
+            <Style x:Key="BorderStyle" TargetType="Border">
+                <Setter Property="Padding" Value="15" />
+                <Setter Property="HeightRequest" Value="80" />
+                <Setter Property="StrokeThickness" Value="2.5" />
+                <Setter Property="Background" Value="{StaticResource Gray100}" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
 </ContentPage>
