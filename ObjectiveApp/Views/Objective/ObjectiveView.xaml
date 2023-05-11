@@ -45,8 +45,8 @@
                     <Grid
                         Padding="4">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="8*" />
-                            <ColumnDefinition Width="2*" />
+                            <ColumnDefinition Width="7.5*" />
+                            <ColumnDefinition Width="2.5*" />
                         </Grid.ColumnDefinitions>
 
                         <DatePicker
