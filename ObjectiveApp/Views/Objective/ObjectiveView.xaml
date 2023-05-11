@@ -54,7 +54,7 @@
                 <Setter Property="FontSize" Value="26" />
                 <Setter Property="Margin" Value="0,5,0,15" />
                 <Setter Property="FontAttributes" Value="Bold" />
-                <Setter Property="TextColor" Value="{StaticResource Gray500}"/>
+                <Setter Property="TextColor" Value="{StaticResource Secondary}"/>
             </Style>
 
             <Style x:Key="SaveButtonStyle" TargetType="Button">
