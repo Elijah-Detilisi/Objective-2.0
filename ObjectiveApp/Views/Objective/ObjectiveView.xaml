@@ -16,82 +16,12 @@
     <VerticalStackLayout
         Spacing="10"
         Padding="10">
-        <VerticalStackLayout
-            Spacing="15">
-            <Label
-                Text="Goal:"
-                Style="{StaticResource TitleLabelStyle}"/>
-            <templates:FramedEntryTemplate/>
-        </VerticalStackLayout>
+        <Label
+            Text="Goal:"
+            Style="{StaticResource TitleLabelStyle}"/>
 
-        <VerticalStackLayout
-            Spacing="15">
-            <Label
-                Text="Due:"
-                Style="{StaticResource TitleLabelStyle}"/>
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="5.8*" />
-                    <ColumnDefinition Width="4.2*" />
-                </Grid.ColumnDefinitions>
-
-                <Border
-                    Grid.Column="0"
-	                Style="{StaticResource BorderStyle}">
-                    <Border.StrokeShape>
-                        <RoundRectangle CornerRadius="15"/>
-                    </Border.StrokeShape>
-
-                    <Grid
-                        Padding="4">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="7.5*" />
-                            <ColumnDefinition Width="2.5*" />
-                        </Grid.ColumnDefinitions>
-
-                        <DatePicker
-                            Grid.Column="0"
-                            CharacterSpacing="3"
-                            FontSize="15"
-                            VerticalOptions="Center"/>
-                        <Image
-                            Grid.Column="1"
-                            HeightRequest="25"
-                            VerticalOptions="Center"
-                            HorizontalOptions="Start"
-                            Source="calendar.svg"/>
-                    </Grid>
-                </Border>
-
-                <Border
-                    Grid.Column="1"
-	                Style="{StaticResource BorderStyle}">
-                    <Border.StrokeShape>
-                        <RoundRectangle CornerRadius="15"/>
-                    </Border.StrokeShape>
-
-                    <Grid
-                        Padding="4">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="7.5*" />
-                            <ColumnDefinition Width="2.5*" />
-                        </Grid.ColumnDefinitions>
-
-                        <TimePicker
-                            Grid.Column="0"
-                            FontSize="14"
-                            CharacterSpacing="2"
-                            VerticalOptions="Center"/>
-                        <Image
-                            Grid.Column="1"
-                            HeightRequest="30"
-                            VerticalOptions="Start"
-                            HorizontalOptions="Start"
-                            Source="clock.svg"/>
-                    </Grid>
-                </Border>
-            </Grid>
-        </VerticalStackLayout>
+        <templates:FramedEntryTemplate/>
+        <templates:DatetimePickerTemplate/>
         
     </VerticalStackLayout>
 
