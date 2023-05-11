@@ -13,12 +13,14 @@
                     <ColumnDefinition Width="4.2*" />
                 </Grid.ColumnDefinitions>
 
+                <!--Date Section-->
                 <Border
                     Grid.Column="0"
 	                Style="{StaticResource BorderStyle}">
                     <Border.StrokeShape>
                         <RoundRectangle CornerRadius="15"/>
                     </Border.StrokeShape>
+                    
                     <Grid
                         Padding="4">
                         <Grid.ColumnDefinitions>
@@ -28,25 +30,22 @@
 
                         <DatePicker
                             Grid.Column="0"
-                            FontSize="14"
-                            CharacterSpacing="2"
-                            VerticalOptions="Center"/>
+                            Style="{StaticResource DateTimeStyle}"/>
                         <Image
                             Grid.Column="1"
-                            HeightRequest="30"
-                            VerticalOptions="Start"
-                            HorizontalOptions="Start"
-                            Source="calendar.svg"/>
+                            Source="calendar.svg"
+                            Style="{StaticResource ImageStyle}"/>
                     </Grid>
-
                 </Border>
 
+                <!--Time Section-->
                 <Border
                     Grid.Column="1"
 	                Style="{StaticResource BorderStyle}">
                     <Border.StrokeShape>
                         <RoundRectangle CornerRadius="15"/>
                     </Border.StrokeShape>
+                    
                     <Grid
                         Padding="4">
                         <Grid.ColumnDefinitions>
@@ -56,15 +55,11 @@
 
                         <TimePicker
                             Grid.Column="0"
-                            FontSize="14"
-                            CharacterSpacing="2"
-                            VerticalOptions="Center"/>
+                            Style="{StaticResource DateTimeStyle}"/>
                         <Image
                             Grid.Column="1"
-                            HeightRequest="30"
-                            VerticalOptions="Start"
-                            HorizontalOptions="Start"
-                            Source="clock.svg"/>
+                            Source="clock.svg"
+                            Style="{StaticResource ImageStyle}"/>
                     </Grid>
                 </Border>
             </Grid>
@@ -78,6 +73,18 @@
                 <Setter Property="FontSize" Value="26" />
                 <Setter Property="FontAttributes" Value="Bold" />
                 <Setter Property="TextColor" Value="{StaticResource Gray600}"/>
+            </Style>
+
+            <Style x:Key="DateTimeStyle" TargetType="DatePicker">
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="CharacterSpacing" Value="2" />
+                <Setter Property="VerticalOptions" Value="Center" />
+            </Style>
+
+            <Style x:Key="ImageStyle" TargetType="Image">
+                <Setter Property="HeightRequest" Value="30" />
+                <Setter Property="VerticalOptions" Value="Start" />
+                <Setter Property="HorizontalOptions" Value="Start" />
             </Style>
 
             <Style x:Key="BorderStyle" TargetType="Border">

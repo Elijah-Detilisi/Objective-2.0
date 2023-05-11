@@ -8,7 +8,7 @@
     <!--Header-->
     <Shell.TitleView>
         <Label
-            Text="New Objective"
+            Text="Create Objective"
             Style="{StaticResource HeaderLabelStyle}"/>
     </Shell.TitleView>
 
@@ -17,7 +17,7 @@
         Spacing="10"
         Padding="10">
         <Label
-            Text="Goal:"
+            Text="New :"
             Style="{StaticResource TitleLabelStyle}"/>
 
         <templates:FramedEntryTemplate/>
