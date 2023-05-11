@@ -99,6 +99,9 @@
 	  <MauiXaml Update="Views\Objective\Templates\DatetimePickerTemplate.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\Objective\Templates\FramedEditorTemplate.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\Objective\Templates\FramedEntryTemplate.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

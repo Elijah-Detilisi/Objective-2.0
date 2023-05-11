@@ -57,6 +57,15 @@
         <Setter Property="PlaceholderColor" Value="{StaticResource Gray400}" />
     </Style>
 
+    <!--Editor-->
+    <Style TargetType="Editor">
+        <Setter Property="TextColor" Value="{StaticResource Gray900}" />
+        <Setter Property="BackgroundColor" Value="Transparent" />
+        <Setter Property="FontFamily" Value="OpenSansRegular"/>
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="PlaceholderColor" Value="{StaticResource Gray400}" />
+    </Style>
+
     <!--DatePicker-->
     <Style TargetType="DatePicker">
         <Setter Property="TextColor" Value="{StaticResource Gray900}" />
@@ -94,25 +103,7 @@
         </Setter>
     </Style>
     
-    <Style TargetType="Editor">
-        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource White}}" />
-        <Setter Property="BackgroundColor" Value="Transparent" />
-        <Setter Property="FontFamily" Value="OpenSansRegular"/>
-        <Setter Property="FontSize" Value="14" />
-        <Setter Property="PlaceholderColor" Value="{AppThemeBinding Light={StaticResource Gray200}, Dark={StaticResource Gray500}}" />
-        <Setter Property="VisualStateManager.VisualStateGroups">
-            <VisualStateGroupList>
-                <VisualStateGroup x:Name="CommonStates">
-                    <VisualState x:Name="Normal" />
-                    <VisualState x:Name="Disabled">
-                        <VisualState.Setters>
-                            <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource Gray300}, Dark={StaticResource Gray600}}" />
-                        </VisualState.Setters>
-                    </VisualState>
-                </VisualStateGroup>
-            </VisualStateGroupList>
-        </Setter>
-    </Style>
+    
 
     <Style TargetType="Frame">
         <Setter Property="HasShadow" Value="False" />
