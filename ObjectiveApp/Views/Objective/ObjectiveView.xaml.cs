@@ -1,9 +1,16 @@
+using ObjectiveApp.ViewModels;
+
 namespace ObjectiveApp.Views.Objective;
 
 public partial class ObjectiveView : ContentPage
 {
-	public ObjectiveView()
+    private ObjectiveViewModel _viewModel;
+
+    public ObjectiveView(ObjectiveViewModel viewModel)
 	{
-		InitializeComponent();
+        _viewModel = viewModel;
+        BindingContext = viewModel;
+
+        InitializeComponent();
 	}
 }

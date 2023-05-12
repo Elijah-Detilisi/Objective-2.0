@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage 
     Title="ObjectiveView"
+    x:DataType="viewmodels:ObjectiveViewModel"
+    x:Class="ObjectiveApp.Views.Objective.ObjectiveView"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="ObjectiveApp.Views.Objective.ObjectiveView"
+    xmlns:viewmodels="clr-namespace:ObjectiveApp.ViewModels"
     xmlns:templates="clr-namespace:ObjectiveApp.Views.Objective.Templates">
     <!--Header-->
     <Shell.TitleView>
@@ -23,11 +25,12 @@
 
             <VerticalStackLayout
                 Grid.Row="0"
-                Spacing="15">
+                Spacing="8">
                 <Label
                     Text="New :"
                     Style="{StaticResource TitleLabelStyle}"/>
-                <templates:FramedEntryTemplate/>
+                <templates:FramedEntryTemplate
+                    ObjectiveTitle="{Binding NewObjective.Title}"/>
                 <templates:DatetimePickerTemplate/>
                 <templates:FramedEditorTemplate/>
 

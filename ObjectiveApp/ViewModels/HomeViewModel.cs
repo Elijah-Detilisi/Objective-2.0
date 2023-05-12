@@ -6,7 +6,6 @@ using ObjectiveApp.Views.Objective;
 using CommunityToolkit.Mvvm.Input;
 using System.Collections.ObjectModel;
 using CommunityToolkit.Mvvm.ComponentModel;
-using System.Diagnostics;
 using System.Text;
 
 namespace ObjectiveApp.ViewModels

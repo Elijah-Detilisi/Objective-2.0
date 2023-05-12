@@ -15,6 +15,7 @@
                 <Entry
                     Placeholder="Insert your goal here..."
                     ClearButtonVisibility="WhileEditing"
+                    Text="{TemplateBinding ObjectiveTitle, Mode=TwoWay}"
                     Style="{StaticResource EntryStyle}"/>
             </Border>
         </ControlTemplate>
