@@ -7,8 +7,6 @@ namespace ObjectiveApp.ViewModels
     {
         //Properties
         [ObservableProperty]
-        public Objective newObjective= new (){
-            Title="Hello world."
-        };
+        public Objective newObjective;
     }
 }

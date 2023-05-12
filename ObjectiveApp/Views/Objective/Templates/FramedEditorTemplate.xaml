@@ -15,6 +15,7 @@
 
                 <Editor
                     Placeholder="Description..."
+                    Text="{TemplateBinding ObjectiveDescription, Mode=TwoWay}"
                     Style="{StaticResource EditorStyle}"/>
             </Border>
         </ControlTemplate>

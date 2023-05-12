@@ -32,7 +32,8 @@
                 <templates:FramedEntryTemplate
                     ObjectiveTitle="{Binding NewObjective.Title}"/>
                 <templates:DatetimePickerTemplate/>
-                <templates:FramedEditorTemplate/>
+                <templates:FramedEditorTemplate
+                    ObjectiveDescription="{Binding NewObjective.Description}"/>
 
             </VerticalStackLayout>
 
