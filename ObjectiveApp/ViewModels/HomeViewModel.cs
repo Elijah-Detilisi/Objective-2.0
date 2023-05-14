@@ -52,7 +52,7 @@ namespace ObjectiveApp.ViewModels
             await LoadUserAsync();
             await LoadRandomQuoteAsync();
             await LoadObjectiveListAsync();
-            await AnnounceStartUpMessage();
+            //await AnnounceStartUpMessage();
         }
 
         //Init

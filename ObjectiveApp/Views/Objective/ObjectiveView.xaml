@@ -31,7 +31,31 @@
                     Style="{StaticResource TitleLabelStyle}"/>
                 <templates:FramedEntryTemplate
                     ObjectiveTitle="{Binding NewObjective.Title}"/>
-                <templates:DatetimePickerTemplate/>
+                <!--Date Section-->
+                <Border
+	                Style="{StaticResource BorderStyle}">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="15"/>
+                    </Border.StrokeShape>
+
+                    <Grid
+                        Padding="4">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="8*" />
+                            <ColumnDefinition Width="1*" />
+                        </Grid.ColumnDefinitions>
+
+                        <DatePicker
+                            Grid.Column="0"
+                            Date="{Binding NewObjective.DueDate}"
+                            Style="{StaticResource DateTimeStyle}"/>
+                        <Image
+                            Grid.Column="1"
+                            Source="calendar.svg"
+                            Style="{StaticResource ImageStyle}"/>
+                    </Grid>
+                </Border>
+                <!--Date Section-->
                 <templates:FramedEditorTemplate
                     ObjectiveDescription="{Binding NewObjective.Description}"/>
 
@@ -67,6 +91,25 @@
                 <Setter Property="HeightRequest" Value="50" />
                 <Setter Property="CharacterSpacing" Value="2"/>
                 <Setter Property="Background" Value="{StaticResource Secondary}"/>
+            </Style>
+
+            <Style x:Key="BorderStyle" TargetType="Border">
+                <Setter Property="Padding" Value="15" />
+                <Setter Property="HeightRequest" Value="80" />
+                <Setter Property="StrokeThickness" Value="2.5" />
+                <Setter Property="Background" Value="{StaticResource Gray100}" />
+            </Style>
+            <Style x:Key="DateTimeStyle" TargetType="DatePicker">
+                <Setter Property="FontSize" Value="16" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="CharacterSpacing" Value="4" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="TextColor" Value="{StaticResource Secondary}"/>
+            </Style>
+            <Style x:Key="ImageStyle" TargetType="Image">
+                <Setter Property="HeightRequest" Value="35" />
+                <Setter Property="VerticalOptions" Value="Start" />
+                <Setter Property="HorizontalOptions" Value="Start" />
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
