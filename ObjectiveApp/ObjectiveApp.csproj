@@ -108,10 +108,7 @@
 	  <MauiXaml Update="Views\Profile\ProfileView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\Templates\OutlinedRoundedBorder.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Views\Templates\RoundedBorder.xaml">
+	  <MauiXaml Update="Views\CustomControls\OutlinedRoundedBorder.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

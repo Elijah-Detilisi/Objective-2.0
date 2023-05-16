@@ -7,7 +7,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:viewmodels="clr-namespace:ObjectiveApp.ViewModels"
     xmlns:templates="clr-namespace:ObjectiveApp.Views.Objective.Templates"
-    xmlns:globalTemplates="clr-namespace:ObjectiveApp.Views.Templates">
+    xmlns:globalTemplates="clr-namespace:ObjectiveApp.Views.CustomControls">
     <!--Header-->
     <Shell.TitleView>
         <Label
