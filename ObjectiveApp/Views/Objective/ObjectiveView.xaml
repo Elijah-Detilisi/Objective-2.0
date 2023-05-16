@@ -32,9 +32,9 @@
                     Style="{StaticResource TitleLabelStyle}"/>
                 <templates:FramedEntryTemplate
                     ObjectiveTitle="{Binding NewObjective.Title}"/>
-                <globalTemplates:RoundedBorder>
+                <globalTemplates:OutlinedRoundedBorder>
                     <Label Text="Hell word"/>
-                </globalTemplates:RoundedBorder>
+                </globalTemplates:OutlinedRoundedBorder>
 
                 <!--Date Section-->
                 <Grid>
