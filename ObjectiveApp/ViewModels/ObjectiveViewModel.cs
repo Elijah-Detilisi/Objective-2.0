@@ -24,14 +24,14 @@ namespace ObjectiveApp.ViewModels
             selectedTime = TimeOnly.FromDateTime(selectedDate).ToTimeSpan();
         }
 
-
-
         //Commands
         [RelayCommand]
         public void OnSave()
         {
             var result1 = SelectedDate.Month;
             var result2 = SelectedTime.ToString();
+            var result3 = NewObjective.Title;
+            //var result4 = Text;
         }
     }
 }

@@ -7,7 +7,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:viewmodels="clr-namespace:ObjectiveApp.ViewModels"
     xmlns:templates="clr-namespace:ObjectiveApp.Views.Objective.Templates"
-    xmlns:globalTemplates="clr-namespace:ObjectiveApp.Views.CustomControls">
+    xmlns:globalCustoms="clr-namespace:ObjectiveApp.Views.CustomControls">
     <!--Header-->
     <Shell.TitleView>
         <Label
@@ -30,74 +30,24 @@
                 <Label
                     Text="New :"
                     Style="{StaticResource TitleLabelStyle}"/>
-                <templates:FramedEntryTemplate
-                    ObjectiveTitle="{Binding NewObjective.Title}"/>
-                <globalTemplates:OutlinedRoundedBorder>
-                    <Label Text="Hell word"/>
-                </globalTemplates:OutlinedRoundedBorder>
-
-                <!--Date Section-->
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="5.8*" />
-                        <ColumnDefinition Width="4.2*" />
-                    </Grid.ColumnDefinitions>
-                    <!--Date Section-->
-                    <Border
-                        Grid.Column="0"
-	                    Style="{StaticResource BorderStyle}">
-                        <Border.StrokeShape>
-                            <RoundRectangle CornerRadius="15"/>
-                        </Border.StrokeShape>
-
-                        <Grid
-                        Padding="4">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="7.5*" />
-                                <ColumnDefinition Width="2.5*" />
-                            </Grid.ColumnDefinitions>
-
-                            <DatePicker
-                                Grid.Column="0"
-                                Date="{Binding SelectedDate, Mode=TwoWay}"
-                                Style="{StaticResource DateTimeStyle}"/>
-                            <Image
-                                Grid.Column="1"
-                                Source="calendar.svg"
-                                Style="{StaticResource ImageStyle}"/>
-                        </Grid>
-                    </Border>
-                    <!--Time Section-->
-                    <Border
-                    Grid.Column="1"
-	                Style="{StaticResource BorderStyle}">
-                        <Border.StrokeShape>
-                            <RoundRectangle CornerRadius="15"/>
-                        </Border.StrokeShape>
-
-                        <Grid
-                        Padding="4">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="7.5*" />
-                                <ColumnDefinition Width="2.5*" />
-                            </Grid.ColumnDefinitions>
-
-                            <TimePicker
-                                Grid.Column="0"
-                                Time="{Binding SelectedTime}"
-                                Style="{StaticResource DateTimeStyle}"/>
-                            <Image
-                                Grid.Column="1"
-                                Source="clock.svg"
-                                Style="{StaticResource ImageStyle}"/>
-                        </Grid>
-                    </Border>
-                </Grid>
-                <!--Date Section-->
-
-                <templates:FramedEditorTemplate
-                    ObjectiveDescription="{Binding NewObjective.Description}"/>
+                <!--Title-->
+                <globalCustoms:OutlinedRoundedBorder>
+                    <Entry
+                        Placeholder="Objective..."
+                        Text="{Binding NewObjective.Title}"
+                        Style="{StaticResource EntryStyle}"/>
+                </globalCustoms:OutlinedRoundedBorder>
+                <!--Description-->
+                <globalCustoms:OutlinedRoundedBorder
+                    HeightRequest="240">
+                    <Editor
+                        Placeholder="Description..."
+                        Text="{Binding NewObjective.Description}"
+                        Style="{StaticResource EntryStyle}"/>
+                </globalCustoms:OutlinedRoundedBorder>
             </VerticalStackLayout>
+            
+            <!--Footer-->
             <Button
                 Grid.Row="1"
                 Text="SAVE"
@@ -131,24 +81,9 @@
                 <Setter Property="Background" Value="{StaticResource Secondary}"/>
             </Style>
 
-            <!--DatetimePicker styles-->
-            <Style x:Key="DateTimeStyle" TargetType="DatePicker">
-                <Setter Property="FontSize" Value="14" />
-                <Setter Property="CharacterSpacing" Value="2" />
-                <Setter Property="VerticalOptions" Value="Center" />
-            </Style>
-
-            <Style x:Key="ImageStyle" TargetType="Image">
-                <Setter Property="HeightRequest" Value="30" />
-                <Setter Property="VerticalOptions" Value="Start" />
-                <Setter Property="HorizontalOptions" Value="Start" />
-            </Style>
-
-            <Style x:Key="BorderStyle" TargetType="Border">
-                <Setter Property="Padding" Value="15" />
-                <Setter Property="HeightRequest" Value="80" />
-                <Setter Property="StrokeThickness" Value="2.5" />
-                <Setter Property="Background" Value="{StaticResource Gray100}" />
+            <Style x:Key="EntryStyle" TargetType="Entry">
+                <Setter Property="FontSize" Value="16" />
+                <Setter Property="FontAttributes" Value="Italic" />
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
