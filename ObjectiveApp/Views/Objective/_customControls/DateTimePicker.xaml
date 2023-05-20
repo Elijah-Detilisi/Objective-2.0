@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Grid 
+    x:Name="this"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="ObjectiveApp.Views.Objective._customControls.DateTimePicker"
+    xmlns:globalCustoms="clr-namespace:ObjectiveApp.Views.CustomControls">
+
+    <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="5.8*" />
+        <ColumnDefinition Width="4.2*" />
+    </Grid.ColumnDefinitions>
+
+    <!--Date Section-->
+    <globalCustoms:OutlinedRoundedBorder
+        Grid.Column="0">
+        <Grid
+            Padding="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="7.5*" />
+                <ColumnDefinition Width="2.5*" />
+            </Grid.ColumnDefinitions>
+            <DatePicker
+                Grid.Column="0"
+                Date="{Binding Source={x:Reference this},Path=Date}"
+                Style="{StaticResource DateTimeStyle}"/>
+            <Image
+                Grid.Column="1"
+                Source="calendar.svg"
+                Style="{StaticResource ImageStyle}"/>
+        </Grid>
+    </globalCustoms:OutlinedRoundedBorder>
+
+    <!--Time Section-->
+    <globalCustoms:OutlinedRoundedBorder
+        Grid.Column="1">
+        <Grid
+            Padding="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="7.5*" />
+                <ColumnDefinition Width="2.5*" />
+            </Grid.ColumnDefinitions>
+            <TimePicker
+                Grid.Column="0"
+                Time="{Binding Source={x:Reference this},Path=Time}"
+                Style="{StaticResource DateTimeStyle}"/>
+            <Image
+                Grid.Column="1"
+                Source="clock.svg"
+                Style="{StaticResource ImageStyle}"/>
+        </Grid>
+    </globalCustoms:OutlinedRoundedBorder>
+
+    <!--Styling-->
+    <Grid.Resources>
+        <ResourceDictionary>
+            <Style x:Key="DateTimeStyle" TargetType="DatePicker">
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="CharacterSpacing" Value="2" />
+                <Setter Property="VerticalOptions" Value="Center" />
+            </Style>
+
+            <Style x:Key="ImageStyle" TargetType="Image">
+                <Setter Property="HeightRequest" Value="30" />
+                <Setter Property="VerticalOptions" Value="Start" />
+                <Setter Property="HorizontalOptions" Value="Start" />
+            </Style>
+        </ResourceDictionary>
+    </Grid.Resources>
+</Grid>

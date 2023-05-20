@@ -6,8 +6,9 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:viewmodels="clr-namespace:ObjectiveApp.ViewModels"
-    xmlns:templates="clr-namespace:ObjectiveApp.Views.Objective.Templates"
-    xmlns:globalCustoms="clr-namespace:ObjectiveApp.Views.CustomControls">
+    xmlns:globalCustoms="clr-namespace:ObjectiveApp.Views.CustomControls"
+    xmlns:localCustoms="clr-namespace:ObjectiveApp.Views.Objective._customControls">
+    
     <!--Header-->
     <Shell.TitleView>
         <Label
@@ -16,7 +17,7 @@
     </Shell.TitleView>
 
     <!--Body-->
-    <ContentView>
+    <ContentView> 
         <Grid
             Padding="12">
             <Grid.RowDefinitions>
@@ -37,6 +38,10 @@
                         Text="{Binding NewObjective.Title}"
                         Style="{StaticResource EntryStyle}"/>
                 </globalCustoms:OutlinedRoundedBorder>
+                <!--Due DateTime-->
+                <localCustoms:DateTimePicker
+                    Date="{Binding SelectedDate}"
+                    Time="{Binding SelectedTime}"/>
                 <!--Description-->
                 <globalCustoms:OutlinedRoundedBorder
                     HeightRequest="240">

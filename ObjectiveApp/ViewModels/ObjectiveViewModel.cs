@@ -31,7 +31,6 @@ namespace ObjectiveApp.ViewModels
             var result1 = SelectedDate.Month;
             var result2 = SelectedTime.ToString();
             var result3 = NewObjective.Title;
-            //var result4 = Text;
         }
     }
 }
