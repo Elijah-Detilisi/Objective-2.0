@@ -47,14 +47,14 @@
                     Grid.Row="1"
                     ItemsSource="{Binding ObjectiveList}"
                     VerticalOptions="Start">
-                    <!--EmptyView-->
+                    <!--emptyView-->
                     <CollectionView.EmptyView>
                         <ContentView>
                             <templates:EmptyListTemplate
                                 DayOfWeek="{Binding DayOfWeek}"/>
                         </ContentView>
                     </CollectionView.EmptyView>
-                    <!--ItemTemplate-->
+                    <!--itemTemplate-->
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
                             <templates:ListItemTemplate/>

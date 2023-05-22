@@ -31,18 +31,18 @@
                 <Label
                     Text="New :"
                     Style="{StaticResource TitleLabelStyle}"/>
-                <!--Title-->
+                <!--title-->
                 <globalCustoms:OutlinedRoundedBorder>
                     <Entry
                         Placeholder="Objective..."
                         Text="{Binding NewObjective.Title}"
                         Style="{StaticResource EntryStyle}"/>
                 </globalCustoms:OutlinedRoundedBorder>
-                <!--Due DateTime-->
+                <!--due-dateTime-->
                 <localCustoms:DateTimePicker
-                    Date="{Binding SelectedDate}"
+                    Date="{Binding NewObjective.DueDate}"
                     Time="{Binding SelectedTime}"/>
-                <!--Description-->
+                <!--description-->
                 <globalCustoms:OutlinedRoundedBorder
                     HeightRequest="240">
                     <Editor
