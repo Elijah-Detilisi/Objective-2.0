@@ -117,7 +117,7 @@ namespace ObjectiveApp.ViewModels
         }
         private async Task LoadObjectiveListAsync()
         {
-            var result = await _objectiveData.GetAsync(x => x.Id>=0);
+            var result = await _objectiveData.GetAsync(x => !x.IsDone);
             if (result.Any())
             {
                 var resultList = result.ToList();
