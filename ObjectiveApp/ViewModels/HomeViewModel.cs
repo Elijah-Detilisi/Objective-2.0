@@ -67,7 +67,7 @@ namespace ObjectiveApp.ViewModels
             //Arrange
             var objectiveListText = new StringBuilder("You currently don't have any objectives yet.");
             var salutationText = String.Format("{0} {1}, today is {2} and the time is {3}.",
-                greeting, currentUser.Username, DateTimeService.TodayDate(), DateTimeService.TimeNow()
+                Greeting, CurrentUser.Username, DateTimeService.TodayDate(), DateTimeService.TimeNow()
             );
             
             if (ObjectiveList != null)
@@ -82,7 +82,7 @@ namespace ObjectiveApp.ViewModels
             }
 
             string startUpMessage = String.Format("{0}. {1}. Remember; {2} once said {3}. That's it from me, good by for now.",
-                salutationText, objectiveListText.ToString(), randomQuote.Qoutee, randomQuote.Phrase
+                salutationText, objectiveListText.ToString(), RandomQuote.Qoutee, RandomQuote.Phrase
             );
 
             //Speak
@@ -104,15 +104,15 @@ namespace ObjectiveApp.ViewModels
         //Methods
         private void LoadGreeting()
         {
-            dayOfWeek = DateTimeService.DayOfWeek();
-            greeting = $"Good {DateTimeService.TimeOfDay()}";
+            DayOfWeek = DateTimeService.DayOfWeek();
+            Greeting = $"Good {DateTimeService.TimeOfDay()}";
         }
         private async Task LoadUserAsync()
         {
             var result = await _userData.GetAsync(user => user.Id == 1);
             if (result.Any())
             {
-                currentUser = result.FirstOrDefault();
+                CurrentUser = result.FirstOrDefault();
             }
         }
         private async Task LoadObjectiveListAsync()
@@ -129,7 +129,7 @@ namespace ObjectiveApp.ViewModels
             int randomId = new Random().Next(1, 102);
             var result = await _quoteData.GetAsync(qoute => qoute.Id == randomId);
 
-            randomQuote = result.FirstOrDefault();
+            RandomQuote = result.FirstOrDefault();
         }
     }
 }
