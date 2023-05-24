@@ -29,10 +29,10 @@ namespace ObjectiveApp.ViewModels
         [RelayCommand]
         public async void OnSave()
         {
-            if (newObjective.Title is not null)
+            if (NewObjective.Title is not null)
             {
-                newObjective.DueDate.Add(selectedTime);
-                await _objectiveData.AddAsync(newObjective);
+                NewObjective.DueDate.Add(SelectedTime);
+                await _objectiveData.AddAsync(NewObjective);
             }
             else
             {
