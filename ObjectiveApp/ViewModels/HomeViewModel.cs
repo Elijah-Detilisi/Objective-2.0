@@ -138,7 +138,6 @@ namespace ObjectiveApp.ViewModels
             await InitializeDataAsync();
             await LoadUserAsync();
             await LoadRandomQuoteAsync();
-            await LoadObjectiveListAsync();
             await AnnounceStartUpMessage();
         }
         #endregion

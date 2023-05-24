@@ -33,6 +33,7 @@ namespace ObjectiveApp.ViewModels
             {
                 NewObjective.DueDate.Add(SelectedTime);
                 await _objectiveData.AddAsync(NewObjective);
+                await Shell.Current.Navigation.PopAsync();
             }
             else
             {

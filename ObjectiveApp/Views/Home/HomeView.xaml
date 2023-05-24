@@ -46,7 +46,6 @@
                 <CollectionView
                     x:Name="MyCollectionView"
                     Grid.Row="1"
-                    ItemsSource="{Binding ObjectiveList}"
                     VerticalOptions="Start">
                     <!--emptyView-->
                     <CollectionView.EmptyView>
