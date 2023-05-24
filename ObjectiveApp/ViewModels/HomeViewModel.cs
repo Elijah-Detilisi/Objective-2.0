@@ -12,12 +12,16 @@ namespace ObjectiveApp.ViewModels
 {
     public partial class HomeViewModel : ObservableObject
     {
-        //Fields
+        #region Fields
+
         private readonly UserDataService _userData;
         private readonly QuoteDataService _quoteData;
         private readonly ObjectiveDataService _objectiveData;
 
-        //Properties
+        #endregion
+
+        #region Properties
+
         [ObservableProperty]
         public string greeting;
         [ObservableProperty]
@@ -27,12 +31,15 @@ namespace ObjectiveApp.ViewModels
         [ObservableProperty]
         public Quote randomQuote = new();
 
-        //Collections
+        #endregion
+
+        #region Collections
         public ObservableCollection<Objective> ObjectiveList{
             get; set;
-        } 
+        }
+        #endregion
 
-        //Construction
+        #region Construction
         public HomeViewModel
         (
             
@@ -45,17 +52,22 @@ namespace ObjectiveApp.ViewModels
             _quoteData = quoteData;
             _objectiveData = objectiveData;
         }
-        public async Task LoadViewModel()
-        {
-            LoadGreeting();
-            await InitializeDataAsync();
-            await LoadUserAsync();
-            await LoadRandomQuoteAsync();
-            await LoadObjectiveListAsync();
-            //await AnnounceStartUpMessage();
-        }
+        #endregion
 
-        //Init
+        #region Commands
+        [RelayCommand]
+        public async void OnProfile()
+        {
+            await Shell.Current.GoToAsync(nameof(ProfileView));
+        }
+        [RelayCommand]
+        public async void OnInsert()
+        {
+            await Shell.Current.GoToAsync(nameof(ObjectiveView));
+        }
+        #endregion
+
+        #region Init methods
         private async Task InitializeDataAsync()
         {
             await _userData.InitDatabaseAsync();
@@ -69,7 +81,7 @@ namespace ObjectiveApp.ViewModels
             var salutationText = String.Format("{0} {1}, today is {2} and the time is {3}.",
                 Greeting, CurrentUser.Username, DateTimeService.TodayDate(), DateTimeService.TimeNow()
             );
-            
+
             if (ObjectiveList != null)
             {
                 objectiveListText.Clear();
@@ -88,41 +100,13 @@ namespace ObjectiveApp.ViewModels
             //Speak
             await TextToSpeechService.Speak(startUpMessage);
         }
+        #endregion
 
-        //Commands
-        [RelayCommand]
-        public async void OnProfile()
-        {
-            await Shell.Current.GoToAsync(nameof(ProfileView));
-        }
-        [RelayCommand]
-        public async void OnInsert()
-        {
-            await Shell.Current.GoToAsync(nameof(ObjectiveView));
-        }
-
-        //Methods
+        #region Load methods
         private void LoadGreeting()
         {
             DayOfWeek = DateTimeService.DayOfWeek();
             Greeting = $"Good {DateTimeService.TimeOfDay()}";
-        }
-        private async Task LoadUserAsync()
-        {
-            var result = await _userData.GetAsync(user => user.Id == 1);
-            if (result.Any())
-            {
-                CurrentUser = result.FirstOrDefault();
-            }
-        }
-        private async Task LoadObjectiveListAsync()
-        {
-            var result = await _objectiveData.GetAsync(x => !x.IsDone);
-            if (result.Any())
-            {
-                var resultList = result.ToList();
-                ObjectiveList = new ObservableCollection<Objective>(resultList);
-            }
         }
         private async Task LoadRandomQuoteAsync()
         {
@@ -131,5 +115,33 @@ namespace ObjectiveApp.ViewModels
 
             RandomQuote = result.FirstOrDefault();
         }
+        public async Task LoadUserAsync()
+        {
+            var result = await _userData.GetAsync(user => user.Id == 1);
+            if (result.Any())
+            {
+                CurrentUser = result.FirstOrDefault();
+            }
+        }
+        public async Task LoadObjectiveListAsync()
+        {
+            var result = await _objectiveData.GetAsync(x => !x.IsDone);
+            if (result.Any())
+            {
+                var resultList = result.ToList();
+                ObjectiveList = new ObservableCollection<Objective>(resultList);
+            }
+        }
+        public async Task LoadViewModel()
+        {
+            LoadGreeting();
+            await InitializeDataAsync();
+            await LoadUserAsync();
+            await LoadRandomQuoteAsync();
+            await LoadObjectiveListAsync();
+            await AnnounceStartUpMessage();
+        }
+        #endregion
+
     }
 }
