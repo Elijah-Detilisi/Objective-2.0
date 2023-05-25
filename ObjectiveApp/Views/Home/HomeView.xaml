@@ -12,12 +12,10 @@
 
     <!--Header-->
     <Shell.TitleView>
-        <StackLayout>
-            <localCustoms:NavBar
-                Greeting="{Binding Greeting}"
-                CurrentUser="{Binding CurrentUser}"
-                ProfileCommand="{Binding ProfileCommand}"/>
-        </StackLayout>
+        <localCustoms:NavBar
+            Greeting="{Binding Greeting}"
+            CurrentUser="{Binding CurrentUser}"
+            ProfileCommand="{Binding ProfileCommand}"/>
     </Shell.TitleView>
 
     <!--Body-->
@@ -30,10 +28,10 @@
                 <RowDefinition Height="75*" />
             </Grid.RowDefinitions>
 
-            <templates:CardTemplate
+            <localCustoms:QuoteCard
                 Grid.Row="0"
                 RandomQuote="{Binding RandomQuote}"/>
-            
+
             <Grid
                 Grid.Row="1">
                 <Grid.RowDefinitions>
