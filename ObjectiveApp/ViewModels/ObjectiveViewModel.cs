@@ -7,16 +7,22 @@ namespace ObjectiveApp.ViewModels
 {
     public partial class ObjectiveViewModel : ObservableObject
     {
-        //Fields
-        private readonly ObjectiveDataService _objectiveData;
 
-        //Properties
+        #region Fields
+
+        private readonly ObjectiveDataService _objectiveData;
+        #endregion
+
+        #region Properties
+
         [ObservableProperty]
         public TimeSpan selectedTime;
         [ObservableProperty]
         public Objective newObjective = new();
 
-        //Constrution
+        #endregion
+
+        #region Constrution
         public ObjectiveViewModel
         (
             ObjectiveDataService objectiveData
@@ -24,12 +30,14 @@ namespace ObjectiveApp.ViewModels
         {
             _objectiveData = objectiveData;
         }
+        #endregion
 
-        //Commands
+        #region Commands
+
         [RelayCommand]
         public async void OnSave()
         {
-            if (NewObjective.Title is not null)
+            if (!IsNull(NewObjective.Title) && !IsNull(NewObjective.DueDate) && !IsNull(SelectedTime))
             {
                 NewObjective.DueDate.Add(SelectedTime);
                 await _objectiveData.AddAsync(NewObjective);
@@ -45,5 +53,15 @@ namespace ObjectiveApp.ViewModels
                 );
             }
         }
+        #endregion
+
+        #region Helper methods
+        private static bool IsNull(object obj)
+        {
+            return obj == null;
+        }
+
+        #endregion
+
     }
 }
