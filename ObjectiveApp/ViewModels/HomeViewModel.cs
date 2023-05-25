@@ -141,7 +141,7 @@ namespace ObjectiveApp.ViewModels
                 await InitializeDataAsync();
                 
                 await LoadRandomQuoteAsync();
-                await AnnounceStartUpMessage();
+                //await AnnounceStartUpMessage();
 
                 _isInitialized = true;
             }

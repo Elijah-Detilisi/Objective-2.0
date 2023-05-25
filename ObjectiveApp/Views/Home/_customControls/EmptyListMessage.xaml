@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<VerticalStackLayout
+    x:Name="this"
+    Style="{StaticResource LayoutStyle}"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="ObjectiveApp.Views.Home._customControls.EmptyListMessage">
+    
+    <Image
+        Source="lazy.png"
+        HeightRequest="150"
+        HorizontalOptions="Center" />
+    <Label
+        Style="{StaticResource LazyLabelStyle}"
+        Text="{Binding Source={x:Reference this},Path=DayOfWeek, StringFormat='Lazy {0}'}"/>
+    <Label
+        HorizontalOptions="Center"
+        Text="Your objectives queue is clear at the moment."/>
+
+    <!--Styling-->
+    <VerticalStackLayout.Resources>
+        <ResourceDictionary>
+            <Style x:Key="LayoutStyle" TargetType="VerticalStackLayout">
+                <Setter Property="Spacing" Value="20" />
+                <Setter Property="VerticalOptions" Value="Center" />
+            </Style>
+            <Style x:Key="LazyLabelStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="24" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="TextColor" Value="{StaticResource Gray600}"/>
+            </Style>
+        </ResourceDictionary>
+    </VerticalStackLayout.Resources>
+</VerticalStackLayout>

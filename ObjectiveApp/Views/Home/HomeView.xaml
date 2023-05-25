@@ -52,7 +52,7 @@
                     <!--emptyView-->
                     <CollectionView.EmptyView>
                         <ContentView>
-                            <templates:EmptyListTemplate
+                            <localCustoms:EmptyListMessage
                                 DayOfWeek="{Binding DayOfWeek}"/>
                         </ContentView>
                     </CollectionView.EmptyView>
