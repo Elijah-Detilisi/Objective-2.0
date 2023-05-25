@@ -93,6 +93,9 @@
 	  <MauiXaml Update="Views\Home\Templates\NavBarTemplate.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\Home\_customControls\NavBar.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\Objective\ObjectiveView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
