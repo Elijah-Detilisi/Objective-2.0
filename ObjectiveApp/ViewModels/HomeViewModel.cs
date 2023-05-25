@@ -14,6 +14,7 @@ namespace ObjectiveApp.ViewModels
     {
         #region Fields
 
+        private bool _isInitialized = false;
         private readonly UserDataService _userData;
         private readonly QuoteDataService _quoteData;
         private readonly ObjectiveDataService _objectiveData;
@@ -134,11 +135,19 @@ namespace ObjectiveApp.ViewModels
         }
         public async Task LoadViewModel()
         {
-            LoadGreeting();
-            await InitializeDataAsync();
+            if (!_isInitialized)
+            {
+                LoadGreeting();
+                await InitializeDataAsync();
+                
+                await LoadRandomQuoteAsync();
+                await AnnounceStartUpMessage();
+
+                _isInitialized = true;
+            }
+
             await LoadUserAsync();
-            await LoadRandomQuoteAsync();
-            await AnnounceStartUpMessage();
+            await LoadObjectiveListAsync();
         }
         #endregion
 
