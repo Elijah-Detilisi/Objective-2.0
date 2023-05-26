@@ -19,7 +19,7 @@
     <!--Body-->
     <ContentView> 
         <Grid
-            Padding="20">
+            Padding="20, 10, 20, 20">
             <Grid.RowDefinitions>
                 <RowDefinition Height="85*" />
                 <RowDefinition Height="15*" />
@@ -72,7 +72,7 @@
             </Style>
 
             <Style x:Key="TitleLabelStyle" TargetType="Label">
-                <Setter Property="FontSize" Value="26" />
+                <Setter Property="FontSize" Value="24" />
                 <Setter Property="Margin" Value="0,5,0,15" />
                 <Setter Property="FontAttributes" Value="Bold" />
                 <Setter Property="TextColor" Value="{StaticResource Secondary}"/>

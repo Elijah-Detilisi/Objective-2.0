@@ -4,8 +4,12 @@ namespace ObjectiveApp.Views.Objective;
 
 public partial class ObjectiveView : ContentPage
 {
-    private ObjectiveViewModel _viewModel;
 
+    #region Fields
+    private ObjectiveViewModel _viewModel;
+    #endregion
+
+    #region Construction
     public ObjectiveView(ObjectiveViewModel viewModel)
 	{
         _viewModel = viewModel;
@@ -13,4 +17,6 @@ public partial class ObjectiveView : ContentPage
 
         InitializeComponent();
 	}
+    #endregion
+
 }

@@ -4,8 +4,11 @@ namespace ObjectiveApp.Views.Home;
 
 public partial class HomeView : ContentPage
 {
+    #region Fields
     private HomeViewModel _viewModel;
+    #endregion
 
+    #region Construction
     public HomeView(HomeViewModel viewModel)
 	{
         _viewModel = viewModel;
@@ -13,7 +16,9 @@ public partial class HomeView : ContentPage
 
         InitializeComponent();
     }
+    #endregion
 
+    #region App lifecycle method
     protected override async void OnAppearing()
     {
         await _viewModel.LoadViewModel();
@@ -21,4 +26,6 @@ public partial class HomeView : ContentPage
 
         base.OnAppearing();
     }
+    #endregion
+
 }
