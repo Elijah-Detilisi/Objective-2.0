@@ -17,6 +17,7 @@ public partial class HomeView : ContentPage
     protected override async void OnAppearing()
     {
         await _viewModel.LoadViewModel();
+        MyCollectionView.ItemsSource = _viewModel.ObjectiveList;
 
         base.OnAppearing();
     }

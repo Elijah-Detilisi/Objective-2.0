@@ -6,9 +6,7 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:viewmodels="clr-namespace:ObjectiveApp.ViewModels"
-    xmlns:globalCustoms="clr-namespace:ObjectiveApp.Views.CustomControls"
-    xmlns:localCustoms="clr-namespace:ObjectiveApp.Views.Home._customControls"
-    xmlns:templates="clr-namespace:ObjectiveApp.Views.Home.Templates">
+    xmlns:localCustoms="clr-namespace:ObjectiveApp.Views.Home._customControls">
 
     <!--Header-->
     <Shell.TitleView>
@@ -46,8 +44,8 @@
                     Style="{StaticResource TitleLabelStyle}"/>
 
                 <CollectionView
-                    x:Name="MyCollectionView"
                     Grid.Row="1"
+                    x:Name="MyCollectionView"
                     VerticalOptions="Start">
                     <!--emptyView-->
                     <CollectionView.EmptyView>
@@ -59,7 +57,7 @@
                     <!--itemTemplate-->
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
-                            <templates:ListItemTemplate/>
+                            <localCustoms:ListItem/>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
                 </CollectionView>
