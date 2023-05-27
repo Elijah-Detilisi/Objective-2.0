@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<Frame 
+<Frame
     x:Name="this"
+    ClassId="{Binding Id}"
     x:DataType="models:Objective"
     Style="{StaticResource FrameStyle}"
     xmlns:models="clr-namespace:ObjectiveApp.Models"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="ObjectiveApp.Views.Home._customControls.ListItem">
+
+    <Frame.GestureRecognizers>
+        <TapGestureRecognizer
+            NumberOfTapsRequired="1"
+            Tapped="TapGestureRecognizer_Tapped"/>
+    </Frame.GestureRecognizers>
 
     <!--View-->
     <Grid

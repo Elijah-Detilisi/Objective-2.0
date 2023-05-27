@@ -2,11 +2,13 @@ using ObjectiveApp.ViewModels;
 
 namespace ObjectiveApp.Views.Objective;
 
+[QueryProperty(nameof(ObjectiveId), nameof(ObjectiveId))]
 public partial class ObjectiveView : ContentPage
 {
 
     #region Fields
     private ObjectiveViewModel _viewModel;
+    public string ObjectiveId { get; set; }
     #endregion
 
     #region Construction
@@ -19,4 +21,11 @@ public partial class ObjectiveView : ContentPage
 	}
     #endregion
 
+    #region App lifecylce methods
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+        var test = ObjectiveId;
+    }
+    #endregion
 }
