@@ -2,6 +2,7 @@
 using ObjectiveApp.DataAccess;
 using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.ComponentModel;
+using System.Collections.ObjectModel;
 
 namespace ObjectiveApp.ViewModels
 {
@@ -53,6 +54,20 @@ namespace ObjectiveApp.ViewModels
                     message: "~ You can't save an empty entry.", 
                     cancel: "Got it"
                 );
+            }
+        }
+        #endregion
+
+        #region Load methods
+        public async Task LoadViewModel(int objectiveId=0)
+        {
+            if (objectiveId>0)
+            {
+                var result = await _objectiveData.GetAsync(x=>x.Id==objectiveId);
+                if (result.Any())
+                {
+                    NewObjective = result.First();
+                }
             }
         }
         #endregion

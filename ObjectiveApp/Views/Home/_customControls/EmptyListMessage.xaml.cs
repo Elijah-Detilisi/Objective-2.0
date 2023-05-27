@@ -1,6 +1,3 @@
-using CommunityToolkit.Mvvm.Input;
-using System.Windows.Input;
-
 namespace ObjectiveApp.Views.Home._customControls;
 
 public partial class EmptyListMessage : VerticalStackLayout
@@ -29,4 +26,5 @@ public partial class EmptyListMessage : VerticalStackLayout
         defaultValue: "day",
         defaultBindingMode: BindingMode.TwoWay);
     #endregion
+
 }

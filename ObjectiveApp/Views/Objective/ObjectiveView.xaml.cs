@@ -8,7 +8,7 @@ public partial class ObjectiveView : ContentPage
 
     #region Fields
     private ObjectiveViewModel _viewModel;
-    public string ObjectiveId { get; set; }
+    public int ObjectiveId { get; set; }
     #endregion
 
     #region Construction
@@ -22,10 +22,12 @@ public partial class ObjectiveView : ContentPage
     #endregion
 
     #region App lifecylce methods
-    protected override void OnAppearing()
+    protected override async void OnAppearing()
     {
+        await _viewModel.LoadViewModel(ObjectiveId);
         base.OnAppearing();
-        var test = ObjectiveId;
     }
     #endregion
+
+
 }
