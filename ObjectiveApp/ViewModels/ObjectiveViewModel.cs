@@ -19,7 +19,7 @@ namespace ObjectiveApp.ViewModels
         [ObservableProperty]
         public TimeSpan selectedTime;
         [ObservableProperty]
-        public Objective newObjective = new();
+        public Objective newObjective;
 
         #endregion
 
@@ -43,8 +43,6 @@ namespace ObjectiveApp.ViewModels
                 NewObjective.DueDate.Add(SelectedTime);
                 await _objectiveData.AddAsync(NewObjective);
                 await Shell.Current.Navigation.PopAsync();
-                NewObjective = null;
-                GC.Collect();
             }
             else
             {
@@ -61,6 +59,8 @@ namespace ObjectiveApp.ViewModels
         #region Load methods
         public async Task LoadViewModel(int objectiveId=0)
         {
+            NewObjective = new();
+
             if (objectiveId>0)
             {
                 var result = await _objectiveData.GetAsync(x=>x.Id==objectiveId);
