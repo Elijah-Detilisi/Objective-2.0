@@ -12,7 +12,7 @@
     <!--Header-->
     <Shell.TitleView>
         <Label
-            Text="Create Objective"
+            Text="{Binding ViewTitle}"
             Style="{StaticResource HeaderLabelStyle}"/>
     </Shell.TitleView>
 
@@ -29,7 +29,7 @@
                 Grid.Row="0"
                 Spacing="8">
                 <Label
-                    Text="New :"
+                    Text="{Binding ViewSubtitle}"
                     Style="{StaticResource TitleLabelStyle}"/>
                 <!--title-->
                 <globalCustoms:OutlinedRoundedBorder>
@@ -68,6 +68,8 @@
                 <Setter Property="FontSize" Value="20" />
                 <Setter Property="FontAttributes" Value="Bold" />
                 <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="HorizontalTextAlignment" Value="End" />
+                <Setter Property="Margin" Value="0,0,15,0" />
                 <Setter Property="TextColor" Value="{StaticResource Gray600}"/>
             </Style>
 

@@ -1,8 +1,7 @@
-﻿using ObjectiveApp.Models;
-using ObjectiveApp.DataAccess;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using CommunityToolkit.Mvvm.ComponentModel;
-using System.Collections.ObjectModel;
+using ObjectiveApp.DataAccess;
+using ObjectiveApp.Models;
 
 namespace ObjectiveApp.ViewModels
 {
@@ -15,7 +14,12 @@ namespace ObjectiveApp.ViewModels
         #endregion
 
         #region Properties
-
+        [ObservableProperty]
+        public string viewTitle;
+        [ObservableProperty]
+        public string viewSubtitle;
+        [ObservableProperty]
+        public Color viewSubtitleColor;
         [ObservableProperty]
         public TimeSpan selectedTime;
         [ObservableProperty]
@@ -60,13 +64,18 @@ namespace ObjectiveApp.ViewModels
         public async Task LoadViewModel(int objectiveId=0)
         {
             NewObjective = new();
+            ViewSubtitle = "New";
+            ViewTitle = "Create Objective";
+            ViewSubtitleColor = Color.FromArgb("#666666");
 
             if (objectiveId>0)
             {
+                ViewTitle = "View Objective";
                 var result = await _objectiveData.GetAsync(x=>x.Id==objectiveId);
                 if (result.Any())
                 {
                     NewObjective = result.First();
+                    LoadSubtitle(NewObjective.DueDate);
                 }
             }
         }
@@ -76,6 +85,26 @@ namespace ObjectiveApp.ViewModels
         private static bool IsNull(object obj)
         {
             return obj == null;
+        }
+
+        private void LoadSubtitle(DateTime dateTime)
+        {
+            if (dateTime<DateTime.Now)
+            {
+                ViewSubtitle = "Overdue";
+                ViewSubtitleColor = Color.FromArgb("#BF0603");
+            }
+            else if (dateTime.AddDays(1) == DateTime.Now)
+            {
+                ViewSubtitle = "Tomorrow";
+                ViewSubtitleColor = Color.FromArgb("#FFB732");
+            }
+            else if (dateTime.Day == DateTime.Now.Day)
+            {
+                ViewSubtitle = "Today";
+                ViewSubtitleColor = Color.FromArgb("#40C060");
+            }
+
         }
 
         #endregion
