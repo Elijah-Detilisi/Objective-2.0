@@ -30,6 +30,7 @@
                 Spacing="8">
                 <Label
                     Text="{Binding ViewSubtitle}"
+                    TextColor="{Binding ViewSubtitleColor}"
                     Style="{StaticResource TitleLabelStyle}"/>
                 <!--title-->
                 <globalCustoms:OutlinedRoundedBorder>
@@ -77,7 +78,6 @@
                 <Setter Property="FontSize" Value="24" />
                 <Setter Property="Margin" Value="0,5,0,15" />
                 <Setter Property="FontAttributes" Value="Bold" />
-                <Setter Property="TextColor" Value="{StaticResource Secondary}"/>
             </Style>
 
             <Style x:Key="SaveButtonStyle" TargetType="Button">

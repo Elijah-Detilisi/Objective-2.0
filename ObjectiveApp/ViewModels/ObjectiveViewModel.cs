@@ -89,21 +89,26 @@ namespace ObjectiveApp.ViewModels
 
         private void LoadSubtitle(DateTime dateTime)
         {
-            if (dateTime<DateTime.Now)
-            {
-                ViewSubtitle = "Overdue";
-                ViewSubtitleColor = Color.FromArgb("#BF0603");
-            }
-            else if (dateTime.AddDays(1) == DateTime.Now)
-            {
-                ViewSubtitle = "Tomorrow";
-                ViewSubtitleColor = Color.FromArgb("#FFB732");
-            }
-            else if (dateTime.Day == DateTime.Now.Day)
+            ViewSubtitle = "Pending";
+            ViewSubtitleColor = Color.FromArgb("#4569AF");
+
+            if (dateTime.Date == DateTime.Now.Date)
             {
                 ViewSubtitle = "Today";
                 ViewSubtitleColor = Color.FromArgb("#40C060");
             }
+            else if (dateTime.Date.AddDays(-1) == DateTime.Now.Date)
+            {
+                ViewSubtitle = "Tomorrow";
+                ViewSubtitleColor = Color.FromArgb("#FFB732");
+            }
+            else if(dateTime.Date<DateTime.Now.Date)
+            {
+                ViewSubtitle = "Overdue";
+                ViewSubtitleColor = Color.FromArgb("#BF0603");
+            }
+            
+            
 
         }
 
