@@ -70,7 +70,6 @@ namespace ObjectiveApp.ViewModels
 
             if (objectiveId>0)
             {
-                ViewTitle = "View Objective";
                 var result = await _objectiveData.GetAsync(x=>x.Id==objectiveId);
                 if (result.Any())
                 {
@@ -87,29 +86,27 @@ namespace ObjectiveApp.ViewModels
             return obj == null;
         }
 
-        private void LoadSubtitle(DateTime dateTime)
+        private void LoadSubtitle(DateTime dueDateTime)
         {
             ViewSubtitle = "Pending";
+            ViewTitle = "View Objective";
             ViewSubtitleColor = Color.FromArgb("#4569AF");
 
-            if (dateTime.Date == DateTime.Now.Date)
+            if (dueDateTime.Date == DateTime.Now.Date)
             {
                 ViewSubtitle = "Today";
                 ViewSubtitleColor = Color.FromArgb("#40C060");
             }
-            else if (dateTime.Date.AddDays(-1) == DateTime.Now.Date)
+            else if (dueDateTime == DateTime.Now.Date.AddDays(1))
             {
                 ViewSubtitle = "Tomorrow";
                 ViewSubtitleColor = Color.FromArgb("#FFB732");
             }
-            else if(dateTime.Date<DateTime.Now.Date)
+            else if(dueDateTime.Date<DateTime.Now.Date)
             {
-                ViewSubtitle = "Overdue";
                 ViewSubtitleColor = Color.FromArgb("#BF0603");
+                ViewSubtitle = dueDateTime == DateTime.Now.Date.AddDays(-1)? "Yesterday" : "Overdue";
             }
-            
-            
-
         }
 
         #endregion
