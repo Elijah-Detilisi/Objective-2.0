@@ -41,7 +41,7 @@
                 </globalCustoms:OutlinedRoundedBorder>
                 <!--due-dateTime-->
                 <localCustoms:DateTimePicker
-                    Date="{Binding NewObjective.DueDate}"
+                    Date="{Binding SelectedDate}"
                     Time="{Binding SelectedTime}"/>
                 <!--description-->
                 <globalCustoms:OutlinedRoundedBorder

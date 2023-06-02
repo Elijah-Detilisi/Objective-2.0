@@ -24,6 +24,8 @@ namespace ObjectiveApp.ViewModels
         [ObservableProperty]
         public TimeSpan selectedTime;
         [ObservableProperty]
+        public DateTime selectedDate;
+        [ObservableProperty]
         public Objective newObjective;
 
         #endregion
@@ -43,9 +45,10 @@ namespace ObjectiveApp.ViewModels
         [RelayCommand]
         public async void OnSave()
         {
-            if (!IsNull(NewObjective.Title) && !IsNull(NewObjective.DueDate) && !IsNull(SelectedTime))
+            if (!IsNull(NewObjective.Title) && !IsNull(SelectedDate) && !IsNull(SelectedTime))
             {
-                NewObjective.DueDate.Add(SelectedTime);
+                var finalDate = SelectedDate.Add(SelectedTime);
+                NewObjective.DueDate = finalDate;
 
                 await _objectiveData.AddOrUpdateAsync(NewObjective);
                 //await Shell.Current.Navigation.PopAsync();
@@ -74,6 +77,7 @@ namespace ObjectiveApp.ViewModels
                 {
                     NewObjective = result.First();
                     LoadSubtitle(NewObjective.DueDate);
+                    SelectedDate = NewObjective.DueDate;
                     SelectedTime = DateTimeService.ConvertToTimeSpan(NewObjective.DueDate);
                 }
             }
@@ -84,6 +88,7 @@ namespace ObjectiveApp.ViewModels
         private void ResetViewModel()
         {
             SelectedTime = new();
+            SelectedDate = new();
             NewObjective = new();
             ViewSubtitle = "New";
             ViewTitle = "Create Objective";
