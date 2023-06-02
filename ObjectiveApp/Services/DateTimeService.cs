@@ -27,5 +27,10 @@
                 "evening"
             );
         }
+
+        public static TimeSpan ConvertDateTimeToTimeSpan(DateTime dateTime)
+        {
+            return new TimeSpan(dateTime.Hour, dateTime.Minute, dateTime.Second);
+        }
     }
 }

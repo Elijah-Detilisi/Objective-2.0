@@ -9,5 +9,17 @@ namespace ObjectiveApp.DataAccess
         public ObjectiveDataService(SQLiteAsyncConnection connection) : base(connection)
         {
         }
+
+        public async Task AddOrUpdateAsync(Objective objective)
+        {
+            if (objective.Id == 0)
+            {
+                await AddAsync(objective);
+            }
+            else
+            {
+                await UpdateAsync(objective);
+            }
+        }
     }
 }

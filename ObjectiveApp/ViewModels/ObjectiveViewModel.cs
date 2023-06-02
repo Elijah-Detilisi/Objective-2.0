@@ -2,6 +2,7 @@
 using CommunityToolkit.Mvvm.Input;
 using ObjectiveApp.DataAccess;
 using ObjectiveApp.Models;
+using ObjectiveApp.Services;
 
 namespace ObjectiveApp.ViewModels
 {
@@ -45,8 +46,9 @@ namespace ObjectiveApp.ViewModels
             if (!IsNull(NewObjective.Title) && !IsNull(NewObjective.DueDate) && !IsNull(SelectedTime))
             {
                 NewObjective.DueDate.Add(SelectedTime);
-                await _objectiveData.AddAsync(NewObjective);
-                await Shell.Current.Navigation.PopAsync();
+
+                await _objectiveData.AddOrUpdateAsync(NewObjective);
+                //await Shell.Current.Navigation.PopAsync();
             }
             else
             {
@@ -63,10 +65,7 @@ namespace ObjectiveApp.ViewModels
         #region Load methods
         public async Task LoadViewModel(int objectiveId=0)
         {
-            NewObjective = new();
-            ViewSubtitle = "New";
-            ViewTitle = "Create Objective";
-            ViewSubtitleColor = Color.FromArgb("#666666");
+            ResetViewModel();
 
             if (objectiveId>0)
             {
@@ -75,12 +74,23 @@ namespace ObjectiveApp.ViewModels
                 {
                     NewObjective = result.First();
                     LoadSubtitle(NewObjective.DueDate);
+                    //TimeSpan test = new TimeSpan(NewObjective.DueDate.Ticks);
+                    SelectedTime = DateTimeService.ConvertDateTimeToTimeSpan(NewObjective.DueDate);
                 }
             }
         }
         #endregion
 
         #region Helper methods
+        private void ResetViewModel()
+        {
+            SelectedTime = new();
+            NewObjective = new();
+            ViewSubtitle = "New";
+            ViewTitle = "Create Objective";
+            ViewSubtitleColor = Color.FromArgb("#666666");
+        }
+
         private static bool IsNull(object obj)
         {
             return obj == null;
