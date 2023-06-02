@@ -28,7 +28,7 @@
             );
         }
 
-        public static TimeSpan ConvertDateTimeToTimeSpan(DateTime dateTime)
+        public static TimeSpan ConvertToTimeSpan(DateTime dateTime)
         {
             return new TimeSpan(dateTime.Hour, dateTime.Minute, dateTime.Second);
         }

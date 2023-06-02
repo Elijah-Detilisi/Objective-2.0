@@ -74,8 +74,7 @@ namespace ObjectiveApp.ViewModels
                 {
                     NewObjective = result.First();
                     LoadSubtitle(NewObjective.DueDate);
-                    //TimeSpan test = new TimeSpan(NewObjective.DueDate.Ticks);
-                    SelectedTime = DateTimeService.ConvertDateTimeToTimeSpan(NewObjective.DueDate);
+                    SelectedTime = DateTimeService.ConvertToTimeSpan(NewObjective.DueDate);
                 }
             }
         }
