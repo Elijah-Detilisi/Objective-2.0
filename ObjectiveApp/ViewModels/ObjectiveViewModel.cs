@@ -51,7 +51,7 @@ namespace ObjectiveApp.ViewModels
                 NewObjective.DueDate = finalDate;
 
                 await _objectiveData.AddOrUpdateAsync(NewObjective);
-                //await Shell.Current.Navigation.PopAsync();
+                await Shell.Current.Navigation.PopAsync();
             }
             else
             {
@@ -88,8 +88,8 @@ namespace ObjectiveApp.ViewModels
         private void ResetViewModel()
         {
             SelectedTime = new();
-            SelectedDate = new();
             NewObjective = new();
+            SelectedDate = NewObjective.DueDate;
             ViewSubtitle = "New";
             ViewTitle = "Create Objective";
             ViewSubtitleColor = Color.FromArgb("#666666");
