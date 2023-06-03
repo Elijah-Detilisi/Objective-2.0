@@ -133,13 +133,12 @@ namespace ObjectiveApp.ViewModels
                 ObjectiveList = new ObservableCollection<Objective>(resultList);
             }
         }
-        public async Task LoadViewModel()
+        public async Task LoadViewModel(int objectiveId = 0)
         {
             if (!_isInitialized)
             {
                 LoadGreeting();
                 await InitializeDataAsync();
-                
                 await LoadRandomQuoteAsync();
                 //await AnnounceStartUpMessage();
 
@@ -147,7 +146,23 @@ namespace ObjectiveApp.ViewModels
             }
 
             await LoadUserAsync();
+            await EleminateObjectiveAsync(objectiveId);
             await LoadObjectiveListAsync();
+        }
+        #endregion
+
+        #region Helper methods
+        private async Task EleminateObjectiveAsync(int objectiveId = 0)
+        {
+            if (objectiveId > 0 && ObjectiveList.Count > 0)
+            {
+                var result = ObjectiveList.Where(x => x.Id == objectiveId).FirstOrDefault();
+                if (result is not null)
+                {
+                    result.IsDone = true;
+                    await _objectiveData.UpdateAsync(result);
+                }
+            }
         }
         #endregion
 
