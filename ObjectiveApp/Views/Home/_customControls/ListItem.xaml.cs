@@ -17,6 +17,11 @@ public partial class ListItem : Frame
         BackgroundColor = Color.FromArgb("#ACACAC");
         await Shell.Current.GoToAsync($"{nameof(ObjectiveView)}?ObjectiveId={ClassId}");
     }
+    private void CheckBox_CheckedChanged(object sender, CheckedChangedEventArgs e)
+    {
+        BackgroundColor = Color.FromArgb("#82E0AA");
+    }
     #endregion
+
 
 }

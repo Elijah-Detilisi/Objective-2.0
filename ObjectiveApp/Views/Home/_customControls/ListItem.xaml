@@ -27,6 +27,7 @@
 
         <CheckBox
             Grid.Column="0"
+            CheckedChanged="CheckBox_CheckedChanged"
             Style="{StaticResource CheckboxStyle}"/>
         <Label
             Grid.Column="1"
