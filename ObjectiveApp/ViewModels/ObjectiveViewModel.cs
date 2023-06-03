@@ -6,7 +6,7 @@ using ObjectiveApp.Services;
 
 namespace ObjectiveApp.ViewModels
 {
-    public partial class ObjectiveViewModel : ObservableObject
+    public partial class ObjectiveViewModel : ObservableObject, IQueryAttributable
     {
 
         #region Fields
@@ -123,6 +123,25 @@ namespace ObjectiveApp.ViewModels
             }
         }
 
+        #endregion
+
+        #region IQuery methods
+        async void IQueryAttributable.ApplyQueryAttributes(IDictionary<string, object> query)
+        {
+            if (query.ContainsKey("view"))
+            {
+                int objectiveId = Int32.Parse(query["view"].ToString());
+                await LoadViewModel(objectiveId);
+            }
+            else if (query.ContainsKey("complete"))
+            {
+                int objectiveId = Int32.Parse(query["complete"].ToString());
+            }
+            else
+            {
+                await LoadViewModel();
+            }
+        }
         #endregion
 
     }
