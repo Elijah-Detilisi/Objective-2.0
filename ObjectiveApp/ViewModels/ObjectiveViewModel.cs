@@ -3,6 +3,7 @@ using CommunityToolkit.Mvvm.Input;
 using ObjectiveApp.DataAccess;
 using ObjectiveApp.Models;
 using ObjectiveApp.Services;
+using static SQLite.SQLite3;
 
 namespace ObjectiveApp.ViewModels
 {
@@ -82,6 +83,31 @@ namespace ObjectiveApp.ViewModels
                 }
             }
         }
+
+        private async Task EleminateObjectiveAsync(int objectiveId = 0)
+        {
+            ResetViewModel();
+
+            if (objectiveId > 0)
+            {
+                var result = await _objectiveData.GetAsync(x => x.Id == objectiveId);
+                if (result.Any())
+                {
+                    NewObjective = result.First();
+                    NewObjective.IsDone = true;
+
+                    //celebrate
+                    ViewTitle = "Objective complete";
+                    ViewSubtitle = "Congratulations!";
+                    ViewSubtitleColor = Color.FromArgb("#4569AF");
+
+                    SelectedDate = NewObjective.DueDate;
+                    SelectedTime = DateTimeService.ConvertToTimeSpan(NewObjective.DueDate);
+
+                    await _objectiveData.UpdateAsync(NewObjective);
+                }
+            }
+        }
         #endregion
 
         #region Helper methods
@@ -97,7 +123,7 @@ namespace ObjectiveApp.ViewModels
 
         private static bool IsNull(object obj)
         {
-            return obj == null;
+            return obj is null;
         }
 
         private void LoadSubtitle(DateTime dueDateTime)
@@ -136,6 +162,7 @@ namespace ObjectiveApp.ViewModels
             else if (query.ContainsKey("complete"))
             {
                 int objectiveId = Int32.Parse(query["complete"].ToString());
+                await EleminateObjectiveAsync(objectiveId);
             }
             else
             {
