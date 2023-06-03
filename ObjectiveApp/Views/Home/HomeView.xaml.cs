@@ -2,7 +2,6 @@ using ObjectiveApp.ViewModels;
 
 namespace ObjectiveApp.Views.Home;
 
-[QueryProperty(nameof(ObjectiveId), nameof(ObjectiveId))]
 public partial class HomeView : ContentPage
 {
     #region Fields
@@ -23,7 +22,7 @@ public partial class HomeView : ContentPage
     #region App lifecycle method
     protected override async void OnAppearing()
     {
-        await _viewModel.LoadViewModel(ObjectiveId);
+        await _viewModel.LoadViewModel();
         MyCollectionView.ItemsSource = _viewModel.ObjectiveList;
 
         base.OnAppearing();

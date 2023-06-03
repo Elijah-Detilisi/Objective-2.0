@@ -143,6 +143,5 @@ namespace ObjectiveApp.ViewModels
             }
         }
         #endregion
-
     }
 }
