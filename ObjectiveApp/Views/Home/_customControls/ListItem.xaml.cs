@@ -11,7 +11,7 @@ public partial class ListItem : Frame
 	}
     #endregion
 
-    #region Commands
+    #region Event handlers
     private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
     {
         BackgroundColor = Color.FromArgb("#ACACAC");
