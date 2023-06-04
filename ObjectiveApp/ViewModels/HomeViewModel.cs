@@ -127,11 +127,7 @@ namespace ObjectiveApp.ViewModels
         public async Task LoadObjectiveListAsync()
         {
             var result = await _objectiveData.GetAsync(x => !x.IsDone);
-            if (result.Any())
-            {
-                var resultList = result.ToList();
-                ObjectiveList = new ObservableCollection<Objective>(resultList);
-            }
+            ObjectiveList = new ObservableCollection<Objective>(result.ToList());
         }
         public async Task LoadViewModel()
         {
