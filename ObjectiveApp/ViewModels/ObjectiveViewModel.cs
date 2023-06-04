@@ -3,7 +3,6 @@ using CommunityToolkit.Mvvm.Input;
 using ObjectiveApp.DataAccess;
 using ObjectiveApp.Models;
 using ObjectiveApp.Services;
-using static SQLite.SQLite3;
 
 namespace ObjectiveApp.ViewModels
 {
