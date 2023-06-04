@@ -19,4 +19,12 @@ public partial class ObjectiveView : ContentPage
 	}
     #endregion
 
+    #region App lifecycle method
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+        SaveButton.IsVisible = !(_viewModel.IsCelebrating);
+    }
+    #endregion
+
 }

@@ -22,8 +22,8 @@
         <Grid
             Padding="20, 10, 20, 20">
             <Grid.RowDefinitions>
-                <RowDefinition Height="85*" />
-                <RowDefinition Height="15*" />
+                <RowDefinition Height="70*" />
+                <RowDefinition Height="30*" />
             </Grid.RowDefinitions>
 
             <VerticalStackLayout
@@ -56,15 +56,16 @@
             
             <!--Footer-->
             <Button
-                IsVisible="false"
-                Grid.Row="1"
                 Text="SAVE"
+                Grid.Row="1"
+                x:Name="SaveButton"
                 Command="{Binding SaveCommand}"
                 Style="{StaticResource SaveButtonStyle}"/>
             
             <!--Celebration View-->
             <skia:SKConfettiView
-                Grid.Row="1">
+                Grid.Row="0"
+                IsVisible="{Binding IsCelebrating}">
                 <skia:SKConfettiView.Systems>
                     <skia:SKConfettiSystem>
                         <skia:SKConfettiSystem.Emitter>
@@ -79,7 +80,7 @@
             <Label
                 Grid.Row="1"
                 Text="CONGRATULATIONS!"
-                TextColor="Green"
+                IsVisible="{Binding IsCelebrating}"
                 Style="{StaticResource SpecialLabelStyle}"/>
         </Grid>
     </ContentView>
@@ -106,6 +107,7 @@
                 <Setter Property="FontSize" Value="28" />
                 <Setter Property="FontAttributes" Value="Bold" />
                 <Setter Property="HorizontalTextAlignment" Value="Center" />
+                <Setter Property="TextColor" Value="ForestGreen"/>
             </Style>
 
             <Style x:Key="SaveButtonStyle" TargetType="Button">

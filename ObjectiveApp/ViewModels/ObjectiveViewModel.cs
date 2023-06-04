@@ -28,7 +28,8 @@ namespace ObjectiveApp.ViewModels
         public DateTime selectedDate;
         [ObservableProperty]
         public Objective newObjective;
-
+        [ObservableProperty]
+        public bool isCelebrating;
         #endregion
 
         #region Constrution
@@ -97,8 +98,9 @@ namespace ObjectiveApp.ViewModels
                     NewObjective.IsDone = true;
 
                     //celebrate
+                    IsCelebrating = true;
                     ViewTitle = "Objective complete";
-                    ViewSubtitle = "Congratulations!";
+                    ViewSubtitle = "Done!";
                     ViewSubtitleColor = Color.FromArgb("#4569AF");
 
                     SelectedDate = NewObjective.DueDate;
@@ -115,9 +117,10 @@ namespace ObjectiveApp.ViewModels
         {
             SelectedTime = new();
             NewObjective = new();
-            SelectedDate = NewObjective.DueDate;
+            IsCelebrating = false;
             ViewSubtitle = "New";
             ViewTitle = "Create Objective";
+            SelectedDate = NewObjective.DueDate;
             ViewSubtitleColor = Color.FromArgb("#666666");
         }
 
@@ -170,5 +173,6 @@ namespace ObjectiveApp.ViewModels
             }
         }
         #endregion
+
     }
 }
