@@ -56,13 +56,15 @@
             
             <!--Footer-->
             <Button
+                IsVisible="false"
                 Grid.Row="1"
                 Text="SAVE"
                 Command="{Binding SaveCommand}"
                 Style="{StaticResource SaveButtonStyle}"/>
             
             <!--Celebration View-->
-            <skia:SKConfettiView>
+            <skia:SKConfettiView
+                Grid.Row="1">
                 <skia:SKConfettiView.Systems>
                     <skia:SKConfettiSystem>
                         <skia:SKConfettiSystem.Emitter>

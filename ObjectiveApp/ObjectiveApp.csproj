@@ -55,7 +55,6 @@
 	  <None Remove="Resources\Images\search.svg" />
 	  <None Remove="Resources\Images\user.svg" />
 	  <None Remove="Resources\Raw\102-inspirational-qoutes.txt" />
-	  <None Remove="Resources\Raw\success_great_job_gif.json" />
 	</ItemGroup>
 
 	<ItemGroup>
