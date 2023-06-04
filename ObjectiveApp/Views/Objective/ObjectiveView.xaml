@@ -7,7 +7,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:viewmodels="clr-namespace:ObjectiveApp.ViewModels"
     xmlns:globalCustoms="clr-namespace:ObjectiveApp.Views.CustomControls"
-    xmlns:localCustoms="clr-namespace:ObjectiveApp.Views.Objective._customControls">
+    xmlns:localCustoms="clr-namespace:ObjectiveApp.Views.Objective._customControls"
+    xmlns:skia="clr-namespace:SkiaSharp.Extended.UI.Controls;assembly=SkiaSharp.Extended.UI">
     
     <!--Header-->
     <Shell.TitleView>
@@ -59,6 +60,25 @@
                 Text="SAVE"
                 Command="{Binding SaveCommand}"
                 Style="{StaticResource SaveButtonStyle}"/>
+            
+            <!--Celebration View-->
+            <skia:SKConfettiView>
+                <skia:SKConfettiView.Systems>
+                    <skia:SKConfettiSystem>
+                        <skia:SKConfettiSystem.Emitter>
+                            <skia:SKConfettiEmitter
+                                ParticleRate="350"
+                                Duration="10000"/>
+                        </skia:SKConfettiSystem.Emitter>
+                    </skia:SKConfettiSystem>
+                </skia:SKConfettiView.Systems>
+            </skia:SKConfettiView>
+
+            <Label
+                Grid.Row="1"
+                Text="CONGRATULATIONS!"
+                TextColor="Green"
+                Style="{StaticResource SpecialLabelStyle}"/>
         </Grid>
     </ContentView>
 
@@ -78,6 +98,12 @@
                 <Setter Property="FontSize" Value="24" />
                 <Setter Property="Margin" Value="0,5,0,15" />
                 <Setter Property="FontAttributes" Value="Bold" />
+            </Style>
+
+            <Style x:Key="SpecialLabelStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="28" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
             </Style>
 
             <Style x:Key="SaveButtonStyle" TargetType="Button">

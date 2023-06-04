@@ -55,6 +55,7 @@
 	  <None Remove="Resources\Images\search.svg" />
 	  <None Remove="Resources\Images\user.svg" />
 	  <None Remove="Resources\Raw\102-inspirational-qoutes.txt" />
+	  <None Remove="Resources\Raw\success_great_job_gif.json" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -64,6 +65,7 @@
 
 	<ItemGroup>
 	  <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.0" />
+	  <PackageReference Include="SkiaSharp.Extended.UI.Maui" Version="2.0.0-preview.61" />
 	  <PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
 	  <PackageReference Include="SQLitePCLRaw.bundle_green" Version="2.1.4" />
 	  <PackageReference Include="SQLitePCLRaw.core" Version="2.1.4" />

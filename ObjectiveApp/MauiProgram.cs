@@ -5,6 +5,7 @@ using ObjectiveApp.ViewModels;
 using ObjectiveApp.Views.Home;
 using ObjectiveApp.Views.Profile;
 using ObjectiveApp.Views.Objective;
+using SkiaSharp.Views.Maui.Controls.Hosting;
 
 namespace ObjectiveApp
 {
@@ -15,6 +16,7 @@ namespace ObjectiveApp
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
+                .UseSkiaSharp()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
