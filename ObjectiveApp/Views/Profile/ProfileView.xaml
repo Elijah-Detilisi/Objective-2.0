@@ -53,7 +53,7 @@
             <Button
                 Text="SAVE"
                 Grid.Row="2"
-                x:Name="SaveButton"
+                Command="{Binding SaveCommand}"
                 Style="{StaticResource SaveButtonStyle}"/>
         </Grid>
     </ContentView>
