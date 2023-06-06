@@ -24,5 +24,4 @@ public partial class ListItem : Frame
     }
     #endregion
 
-
 }

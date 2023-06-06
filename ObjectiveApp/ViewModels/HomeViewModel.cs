@@ -1,11 +1,11 @@
-﻿using ObjectiveApp.Models;
-using ObjectiveApp.Services;
-using ObjectiveApp.DataAccess;
-using ObjectiveApp.Views.Profile;
-using ObjectiveApp.Views.Objective;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using ObjectiveApp.DataAccess;
+using ObjectiveApp.Models;
+using ObjectiveApp.Services;
+using ObjectiveApp.Views.Objective;
+using ObjectiveApp.Views.Profile;
 using System.Collections.ObjectModel;
-using CommunityToolkit.Mvvm.ComponentModel;
 using System.Text;
 
 namespace ObjectiveApp.ViewModels
@@ -59,7 +59,7 @@ namespace ObjectiveApp.ViewModels
         [RelayCommand]
         public async void OnProfile()
         {
-            await Shell.Current.GoToAsync(nameof(ProfileView));
+            await Shell.Current.GoToAsync($"{nameof(ProfileView)}?userId={CurrentUser.Id}");
         }
         [RelayCommand]
         public async void OnInsert()
