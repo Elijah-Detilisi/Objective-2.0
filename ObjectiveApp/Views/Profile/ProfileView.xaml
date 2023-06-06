@@ -36,7 +36,7 @@
             <!--Username-->
             <VerticalStackLayout
                 Grid.Row="1"
-                Padding="15,0,15,0">
+                Padding="10,0,10,0">
                 <Label
                     Text="Name:"
                     Style="{StaticResource TitleLabelStyle}"/>
@@ -83,6 +83,7 @@
             <Style x:Key="EntryStyle" TargetType="Entry">
                 <Setter Property="FontSize" Value="14" />
                 <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="TextColor" Value="{StaticResource Gray900}"/>
             </Style>
 
             <Style x:Key="SaveButtonStyle" TargetType="Button">
