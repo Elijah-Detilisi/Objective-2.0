@@ -72,13 +72,16 @@ namespace ObjectiveApp.ViewModels
         #endregion
 
         #region IQuery methods
-        
         async void IQueryAttributable.ApplyQueryAttributes(IDictionary<string, object> query)
         {
             if (query.ContainsKey("userId"))
             {
                 int userId = Int32.Parse(query["userId"].ToString());
                 await LoadViewModel(userId);
+            }
+            else
+            {
+                await LoadViewModel();
             }
         }
         #endregion

@@ -35,6 +35,7 @@ namespace ObjectiveApp
             //Register ViewModels
             builder.Services.AddSingleton<HomeViewModel>();
             builder.Services.AddSingleton<ObjectiveViewModel>();
+            builder.Services.AddSingleton<ProfileViewModel>();
 
             //Register DataService
             builder.Services.AddSingleton<UserDataService>();
