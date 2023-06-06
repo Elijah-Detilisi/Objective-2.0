@@ -1,12 +1,76 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ObjectiveApp.Views.Profile.ProfileView"
-             Title="ProfileView">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+<ContentPage
+    Title="ProfileView"
+    x:Class="ObjectiveApp.Views.Profile.ProfileView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewmodels="clr-namespace:ObjectiveApp.ViewModels"
+    xmlns:globalCustoms="clr-namespace:ObjectiveApp.Views.CustomControls">
+
+    <!--Header-->
+    <Shell.TitleView>
+        <Label
+            Text="Profile"
+            Style="{StaticResource HeaderLabelStyle}"/>
+    </Shell.TitleView>
+
+    <!--Body-->
+    <ContentView>
+        <Grid
+            Padding="20, 10, 20, 0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50*" />
+                <RowDefinition Height="30*" />
+                <RowDefinition Height="20*" />
+            </Grid.RowDefinitions>
+
+            <VerticalStackLayout
+                Grid.Row="0"
+                BackgroundColor="LightGray">
+
+                <ImageButton
+                    Source="user.png"
+                    HeightRequest="200"
+                    WidthRequest="200"
+                    HorizontalOptions="CenterAndExpand"
+                    />
+
+            </VerticalStackLayout>
+
+            <VerticalStackLayout
+                Grid.Row="1"
+                BackgroundColor="SlateGray">
+            </VerticalStackLayout>
+
+            <!--Footer-->
+            <Button
+                Text="SAVE"
+                Grid.Row="2"
+                x:Name="SaveButton"
+                Style="{StaticResource SaveButtonStyle}"/>
+        </Grid>
+    </ContentView>
+
+    <!--Styling-->
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="HeaderLabelStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="20" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="HorizontalTextAlignment" Value="End" />
+                <Setter Property="Margin" Value="0,0,15,0" />
+                <Setter Property="TextColor" Value="{StaticResource Gray600}"/>
+            </Style>
+            
+            <Style x:Key="SaveButtonStyle" TargetType="Button">
+                <Setter Property="FontSize" Value="16" />
+                <Setter Property="CornerRadius" Value="20" />
+                <Setter Property="HeightRequest" Value="50" />
+                <Setter Property="CharacterSpacing" Value="2"/>
+                <Setter Property="Background" Value="{StaticResource Secondary}"/>
+            </Style>
+            
+        </ResourceDictionary>
+    </ContentPage.Resources>
 </ContentPage>

@@ -20,7 +20,7 @@
     <!--Body-->
     <ContentView> 
         <Grid
-            Padding="20, 10, 20, 20">
+            Padding="20, 10, 20, 0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="70*" />
                 <RowDefinition Height="30*" />
