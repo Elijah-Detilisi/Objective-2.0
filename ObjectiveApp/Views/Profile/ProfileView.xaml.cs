@@ -1,9 +1,21 @@
+using ObjectiveApp.ViewModels;
+
 namespace ObjectiveApp.Views.Profile;
 
 public partial class ProfileView : ContentPage
 {
-	public ProfileView()
+    #region Fields
+    private ProfileViewModel _viewModel;
+    #endregion
+
+    #region Construction
+    public ProfileView(ProfileViewModel viewModel)
 	{
-		InitializeComponent();
+        _viewModel = viewModel;
+        BindingContext = viewModel;
+
+        InitializeComponent();
 	}
+    #endregion
+
 }
