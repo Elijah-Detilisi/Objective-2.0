@@ -47,7 +47,7 @@
                 </globalCustoms:OutlinedRoundedBorder>
             </VerticalStackLayout>
 
-            <!--Footer-->
+            <!--Save button-->
             <Button
                 Text="SAVE"
                 Grid.Row="2"
