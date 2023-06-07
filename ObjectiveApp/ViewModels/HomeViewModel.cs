@@ -136,7 +136,7 @@ namespace ObjectiveApp.ViewModels
                 LoadGreeting();
                 await InitializeDataAsync();
                 await LoadRandomQuoteAsync();
-                //await AnnounceStartUpMessage();
+                await AnnounceStartUpMessage();
 
                 _isInitialized = true;
             }
@@ -145,5 +145,6 @@ namespace ObjectiveApp.ViewModels
             await LoadObjectiveListAsync();
         }
         #endregion
+
     }
 }

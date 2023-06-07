@@ -28,7 +28,7 @@
             <!--Profile pic-->
             <VerticalStackLayout
                 Grid.Row="0"
-                Padding="20, 60, 20, 0">
+                Padding="10, 10, 10, 0">
                 <ImageButton
                     Source="user.png"
                     Style="{StaticResource ImageStyle}"/>
@@ -77,8 +77,8 @@
             </Style>
 
             <Style x:Key="ImageStyle" TargetType="ImageButton">
-                <Setter Property="HeightRequest" Value="250" />
-                <Setter Property="WidthRequest" Value="220" />
+                <Setter Property="HeightRequest" Value="230" />
+                <Setter Property="WidthRequest" Value="200" />
                 <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
             </Style>
 
