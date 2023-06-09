@@ -95,7 +95,6 @@
                 <Setter Property="CharacterSpacing" Value="2"/>
                 <Setter Property="Background" Value="{StaticResource Secondary}"/>
             </Style>
-            
         </ResourceDictionary>
     </ContentPage.Resources>
 </ContentPage>
