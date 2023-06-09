@@ -1,12 +1,76 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ObjectiveApp.Views.Home._subViews.SearchSubView"
-             Title="SearchSubView">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+<ContentPage 
+    Title="SearchSubView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="ObjectiveApp.Views.Home._subViews.SearchSubView"
+    xmlns:localCustoms="clr-namespace:ObjectiveApp.Views.Home._customControls">
+
+    <!--Header-->
+    <Shell.TitleView>
+        <Label
+            Text="Search"
+            Style="{StaticResource HeaderLabelStyle}"/>
+    </Shell.TitleView>
+
+    <!--Body-->
+    <ContentView>
+        <Grid
+            Padding="10,0,10,0"
+            RowSpacing="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10*" />
+                <RowDefinition Height="85*" />
+            </Grid.RowDefinitions>
+
+            <Entry
+                Grid.Row="0"
+                Placeholder="Search by title.."
+                ClearButtonVisibility="WhileEditing"
+                Style="{StaticResource SearchEntryStyle}"/>
+
+            <CollectionView
+                Grid.Row="1"
+                BackgroundColor="Gray"
+                x:Name="MyCollectionView"
+                VerticalOptions="Start">
+                <!--emptyView-->
+                <CollectionView.EmptyView>
+                    <ContentView>
+                        <localCustoms:EmptyListMessage/>
+                    </ContentView>
+                </CollectionView.EmptyView>
+                <!--itemTemplate-->
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <localCustoms:ListItem/>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </Grid>
+    </ContentView>
+
+    <!--Styling-->
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="HeaderLabelStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="20" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="HorizontalTextAlignment" Value="End" />
+                <Setter Property="Margin" Value="0,0,15,0" />
+                <Setter Property="TextColor" Value="{StaticResource Gray600}"/>
+            </Style>
+
+            <Style x:Key="SearchEntryStyle" TargetType="Entry">
+                <Setter Property="FontSize" Value="16" />
+                <Setter Property="VerticalTextAlignment" Value="End" />
+                <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+                <Setter Property="BackgroundColor" Value="{StaticResource Gray200}"/>
+            </Style>
+            
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
 </ContentPage>
