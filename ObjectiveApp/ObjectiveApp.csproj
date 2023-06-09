@@ -94,6 +94,9 @@
 	  <MauiXaml Update="Views\Home\_customControls\QuoteCard.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\Home\_subViews\SearchSubView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\Objective\ObjectiveView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

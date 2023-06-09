@@ -3,6 +3,7 @@ using CommunityToolkit.Mvvm.Input;
 using ObjectiveApp.DataAccess;
 using ObjectiveApp.Models;
 using ObjectiveApp.Services;
+using ObjectiveApp.Views.Home._subViews;
 using ObjectiveApp.Views.Objective;
 using ObjectiveApp.Views.Profile;
 using System.Collections.ObjectModel;
@@ -59,7 +60,7 @@ namespace ObjectiveApp.ViewModels
         [RelayCommand]
         public async void OnSearch()
         {
-            await Shell.Current.GoToAsync(nameof(ObjectiveView));
+            await Shell.Current.GoToAsync(nameof(SearchSubView));
         }
         [RelayCommand]
         public async void OnProfile()
