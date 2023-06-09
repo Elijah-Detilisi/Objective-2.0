@@ -13,6 +13,7 @@
         <localCustoms:NavBar
             Greeting="{Binding Greeting}"
             CurrentUser="{Binding CurrentUser}"
+            SearchCommand="{Binding SearchCommand}"
             ProfileCommand="{Binding ProfileCommand}"/>
     </Shell.TitleView>
 
