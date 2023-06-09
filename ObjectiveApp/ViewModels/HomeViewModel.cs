@@ -57,6 +57,11 @@ namespace ObjectiveApp.ViewModels
 
         #region Commands
         [RelayCommand]
+        public async void OnSearch()
+        {
+            await Shell.Current.GoToAsync(nameof(ObjectiveView));
+        }
+        [RelayCommand]
         public async void OnProfile()
         {
             await Shell.Current.GoToAsync($"{nameof(ProfileView)}?userId={CurrentUser.Id}");
