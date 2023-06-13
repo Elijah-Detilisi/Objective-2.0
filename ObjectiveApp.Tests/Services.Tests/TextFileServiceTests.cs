@@ -1,6 +1,13 @@
-﻿namespace ObjectiveApp.Tests.Services.Tests
+﻿using Xunit;
+
+namespace ObjectiveApp.Tests.Services.Tests
 {
-    internal class TextFileServiceTests
+    public class TextFileServiceTests
     {
+        [Fact]
+        public void SampleTest()
+        {
+
+        }
     }
 }
