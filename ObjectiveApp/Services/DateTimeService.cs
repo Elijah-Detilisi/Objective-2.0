@@ -17,7 +17,7 @@
             return DateOnly.FromDateTime(DateTime.Now).ToLongDateString();
         }
         
-        public static string TimeOfDay()
+        public static string TimeOfDayText()
         {
             TimeSpan time = DateTime.Now.TimeOfDay;
 

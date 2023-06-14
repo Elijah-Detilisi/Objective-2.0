@@ -113,7 +113,7 @@ namespace ObjectiveApp.ViewModels
         private void LoadGreeting()
         {
             DayOfWeek = DateTimeService.DayOfWeek();
-            Greeting = $"Good {DateTimeService.TimeOfDay()}";
+            Greeting = $"Good {DateTimeService.TimeOfDayText()}";
         }
         private async Task LoadRandomQuoteAsync()
         {
