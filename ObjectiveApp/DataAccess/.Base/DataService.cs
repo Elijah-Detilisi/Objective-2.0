@@ -5,17 +5,19 @@ namespace ObjectiveApp.DataAccess.Base
 {
     public abstract class DataService<TModel> where TModel : BaseModel, new()
     {
-        //Fields
+        #region Fields
         protected readonly SQLiteAsyncConnection _connection;
+        #endregion
 
-        //Construction
+        #region Construction
         public DataService(SQLiteAsyncConnection connection)
         {
             _connection = connection ?? 
                 throw new ArgumentNullException(nameof(connection));
         }
+        #endregion
 
-        //Helper
+        #region Helper methods
         private void NullCheck(TModel model)
         {
             if (model == null)
@@ -23,14 +25,16 @@ namespace ObjectiveApp.DataAccess.Base
                 throw new ArgumentNullException(nameof(model));
             }
         }
+        #endregion
 
-        //Init
+        #region Init methods
         public virtual async Task InitDatabaseAsync()
         {
             await _connection.CreateTableAsync<TModel>();
         }
+        #endregion
 
-        //CRUD operations
+        #region CRUD methods
         public async Task<int> AddAsync(TModel model)
         {
             NullCheck(model);
@@ -61,6 +65,6 @@ namespace ObjectiveApp.DataAccess.Base
 
             return await _connection.DeleteAsync(model);
         }
-
+        #endregion
     }
 }
