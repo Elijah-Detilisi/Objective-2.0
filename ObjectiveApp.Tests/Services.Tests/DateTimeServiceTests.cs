@@ -6,68 +6,76 @@ namespace ObjectiveApp.Tests.Services.Tests
     public class DateTimeServiceTests
     {
         [Fact]
-        public void TimeOfDayText_When_Hour_Is_Before_12_Return_MorningText()
+        public void DayOfWeek_ReturnsCorrectDayOfWeek()
         {
-            //Arrange
-            var timeOfDayNow = DateTime.Now.TimeOfDay;
-            var testSubject = DateTimeService.TimeOfDayText();
+            // Arrange
+            var expectedDayOfWeek = DateTime.Today.DayOfWeek.ToString();
 
-            //Act
-            var result = testSubject == "mornning";
-            
-            //Assert
-            if (timeOfDayNow <= TimeSpan.FromHours(12))
-            {
-                Assert.True(result);
-            }
-            else
-            {
-                Assert.False(result);
-            }
-            
+            // Act
+            var actualDayOfWeek = DateTimeService.DayOfWeek();
+
+            // Assert
+            Assert.Equal(expectedDayOfWeek, actualDayOfWeek);
         }
 
         [Fact]
-        public void TimeOfDayText_When_Hour_Is_After_12_Return_AfternoonText()
+        public void TimeNow_ReturnsValidTime()
         {
-            //Arrange
-            var timeOfDayNow = DateTime.Now.TimeOfDay;
-            var testSubject = DateTimeService.TimeOfDayText();
+            // Arrange
+            var currentTime = DateTime.Now;
+            var expectedTime = currentTime.ToString("hh:mm tt");
 
-            //Act
-            var result = testSubject == "afternoon";
+            // Act
+            var actualTime = DateTimeService.TimeNow();
 
-            //Assert
-            if (timeOfDayNow > TimeSpan.FromHours(12) && timeOfDayNow <= TimeSpan.FromHours(18))
-            {
-                Assert.True(result);
-            }
-            else
-            {
-                Assert.False(result);
-            }
+            // Assert
+            Assert.Equal(expectedTime, actualTime);
         }
 
         [Fact]
-        public void TimeOfDay_When_Hour_Is_After_18_Return_EveningText()
+        public void TodayDate_ReturnsValidDate()
         {
-            //Arrange
-            var timeOfDayNow = DateTime.Now.TimeOfDay;
-            var testSubject = DateTimeService.TimeOfDayText();
+            // Arrange
+            var currentDate = DateTime.Now;
+            var expectedDate = currentDate.ToString("D");
 
-            //Act
-            var result = testSubject == "evening";
+            // Act
+            var actualDate = DateTimeService.TodayDate();
 
-            //Assert
-            if ( timeOfDayNow > TimeSpan.FromHours(18))
-            {
-                Assert.True(result);
-            }
-            else
-            {
-                Assert.False(result);
-            }
+            // Assert
+            Assert.Equal(expectedDate, actualDate);
+        }
 
+        [Fact]
+        public void TimeOfDayText_ReturnsCorrectTimeOfDayText()
+        {
+            // Arrange
+            var currentTime = DateTime.Now.TimeOfDay;
+            var expectedText = (
+                currentTime < TimeSpan.FromHours(12) ? "morning" :
+                currentTime < TimeSpan.FromHours(18) ? "afternoon" :
+                "evening"
+            );
+
+            // Act
+            var actualText = DateTimeService.TimeOfDayText();
+
+            // Assert
+            Assert.Equal(expectedText, actualText);
+        }
+
+        [Fact]
+        public void ConvertToTimeSpan_ReturnsValidTimeSpan()
+        {
+            // Arrange
+            var dateTime = new DateTime(2023, 6, 16, 10, 30, 0);
+            var expectedTimeSpan = new TimeSpan(dateTime.Hour, dateTime.Minute, dateTime.Second);
+
+            // Act
+            var actualTimeSpan = DateTimeService.ConvertToTimeSpan(dateTime);
+
+            // Assert
+            Assert.Equal(expectedTimeSpan, actualTimeSpan);
         }
     }
 }

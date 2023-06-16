@@ -22,7 +22,7 @@
             TimeSpan time = DateTime.Now.TimeOfDay;
 
             return (
-                time < TimeSpan.FromHours(12) ? "mornning" :
+                time < TimeSpan.FromHours(12) ? "morning" :
                 time < TimeSpan.FromHours(18) ? "afternoon" :
                 "evening"
             );
