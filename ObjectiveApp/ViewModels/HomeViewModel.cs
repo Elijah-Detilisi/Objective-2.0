@@ -87,7 +87,7 @@ namespace ObjectiveApp.ViewModels
                     Greeting, CurrentUser.Username, DateTimeService.TodayDate(), DateTimeService.TimeNow()
                 );
 
-                if (ObjectiveList != null)
+                if (ObjectiveList.Count>0)
                 {
                     objectiveListText.Clear();
                     objectiveListText.Append("Your objectives are as follows:");
