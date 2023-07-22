@@ -75,31 +75,38 @@ namespace ObjectiveApp.ViewModels
         #endregion
 
         #region Init methods
-        private async Task AnnounceStartUpMessage()
+        public async Task AnnounceStartUpMessage()
         {
-            //Arrange
-            var objectiveListText = new StringBuilder("You currently don't have any objectives yet.");
-            var salutationText = String.Format("{0} {1}, today is {2} and the time is {3}.",
-                Greeting, CurrentUser.Username, DateTimeService.TodayDate(), DateTimeService.TimeNow()
-            );
-
-            if (ObjectiveList != null)
+            if (!_isInitialized)
             {
-                objectiveListText.Clear();
-                objectiveListText.Append("Your objectives are as follows:");
+                await LoadRandomQuoteAsync();
 
-                foreach (var item in ObjectiveList)
+                //Arrange
+                var objectiveListText = new StringBuilder("You currently don't have any objectives yet.");
+                var salutationText = String.Format("{0} {1}, today is {2} and the time is {3}.",
+                    Greeting, CurrentUser.Username, DateTimeService.TodayDate(), DateTimeService.TimeNow()
+                );
+
+                if (ObjectiveList != null)
                 {
-                    objectiveListText.Append($" {item.Title}.");
+                    objectiveListText.Clear();
+                    objectiveListText.Append("Your objectives are as follows:");
+
+                    foreach (var item in ObjectiveList)
+                    {
+                        objectiveListText.Append($" {item.Title}.");
+                    }
                 }
+
+                string startUpMessage = String.Format("{0}. {1}. Remember; {2} once said {3}. That's it from me, good by for now.",
+                    salutationText, objectiveListText.ToString(), RandomQuote.Qoutee, RandomQuote.Phrase
+                );
+
+                //Speak
+                await TextToSpeechService.Speak(startUpMessage);
+
+                _isInitialized = true;
             }
-
-            string startUpMessage = String.Format("{0}. {1}. Remember; {2} once said {3}. That's it from me, good by for now.",
-                salutationText, objectiveListText.ToString(), RandomQuote.Qoutee, RandomQuote.Phrase
-            );
-
-            //Speak
-            await TextToSpeechService.Speak(startUpMessage);
         }
         #endregion
 
@@ -116,7 +123,7 @@ namespace ObjectiveApp.ViewModels
 
             RandomQuote = result.FirstOrDefault();
         }
-        public async Task LoadUserAsync()
+        private async Task LoadUserAsync()
         {
             var result = await _userData.GetAsync(user => user.Id == 1);
             if (result.Any())
@@ -124,22 +131,14 @@ namespace ObjectiveApp.ViewModels
                 CurrentUser = result.FirstOrDefault();
             }
         }
-        public async Task LoadObjectiveListAsync()
+        private async Task LoadObjectiveListAsync()
         {
             var result = await _objectiveData.GetAsync(x => !x.IsDone);
             ObjectiveList = new ObservableCollection<Objective>(result.ToList());
         }
         public async Task LoadViewModel()
         {
-            if (!_isInitialized)
-            {
-                LoadGreeting();
-                await LoadRandomQuoteAsync();
-                await AnnounceStartUpMessage();
-
-                _isInitialized = true;
-            }
-
+            LoadGreeting();
             await LoadUserAsync();
             await LoadObjectiveListAsync();
         }

@@ -20,13 +20,19 @@ public partial class HomeView : ContentPage
     #endregion
 
     #region App lifecycle method
-    protected override async void OnAppearing()
+    protected override async void OnNavigatedTo(NavigatedToEventArgs args)
     {
         await _viewModel.LoadViewModel();
-        MyCollectionView.ItemsSource = _viewModel.ObjectiveList;
+        MainThread.BeginInvokeOnMainThread(() =>
+        {
+            MyCollectionView.ItemsSource = _viewModel.ObjectiveList;
+        });
 
-        base.OnAppearing();
+        await _viewModel.AnnounceStartUpMessage();
+
+        base.OnNavigatedTo(args);
     }
+
     #endregion
 
 }
