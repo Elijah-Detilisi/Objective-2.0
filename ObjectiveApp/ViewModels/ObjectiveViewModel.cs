@@ -105,7 +105,7 @@ namespace ObjectiveApp.ViewModels
                     SelectedDate = NewObjective.DueDate;
                     SelectedTime = DateTimeService.ConvertToTimeSpan(NewObjective.DueDate);
 
-                    await _objectiveData.UpdateAsync(NewObjective);
+                    await _objectiveData.Delete(NewObjective);
                 }
             }
         }
