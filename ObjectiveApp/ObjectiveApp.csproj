@@ -59,7 +59,6 @@
 
 	<ItemGroup>
 	  <Compile Include="DataAccess\.Base\BaseDataAccess.cs" />
-	  <Compile Include="DataAccess\.Base\DataService.cs" />
 	  <Compile Include="Models\.Base\BaseModel.cs" />
 	</ItemGroup>
 
