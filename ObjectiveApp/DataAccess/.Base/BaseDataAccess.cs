@@ -5,7 +5,7 @@ using System.Diagnostics;
 
 namespace ObjectiveApp.DataAccess.Base
 {
-    public class DataAccess<TModel> where TModel : BaseModel, new()
+    public class BaseDataAccess<TModel> where TModel : BaseModel, new()
     {
         #region Fields
         protected SQLiteAsyncConnection _connection;
@@ -38,14 +38,14 @@ namespace ObjectiveApp.DataAccess.Base
         #region CRUD methods
         public async Task<int> AddAsync(TModel model)
         {
-            DataAccess<TModel>.NullCheck(model);
+            BaseDataAccess<TModel>.NullCheck(model);
             await InitializeAsync();
 
             return await _connection.InsertAsync(model);
         }
         public async Task<int> UpdateAsync(TModel model)
         {
-            DataAccess<TModel>.NullCheck(model);
+            BaseDataAccess<TModel>.NullCheck(model);
             await InitializeAsync();
 
             return await _connection.UpdateAsync(model);
@@ -63,7 +63,7 @@ namespace ObjectiveApp.DataAccess.Base
         }
         public async Task<int> Delete(TModel model)
         {
-            DataAccess<TModel>.NullCheck(model);
+            BaseDataAccess<TModel>.NullCheck(model);
             await InitializeAsync();
 
             return await _connection.DeleteAsync(model);
