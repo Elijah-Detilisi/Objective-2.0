@@ -8,7 +8,7 @@ namespace ObjectiveApp.ViewModels
     public partial class ProfileViewModel : ObservableObject, IQueryAttributable
     {
         #region Fields
-        private readonly UserDataService _userDataService;
+        private readonly UserDataAccess _userData;
         #endregion
 
         #region Properties
@@ -19,10 +19,10 @@ namespace ObjectiveApp.ViewModels
         #region Constrution
         public ProfileViewModel
         (
-            UserDataService userDataService
+            UserDataAccess userData
         )
         {
-            _userDataService = userDataService;
+            _userData = userData;
         }
         #endregion
 
@@ -33,7 +33,7 @@ namespace ObjectiveApp.ViewModels
         {
             if (CurrentUser.Username !="")
             {
-                await _userDataService.AddAsync(CurrentUser);
+                await _userData.SaveAsync(CurrentUser);
                 await Shell.Current.Navigation.PopAsync();
             }
             else
@@ -55,7 +55,7 @@ namespace ObjectiveApp.ViewModels
 
             if (userId > 0)
             {
-                var result = await _userDataService.GetAsync(x => x.Id == userId);
+                var result = await _userData.GetAsync(x => x.Id == userId);
                 if (result.Any())
                 {
                     CurrentUser = result.First();

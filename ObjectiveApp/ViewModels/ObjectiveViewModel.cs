@@ -11,7 +11,7 @@ namespace ObjectiveApp.ViewModels
 
         #region Fields
 
-        private readonly ObjectiveDataService _objectiveData;
+        private readonly ObjectiveDataAccess _objectiveData;
         #endregion
 
         #region Properties
@@ -34,7 +34,7 @@ namespace ObjectiveApp.ViewModels
         #region Constrution
         public ObjectiveViewModel
         (
-            ObjectiveDataService objectiveData
+            ObjectiveDataAccess objectiveData
         )
         {
             _objectiveData = objectiveData;
@@ -51,7 +51,7 @@ namespace ObjectiveApp.ViewModels
                 var finalDate = SelectedDate.Add(SelectedTime);
                 NewObjective.DueDate = finalDate;
 
-                await _objectiveData.AddOrUpdateAsync(NewObjective);
+                await _objectiveData.SaveAsync(NewObjective);
                 await Shell.Current.Navigation.PopAsync();
             }
             else

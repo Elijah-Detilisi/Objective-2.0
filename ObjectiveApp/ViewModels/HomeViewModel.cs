@@ -16,9 +16,9 @@ namespace ObjectiveApp.ViewModels
         #region Fields
 
         private bool _isInitialized = false;
-        private readonly UserDataService _userData;
-        private readonly QuoteDataService _quoteData;
-        private readonly ObjectiveDataService _objectiveData;
+        private readonly UserDataAccess _userData;
+        private readonly QuoteDataAccess _quoteData;
+        private readonly ObjectiveDataAccess _objectiveData;
 
         #endregion
 
@@ -45,9 +45,9 @@ namespace ObjectiveApp.ViewModels
         public HomeViewModel
         (
             
-            UserDataService userData, 
-            QuoteDataService quoteData, 
-            ObjectiveDataService objectiveData
+            UserDataAccess userData, 
+            QuoteDataAccess quoteData, 
+            ObjectiveDataAccess objectiveData
         )
         {
             _userData = userData;
@@ -75,12 +75,6 @@ namespace ObjectiveApp.ViewModels
         #endregion
 
         #region Init methods
-        private async Task InitializeDataAsync()
-        {
-            await _userData.InitDatabaseAsync();
-            await _quoteData.InitDatabaseAsync();
-            await _objectiveData.InitDatabaseAsync();
-        }
         private async Task AnnounceStartUpMessage()
         {
             //Arrange
@@ -140,7 +134,6 @@ namespace ObjectiveApp.ViewModels
             if (!_isInitialized)
             {
                 LoadGreeting();
-                await InitializeDataAsync();
                 await LoadRandomQuoteAsync();
                 await AnnounceStartUpMessage();
 

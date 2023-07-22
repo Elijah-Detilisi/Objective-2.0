@@ -24,10 +24,6 @@ namespace ObjectiveApp
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
-            //Register Services
-            var connectionString = ConstantValues.SQLite_CONNECTION_STRING;
-            builder.Services.AddSingleton<SQLiteAsyncConnection>(new SQLiteAsyncConnection(connectionString));
-
             //Register Views
             builder.Services.AddSingleton<HomeView>();
             builder.Services.AddSingleton<ProfileView>();
@@ -42,9 +38,9 @@ namespace ObjectiveApp
             builder.Services.AddSingleton<ProfileViewModel>();
 
             //Register DataService
-            builder.Services.AddSingleton<UserDataService>();
-            builder.Services.AddSingleton<QuoteDataService>();
-            builder.Services.AddSingleton<ObjectiveDataService>();
+            builder.Services.AddSingleton<UserDataAccess>();
+            builder.Services.AddSingleton<QuoteDataAccess>();
+            builder.Services.AddSingleton<ObjectiveDataAccess>();
 
             return builder.Build();
         }
